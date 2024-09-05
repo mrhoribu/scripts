@@ -797,7 +797,7 @@ module Jinx
         FileUtils.touch Folder.path("repos.yaml")
       end
       # seed core repos
-      repos_to_seed = [Seed::ElanthiaOnlineCore, Seed::ElanthiaOnlineExtras, Seed::FFNGLichRepoArchiveMirror]
+      repos_to_seed = [Seed::ElanthiaOnlineExtras, Seed::FFNGLichRepoArchiveMirror]
 
       repos_to_seed.each { |repo|
         Repo.create(**repo) unless Repo.exists?(repo[:name])
