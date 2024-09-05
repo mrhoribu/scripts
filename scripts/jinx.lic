@@ -198,6 +198,18 @@ module Jinx
       name: "mirror",
       url: %[https://ffnglichrepoarchive.netlify.app]
     }
+
+    # deprecated
+    Gtk3ScriptUpdates = {
+      name: "gtk3",
+      url: %[https://gtk3.elanthia.online]
+    }
+
+    # deprecated
+    ElanthiaOnlineCore = {
+      name: "core",
+      url: %[https://repo.elanthia.online]
+    }
   end
 end
 
@@ -804,7 +816,7 @@ module Jinx
       }
 
       # prune deprecated repos
-      repos_to_prune = [Seed::Gtk3ScriptUpdates]
+      repos_to_prune = [Seed::Gtk3ScriptUpdates, Seed::ElanthiaOnlineCore]
 
       repos_to_prune.each { |repo|
         Repo.remove(repo) if Repo.exists?(repo[:name])
