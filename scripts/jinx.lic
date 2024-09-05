@@ -189,11 +189,6 @@ end
 
 module Jinx
   module Seed
-    ElanthiaOnlineCore = {
-      name: "core",
-      url: %[https://repo.elanthia.online]
-    }
-
     ElanthiaOnlineExtras = {
       name: "elanthia-online",
       url: %[https://extras.repo.elanthia.online]
@@ -202,11 +197,6 @@ module Jinx
     FFNGLichRepoArchiveMirror = {
       name: "mirror",
       url: %[https://ffnglichrepoarchive.netlify.app]
-    }
-    # deprecated
-    Gtk3ScriptUpdates = {
-      name: "gtk3",
-      url: %[https://gtk3.elanthia.online]
     }
   end
 end
