@@ -43,8 +43,8 @@ module Jinx
       before(:all) do
         WebMock.enable!
         {
-          'elanthia-online' => 'extras.repo.elanthia.online',
-          'mirror'          => 'ffnglichrepoarchive.netlify.app',
+          'elanthia-online' => 'https://extras.repo.elanthia.online',
+          'mirror'          => 'https://ffnglichrepoarchive.netlify.app',
         }.each do |(dir, domain)|
           WebMock.stub_request(:any, %r{https://#{domain}})
                  .to_rack(Rack::Directory.new(File.join(__dir__, 'repos', dir)))
