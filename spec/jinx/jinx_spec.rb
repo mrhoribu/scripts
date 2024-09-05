@@ -11,6 +11,10 @@ class Spell
   end
 end
 
+def respond(*args)
+  $fake_game_output = $fake_game_output + "\n" + args.join("\n")
+end
+
 def _respond(*args)
   $fake_game_output = $fake_game_output + "\n" + args.join("\n")
 end
