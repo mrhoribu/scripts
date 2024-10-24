@@ -24,6 +24,6 @@ jobs:
           mv dist docs
           git config --global user.email "action@github.com"
           git config --global user.name "github-actions"
-          git add jinxp
+          git add docs
           git commit -m "Automatic publish from github.com/elanthia-online/scripts"
           git push
