@@ -19,17 +19,6 @@ jobs:
           wget --tries=5 --retry-connrefused --retry-on-host-error https://github.com/elanthia-online/jinxp/releases/download/v0.4.0/jinxp \
           && chmod +x jinxp \
           && ./jinxp -i scripts
-          echo "*************************"
-          ls dist/assets
-          echo "*************************"
-          ls dist/headers
-          echo "*************************"
-          ls dist
-          echo "*************************"
-          ls
-          echo "*************************"
-          cat dist/manifest.json
-          echo "*************************"
       - name: Pushes jinxp dist folder
         run: |
           mv dist docs
