@@ -21,7 +21,9 @@ jobs:
           && ./jinxp -i scripts
       - name: Pushes jinxp dist folder
         run: |
+          rm docs -r
           mv dist docs
+          touch docs/index.html
           git config --global user.email "action@github.com"
           git config --global user.name "github-actions"
           git add docs
