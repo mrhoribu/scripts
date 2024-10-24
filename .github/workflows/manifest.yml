@@ -32,7 +32,7 @@ jobs:
           echo "*************************"
       - name: Pushes jinxp dist folder
         run: |
-          mv ./dist ./jinxp
+          mv dist jinxp
           git config --global user.email "action@github.com"
           git config --global user.name "github-actions"
           git add jinxp
