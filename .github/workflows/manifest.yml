@@ -30,3 +30,10 @@ jobs:
           echo "*************************"
           cat dist/manifest.json
           echo "*************************"
+      - name: Pushes jinxp dist folder
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "github-actions"
+          git add dist
+          git commit -m "Automatic publish from github.com/elanthia-online/scripts"
+          git push
