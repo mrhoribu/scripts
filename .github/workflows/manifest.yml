@@ -32,8 +32,9 @@ jobs:
           echo "*************************"
       - name: Pushes jinxp dist folder
         run: |
+          mv ./dist ./jinxp
           git config --global user.email "action@github.com"
           git config --global user.name "github-actions"
-          git add dist
+          git add jinxp
           git commit -m "Automatic publish from github.com/elanthia-online/scripts"
           git push
