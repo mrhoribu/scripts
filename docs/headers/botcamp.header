@@ -1,0 +1,18 @@
+    Warcamp Attack Bot!
+    Will auto attack while inside a warcamp
+    Brought to you by the Hand of the Arkati!
+
+    SYNTAX - ;botcamp <ATTACKOPTION>
+
+    ATTACKOPTION Selections Include:
+        <SPELLNUMBER> - use a spell to cast until all enemies dead
+
+       todo: add other attack option types
+     author: elanthia-online
+       name: botcamp
+       tags: botcamp, warcamp, GOS
+    version: 1.9
+
+    changelog:
+        1.0 (2017-06-01)
+            Initial Release

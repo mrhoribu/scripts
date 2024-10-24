@@ -1,0 +1,32 @@
+
+	This script exists to allow easier use of books and other multi-page items.
+
+	Possible future addition may include the ability to search an entire book for a word, phrase, or set of characters.	
+
+	If we knew could find out how many pages there were in total we could get to the desired page faster.
+
+
+	Author: Richard A. Secor (rsecor@rsecor.com) AKA Jahadeem
+	Author Website: https://www.jahadeem.com/gsiv/
+	Version: 0.0.5
+	Date Created: 2018-06-21
+	Date Updated: 2019-09-15
+        game: gs
+        tags: lich, book, books, journal, journals, search
+        Usage: #{$lich_char}jbook
+
+	0.0.1 (2018-06-21): 
+		Initial Version
+	0.0.2 (2018-06-22): 
+		Started added some code for searching.
+		Updated to not allow pages less than 1 to be given.
+	0.0.3 (2018-06-22):
+		Removed unnecessary ' ;' from code
+		Moved book types to bookType as a suggestion from Doug (doug@play.net)
+		Changed to use GameObj to check items in hands
+		Removing GLANCE as it is now unneccessary
+	0.0.4 (2018-06-22):
+		Fixed bug from moving to bookType.
+	0.0.5 (2019-09-15):
+		QOL Updates
+

@@ -1,0 +1,10 @@
+  development script to hot code reload required files
+  without needing to relogin.  Works with gems, etc.
+
+  Example:
+    ;clobber Olib sinatra some-other-gem
+  
+  Required: Lich 4.3.12
+  Author: Ondreian
+  Tags:meta, ruby, gem, gems, development
+  

@@ -1,0 +1,26 @@
+
+  ewaggle.lic:  Spellup script for yourself and others.  This script is a rewrite of ultrawaggle from SpiffyJr, which is a heavily modified version of spellup from Shaelun and Blueland.
+    ;ewaggle help
+
+        author: elanthia-online
+  contributors: Tillmen, Tysong
+          game: gs
+          tags: magic, utility, spell
+      required: Lich >= 5.4.0
+       version: 1.0.4
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  1.0.4 (2024-07-09):
+    Fix to Symbol of Mana to not spam if out of favor
+  1.0.3 (2024-05-01):
+    Change Char.prof to Stats.prof
+  1.0.2 (2024-02-14):
+    removal of CONSTANT to cleanup log output
+  1.0.1 (2022-04-07):
+    bugfix for reget in GTK queue
+    update default cast_list for new configs
+  1.0.0 (2022-04-07):
+    rename waggle -> ewaggle
+    Add bail mode
+

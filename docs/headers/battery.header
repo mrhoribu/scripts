@@ -1,0 +1,17 @@
+  maximize your mana, and the mana of those around you.
+  Designed to work with GoS and Voln society.
+  Will self cast mana bread if known.
+
+  caveats:
+    - assumes you don't care about stamina outside of maximizing
+      mana
+
+  examples:
+    ;battery           - maximizes your personal mana pool
+    ;battery <person>  - sends a sustainable amount of mana to the person every minute
+  
+  version: 0.0.2
+  Required: Lich 4.3.12
+  Tags: mana, send mana, send, battery
+  Author: Ondreian
+

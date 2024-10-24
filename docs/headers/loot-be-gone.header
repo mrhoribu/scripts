@@ -1,0 +1,35 @@
+
+  This script gets rid of your loot.
+
+  gives heirlooms to a guard
+  gives bounty herbs to herbalist if the id's of the herbs are in the array $bounty_herbs
+  opens boxes (off by default)
+  bunldes herbs (off by default)
+  gives gold rings to the chronomage
+  stockpiles gems into jars in your locker (off by default)
+  gets gems from the stockpile for bounties (only if you have enough to complete the bounty)
+  saves scrolls that have spells you choose (list is empty by default)
+  appraise various types of items that you choose, and saves them if they're expensive
+  might possibly avoid selling gems and skins that you have a bounty for in the wrong town
+  sells stuff
+  deposits monies
+
+  ;loot-be-gone help
+
+    Updated by: Elanthia-Online
+    Original author: Tillmen (tillmen@lichproject.org)
+      game: Gemstone
+      tags: loot
+   version: 0.16
+  required: Lich >= 5.0.1
+
+  changelog:
+    0.16
+      Updated for GTK3
+    0.15 (2020-10-10):
+      fix for commas in silver check
+    0.14 (2019-05-11):
+      improve regexes (austin-j)
+    0.13 (2018-09-04):
+      don't sell bounty gems in Sylvarrend
+

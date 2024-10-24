@@ -1,0 +1,30 @@
+    Hold Hands Script
+    Script will try to hold hands of those that enter the room. 
+    Brought to you by Elanthia-Online collaborators
+	
+    SYNTAX - ;holdhands <OPTIONS>
+	
+    OPTIONS Selections Include:
+        REIM        - will only hold hands while inside of REIM
+        WARCAMP     - will only hold hands while inside of a Warcamp
+        NOSPAM      - will only hold hands, and NOT SPAM player if already grouped or group closed
+	
+	   todo: n/a
+     author: Elanthia-Online
+       name: holdhands
+       tags: reim group
+    version: 1.3
+
+    changelog:
+        1.3 (2018-03-20)
+            Moved script to Elanthia-Online github
+        1.2 (2018-01-07)
+            Added NOSPAM option to not spam players if group closed or already in group
+        1.1 (2017-03-02)
+            Changed logic for adding members.
+            Should work with ALL custom arrivals now.
+        1.0 (2017-03-17)
+            Initial Release
+
+    credit & thanks:
+        Ragz for his assistance hold hands idea.

@@ -1,0 +1,34 @@
+  ** THIS IS THE STABLE CHANNEL **
+
+  This script uses Redis pub/sub from distributed RPC/communications.
+
+  Cluster examples:
+    Cluster.on_broadcast(:dead) do |_, req|
+      Log.out("#{req.from} is dead")
+    end
+
+    Cluster.on_request(:roundtime) do |_, req|
+      Log.out(req, label: %i[req roundtime])
+      {hard: checkrt, soft: checkcastrt}
+    end
+
+    Cluster.on_cast(:go2) do |_, req|
+      req.room.go2
+    end
+
+
+  Contracts examples:
+
+    Contracts.on_contract(:box, 
+      { contract_win:  -> req { Log.out(req, label: :won) },
+        contract_open: -> req { rand }
+      })
+
+
+    Contracts.collect_bids(:box, valid_bidders: GameObj.pcs.map(&:noun)) do |contract|
+      Log.out(contract, label: %i[on_empty_bids])
+    end
+
+  Author: Ondreian
+  Requirements: Ruby >= 2.3, redis
+  version: 0.1

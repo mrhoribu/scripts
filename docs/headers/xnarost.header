@@ -1,0 +1,65 @@
+xNarost - Lost Ranger's eXperimental Narost branch.
+
+Tracks your current room on Tsoran (or other) maps
+
+  Key differences between this and ;narost:
+    * xnarost has a better-organized map list with submenus, and uses 'proper' map names instead of filenames.
+    * xnarost sorts the list of tags.
+
+
+	click on a room to go there
+	shift-click on a room to show its description
+	right-click for some options
+
+			author: Elanthia-Online (GTK updates)
+			original author: LostRanger (thisgenericname@gmail.com, original Narost author: Tillmen (tillmen@lichproject.org)
+			game: Gemstone
+			tags: core, movement, mapping
+			required: Lich > 5.0.1
+			version: 1.0.3
+
+  changelog:
+    version 1.0.3 [2023-01-23]
+     * Update for Ruby v3 compatibility
+     
+    version 1.0.2 [2022-11-24]
+     * Remove $SAFE reference
+
+    version 1.0.1 [2022-06-15]
+     * Fix for @theme_state going from on/off to true/false in newer Lich5
+
+    version 1.0 [2021-10-30]
+     * Added darkmode support for maps included in lich\maps-dark directory
+
+    version 0.7 (2021-03-01) based on narost.lic from 2014-08-24
+     * Updated menu elements to support GTK3 in Lich5.
+
+    version 0.6
+     * Metadata is no longer built-in to xnarost but is now instead set on rooms in the mapdb.
+
+    version 0.5.1 (2017-05-29)
+     * fix some metadata errors between Solhaven/Vornavis
+     * remove inadvertent debugging code left on during drag.
+
+    version 0.5 (2017-05-29)
+     * Improve ctrl+mousewheel zoom to not reset the map to the origin
+     * Fix some bugs that would cause the circle image to be visible when it shouldn't be
+     * Reintroduced regular scrolling with mousewheel
+     * Added horizontal mousewheel scrolling with shift+mousewheel
+
+    version 0.4 (2017-05-27)
+     * Fix issue where filename comparisons were case-sensitive, causing map menu metadata to not apply correctly.
+     * Fix issue where maps with no associated metadata were not properly added to the list.
+
+    version 0.3 (2017-05-26)
+     * Added most of the rest of the map metadata.  Remove the "This is experimental!" nag-message.
+     * Sort the list of tags.
+     * Make tag and map sorting case-insensitive.
+     * Maps can now be zoomed with CTRL+Mousewheel.
+
+    version 0.2 (2017-05-25)
+     * Complete more map data.
+
+    version 0.1 (2017-05-25) based on narost.lic from 2014-08-24
+     * Improve map list organization.
+

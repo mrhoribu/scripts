@@ -1,0 +1,30 @@
+  Package Manager
+
+  ** THIS SCRIPT REQUIRES RUBY 2.3+ **
+
+  https://gswiki.play.net/Lich_(software)/Installation
+
+  A modern, federated package manager for Lich. This script provides similiar
+  functionality to the ;repository, but aims to make it much easier to share
+  updates to scripts and avoid relying anyone as a single point-of-failure.
+  Instead of a single server, jinx supports multiple repositories to be more
+  resilient against infrastructure outages or players leaving the community.
+
+   author: elanthia-online
+     tags: utility, util, repository, repo, update, upgrade, meta, ruby, development
+  version: 0.6.4
+
+  Changelog:
+  0.6.4 (2024-05-05)
+    Fix helper text if file exists to append --force to command
+  0.6.3 (2023-05-17)
+    Add ability to refresh spell data with new effect-list.xml
+    rubocop cleanup
+  0.6.2 (2023-01-23)
+    Update for Ruby v3 compatibility
+  0.6.1 (2022-04-07)
+    Fix to prevent downloading data files as script and script files as data.
+
+  0.6.0 (2021-12-12)
+    Added pruning for deprecated repos
+

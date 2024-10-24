@@ -1,0 +1,18 @@
+    Web Dispel Script
+    Will use 417 or 119 to dispel webs as you see them.
+    Brought to you by the Hand of the Arkati!
+	
+    SYNTAX - ;webdispel
+	
+       todo: none
+     author: Tysong (horibu on PC)
+       name: webdispel
+       tags: dispel, dispell, 417, 119, web
+    version: 1.0
+
+    changelog:
+        1.0 (2017-09-22)
+            Initial Release
+			
+    credit & thanks:
+        Alastir & Ragz for brainstorming the structure/spell usage

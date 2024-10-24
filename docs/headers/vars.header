@@ -1,0 +1,37 @@
+
+  edit variables shared by all scripts
+
+  ;vars help
+
+   original author: Tillmen (tillmen@lichproject.org)
+   maintained by: Elanthia-Online
+   game: Gemstone
+   tags: core
+   required: Lich > 5.0.1
+   version: 1.2.0
+
+  changelog:
+    1.2.0 (2023-12-04)
+      Allowed setting of vars to boolean values true/false
+    1.1 (2023-09-07)
+      Remove #quiet to prevent script being ran quietly
+      Rubocop cleanup
+    1.0 (2021-12-09)
+      Baselined GTK3 variant for consistency
+    0.9 (2021-03-01):
+      Updated menu elements to support GTK3 in Lich5
+    0.8 (2020-03-20:
+      updated to support GTK3
+    0.7 (2015-04-26):
+      prompt to save in GUI when new vars are added
+    0.6 (2015-02-01):
+      add default text to new var textboxes
+    0.5 (2015-02-01):
+      sort vars alphabetically in gui
+    0.4 (2015-02-01):
+      add gui
+    0.3 (2015-01-06):
+      fix bug when updating a setting
+    0.2 (2014-12-17):
+      don't use Vars.send
+

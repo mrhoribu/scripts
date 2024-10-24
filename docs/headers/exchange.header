@@ -1,0 +1,18 @@
+  exchange.lic: Exchanges boxes at the locksmith pool
+
+        author: Deysh
+    maintainer: elanthia-online
+  contributors: Deysh, Athias
+          game: Gemstone
+          tags: lockpool,loot
+       version: 1.1.1
+
+  v1.1.1 (2021-8-17)
+    - Implemented additional empty hand checking
+    - Consolidated variable checking
+    - Added help section
+  v1.1.0 (2021-08-09)
+    - Reconciliation of updated versions
+    - Added variable for tip_percent
+  v1.0.0 (2021-06-02)
+    - Original Upload based on exchange used in Shattered

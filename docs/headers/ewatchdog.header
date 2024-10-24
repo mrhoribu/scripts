@@ -1,0 +1,29 @@
+  ;ewatchdog
+
+  This is a simple idle timeout script that will log you out after
+  a specified amount of time even if scripts are actively sending
+  commands. Only manually typing a command (should) reset the clock.
+
+  You should not rely on this or any other script to protect you from
+  purposefully or inadvertently scripting while away from the keyboard.
+  This is meant as an additional safeguard.
+
+  Based on ;watchdog by Cait but leveraging native lich idle tracking
+
+  usage:
+	;ewatchdog #
+	set timer to # seconds
+
+	;ewatchdog #m
+	set timer to # minutes (number followed by the literal letter M)
+
+	;ewatchdog
+	default to a timer of 300 seconds (5 minutes)
+
+	;ewatchdog help
+	display usage information
+
+  author: elanthia-online
+  tags: idle, timeout, scripting
+  version: 1.0
+

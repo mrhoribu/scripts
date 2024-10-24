@@ -1,0 +1,32 @@
+  Rehash of gemsort.lic.
+  Usage example:
+    ;gemsort2 SOURCE DESTINATION VALUE
+    ;gemsort2 sack vest 2000
+    ;gemsort2 "black sack" pouch 3000
+    ;gemsort2 pouch "blue cloak" 2500
+
+  Will run through your source bag and sell gems under the stated value.
+  Will put items over value in the destination bag.
+  If no value is specified, will default to 1600.
+
+        author: elanthia-online
+  contributors: Naamit, Zhiart
+          game: Gemstone
+          tags: gems, sorting
+       version: 1.0.4
+
+  Help Contribute: https://github.com/elanthia-online/scripts
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.4 (2023-09-19)
+    - Bugfix
+  v1.0.3 (2023-07-26)
+    - update usage examples
+    - code cleanup
+  v1.0.2 (2020-09-12)
+    - Comma and regex support c/o Xanlin
+  v1.0.1 (2017-09-27)
+    - Change SELL_VALUE to include optional mininmum value; updated usage instructions
+  v1.0.0 (2017-05-01)
+    - Import from ;gemsort (Author: Zhairt)
+

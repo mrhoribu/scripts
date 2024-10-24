@@ -1,0 +1,28 @@
+    Looting loop script
+    Will attempt to continuously loot dead mobs. Can use ;sloot, ;eloot, ;foreach, or LOOT ROOM
+
+    SYNTAX - ;looploot <OPTION>
+    If ran with no option, will loot corpses and use ;foreach to loot things to your ;vars gemsack container.
+
+    OPTION Selections Include:
+         SLOOT           - Will use ;sloot to search/loot
+         ELOOT           - Will use ;eloot to search/loot
+         NOLOOT          - Will loot corpse, but do nothing with items.
+         PICKUP          - Will only pickup gems, not loot corpses
+         STOW            - Will set STOW SET GEM SACK and LOOT ROOM
+         <CONTAINERNAME> - Will loot corpses and attempt to use ;foreach to put items in said container
+
+       todo: unknown
+     author: Tysong (horibu on PC)
+       name: looploot
+       tags: looting, gems
+    version: 1.2
+
+    changelog:
+        1.2 (2023-10-01)
+            Added ELOOT option
+            rubocop cleanup
+        1.1 (2018-07-29)
+            Added STOW option
+        1.0 (2018-01-13)
+            Initial release

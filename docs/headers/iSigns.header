@@ -1,0 +1,19 @@
+
+	Council of Light script to manage signs
+	Tool Tips will display Mana and Spirit costs to cast
+	
+	;isigns setup for configuration
+
+	author: Elanthia-Online (GTK updates)
+	original author: Ifor Get
+	contributing authors: SpiffyJr, Tillmen, Kaldonis
+	game: Gemstone
+	tags: CoL, Council of Light, Signs, Society
+	required: Lich > 5.0.1
+	version: 3.1
+
+	changelog:
+		3.1 (2021-03-01): 
+			Updated menu elements to support GTK3 in Lich5
+		3.0 (2018-01-27:
+			Original baseline release 

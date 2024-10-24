@@ -1,0 +1,20 @@
+  Voln
+  Tool Tips will display Mana and Stamina costs to cast
+
+  ;symbolz setup for configuration
+
+  author: Elanthia-Online (GTK updates)
+  original author: Ifor Get
+  contributing authors: SpiffyJr, Tillmen
+  game: Gemstone
+  tags: Voln, Symbols, Society
+  required: Lich > 5.0.1
+  version: 1.1.1
+
+  changelog:
+    1.1.1 (2023-11-27):
+      Rubocop cleanup
+    1.1.0 (2021-03-01):
+      Updated menu elements to support GTK3 in Lich5
+    1.0.0 (2020-03-20:
+      Original baseline release

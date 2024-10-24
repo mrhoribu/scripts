@@ -1,0 +1,24 @@
+  Generic citizenship script for all towns. Will purchase items that
+  cost approximately 50-100 silver until the character has citizenship.
+
+  Usage:
+    ;citizenship2 help
+    ;citizenship2 <town>
+
+  Notes :
+    - Citizenship2 supports all towns.
+    - May require approx. 8 hours and 100k (hard-coded failsafe to halt at 250k)
+    - There is a limit to the number of silver per hour which credits citizenship
+    - Reducing pause time may waste silvers without reducing citizenship time
+
+            author: elanthia-online
+      contributors: Naamit, Oweodry
+              game: Gemstone
+              tags: citizenship
+           version: 1.0.0
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.0 (2024-04-09)
+    - fix for Ta'Illistim Charcuterie Weyr changes
+

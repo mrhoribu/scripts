@@ -1,0 +1,12 @@
+  rofl-notes.lic
+    Rings of Lumnis notes bundler
+        author: elanthia-online
+  contributors: Athias
+          game: Gemstone
+          tags: utility
+       version: 1.0.0
+
+  Changelog:
+    v1.0.0 (2021-04-26)
+      - Initial creation, quick and dirty
+

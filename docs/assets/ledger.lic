@@ -1,0 +1,330 @@
+=begin
+  ledger which tracks:
+    1. silvers
+    2. bounty points
+
+  todo:
+    - experience
+    - bloodscrip
+
+         author: elanthia-online
+   contributors: Ondreian, Tysong
+           game: Gemstone
+           tags: silver, bounty, ledger, bank
+        version: 1.3.4
+   requirements:
+    - sequel gem
+    - ascii_charts gem
+    - terminal-table
+
+  Help Contribute: https://github.com/elanthia-online/scripts
+  Version Control:
+  Major_change.feature_addition.bugfix
+    v1.3.4 - 2023-09-18
+      - Add tracking of note withdrawal (Withdrawing 2 or more notes rapidly before first note is tracked will cause notes to be missed)
+    v1.3.3 - 2023-09-17
+      - Fix to bounty point tracking (broken in 1.3.2)
+    v1.3.2 - 2023-09-06
+      - Code cleanup, no functional changes
+    v1.3.1 - 2023-09-01
+      - fix to prevent other peoples debts from triggering withdrawals
+      - fix to prevent partial debt repayment from triggering withdrawal of entire debt
+      - fix to match debts in mist harbor.
+    v1.3.0 - 2023-08-01
+      - fix for lootcap estimate SQL statement
+      - add ability to pass year, month, character, game to Ledger::Character.estimate_loot_cap
+    v1.2.0 - 2023-07-01
+      - add lootcap estimator for --report-character flag
+    v1.1.1 - 2023-02-23
+      - fix for mono output
+    v1.1.0 - 2023-02-22
+      - fix reports by game code
+      - add --report-character flag
+    v1.0.1 - 2023-01-26
+      - Force monospaced output for BANK output
+      - Add safety checks for gem loading
+=end
+=begin
+ Known issues
+ -  If 2 more more rapid note withdrawals only the first will be tracked
+ -  Pinefar depositing/withdrawing money can not be reliably tracked as no messaging
+      Smiling greedily, Hurshal takes your silvers and says, "Heh, I'll put dese in ye 'Mule bank account right quick."
+      Hurshal looks at you and says, "Hmm, looks like ye could be a'usin' me services there, lad.  I guarantee I'll get a good bit of ye silver to the 'Mule fer ye.  Ask me about me service if ye interested."
+=end
+
+gems_to_load = ["sequel", "ascii_charts", "terminal-table"]
+failed_to_load = []
+gems_to_load.each { |gem|
+  unless Gem::Dependency.new(gem).matching_specs.max_by(&:version).nil?
+    require gem
+  else
+    failed_to_load.push(gem)
+  end
+}
+unless failed_to_load.empty?
+  echo "Requires Ruby gems: #{failed_to_load.join(", ")}"
+  echo "Please install the above gem(s) to run ;ledger"
+  exit
+end
+
+
+
+
+module Ledger
+  def self.record_transaction(amount:, type:)
+    Ledger::History.record_transaction(amount: amount, type: type)
+  end
+
+  module Character
+    def self.yearly(type: "silver")
+      Ledger::History::Transactions
+        .where(year: Time.now.year, type: type, character: Char.name, game: XMLData.game)
+        .sum(:amount) || 0
+    end
+
+    def self.monthly(type: "silver")
+      Ledger::History::Transactions
+        .where(year: Time.now.year, month: Time.now.month, type: type, character: Char.name, game: XMLData.game)
+        .sum(:amount) || 0
+    end
+
+    def self.daily(type: "silver")
+      Ledger::History::Transactions
+        .where(year: Time.now.year, month: Time.now.month, day: Time.now.day, type: type, character: Char.name, game: XMLData.game)
+        .sum(:amount) || 0
+    end
+
+    def self.hourly(type: "silver")
+      Ledger::History::Transactions
+        .where(year: Time.now.year, month: Time.now.month, day: Time.now.day, hour: Time.now.hour, type: type, character: Char.name, game: XMLData.game)
+        .sum(:amount) || 0
+    end
+
+    def self.estimate_loot_cap(year: Time.now.year, month: Time.now.month, character: Char.name, game: XMLData.game)
+      Ledger::History::Transactions
+        .where(year: year, month: month, type: "silver", character: character, game: game)
+        .where { amount < 1_000_000 }
+        .where { amount > 0 }
+        .sum(:amount) || 0
+    end
+  end
+
+  module Utility
+    def self.get_note_value(note_id)
+      line = Lich::Util::quiet_command_xml("read ##{note_id}", /has a value of (?:[\d,]+) silver and reads/, /<prompt/, false, 3).last
+      if /has a value of (?<silver>[\d,]+) silver/ =~ line
+        return silver.delete(',').to_i
+      end
+    end
+
+    def self.strip_xml(line) # Copied from reget function
+      line.gsub!(/<pushStream id=["'](?:spellfront|inv|bounty|society)["'][^>]*\/>.*?<popStream[^>]*>/m, '')
+      line.gsub!(/<stream id="Spells">.*?<\/stream>/m, '')
+      line.gsub!(/<(compDef|inv|component|right|left|spell|prompt)[^>]*>.*?<\/\1>/m, '')
+      line.gsub!(/<[^>]+>/, '')
+      line.gsub!('&gt;', '>')
+      line.gsub!('&lt;', '<')
+      return line
+    end
+  end
+
+  module History
+    @file = File.join($data_dir, "ledger.db")
+    Self = Sequel.sqlite(@file)
+    @withdraw_silver_regex = Regexp.union(
+      /I have a (?<debt>bill) of (?<silver>[\d,]+) silvers? (?:presented by your creditors|that I suggest you pay immediately)/,
+      /Very well, a withdrawal of (?<silver>[\d,]+) silver/,
+      /teller scribbles the transaction into a book and hands you (?<silver>[\d,]+) silver/,
+      /teller carefully records the transaction, (?:and then )?hands you (?<silver>[\d,]+) silver/,
+    )
+    # Terras notes, value of note available
+    @withdraw_notes_regex = /scrip for (?<silver>[\d,]+) silvers?, with a (?<fee>[\d,]+) silvers? fee for the scrip/
+    # Other towns, value of note not imediately available
+    @withdraw_notes_xml_regex = /The teller purses her lips and says, "Hmm, we will have to give you an? <a exist="(?<note_id>\d+)" noun="(?:note|chit)">(?:\w+(?:'s)? )?(?:promissory note|mining chit|salt-stained kraken chit|City-States promissory note)<\/a> for that amount\."  The teller makes some marks on a blank <a exist="(?:\d+)" noun="(?:note|chit)">(?:\w+(?:'s)? )?(?:chit|note)<\/a> and hands it to you, saying "That is a (?<fee>[\d,]+) silvers? surcharge.  Have a nice day\."/
+    @deposit_regex = Regexp.union(
+      /You deposit (?<silver>[\d,]+) silvers? into your account/,
+      /That's a total of (?<silver>[\d,]+) silver/,
+      /That's (?<silver>[\d,]+) silver|silvers? to your account/,
+      /You deposit your note worth (?<silver>[\d,]+) into your account/,
+      /You hand your notes to the teller, who glances over each one and scribbles the amounts in a book.  She says, "They add up to (?<silver>[\d,]+) (?:silver|silvers)/,
+    )
+
+    Self.create_table?(:transactions) do
+      primary_key :id
+      String  :character
+      String  :type
+      Integer :amount
+      Date    :created_at
+      Integer :year
+      Integer :month
+      Integer :day
+      Integer :hour
+      String  :game
+    end
+
+    # alias for ease of use
+    Transactions = Self[:transactions]
+
+    module Migrations
+    end
+
+    module Query
+      def self.yearly_gain_loss(year: Time.now.year, type:)
+        Transactions
+          .where(year: year, type: type, game: XMLData.game)
+          .sum(:amount) || 0
+      end
+
+      def self.monthly_gain_loss(month: Time.now.month, year: Time.now.year, type:)
+        Transactions
+          .where(month: month, year: year, type: type, game: XMLData.game)
+          .sum(:amount) || 0
+      end
+
+      def self.daily_gain_loss(day: Time.now.day, month: Time.now.month, year: Time.now.year, type:)
+        Transactions
+          .where(month: month, year: year, day: day, type: type, game: XMLData.game)
+          .sum(:amount) || 0
+      end
+
+      def self.hourly_gain_loss(hour: Time.now.hour, day: Time.now.day, month: Time.now.month, year: Time.now.year, type:)
+        Transactions
+          .where(month: month, year: year, day: day, hour: hour, type: type, game: XMLData.game)
+          .sum(:amount) || 0
+      end
+    end
+
+    def self.allowed_types
+      %w(silver bounty)
+    end
+
+    def self.record_transaction(amount:, type:)
+      return echo("type=%s is not an allowed resource: {%s}" % [type, allowed_types.join(',')]) unless allowed_types.include?(type)
+
+      transaction              = {}
+      now                      = Time.now
+      # info fields
+      transaction[:character]  = Char.name
+      transaction[:amount]     = amount
+      transaction[:type]       = type
+      transaction[:game]       = XMLData.game
+      # timestamp fields
+      transaction[:created_at] = now
+      transaction[:year]       = now.year
+      transaction[:month]      = now.month
+      transaction[:day]        = now.day
+      transaction[:hour]       = now.hour
+      @last_transaction_id     = Transactions.insert(transaction)
+    end
+
+    def self.hourly_chart(type: "silver", from: Time.now, number: 6)
+      initial_hour = from.hour
+      initial_day  = from.day
+
+      hours = (0...number).to_a.map { |offset|
+        position = initial_hour - offset
+        # handle underflow
+        hour = position < 1 ? 24 + position : position
+        [hour, Query.hourly_gain_loss(type: type, hour: hour, day: initial_day)]
+      }.reverse
+
+      _respond AsciiCharts::Cartesian.new(hours, title: "hourly", bar: true).draw
+    end
+
+    def self.with_commas(str)
+      str.to_s.reverse
+         .gsub(/(\d{3})(?=\d)/, '\\1,')
+         .reverse
+    end
+
+    def self.table
+      self.allowed_types.map { |resource|
+        [resource,
+         with_commas(Query.hourly_gain_loss(type: resource)),
+         with_commas(Query.daily_gain_loss(type: resource)),
+         with_commas(Query.monthly_gain_loss(type: resource)),
+         with_commas(Query.yearly_gain_loss(type: resource))]
+      }
+    end
+
+    def self.print()
+      table = Terminal::Table.new(
+        headings: [XMLData.game] + %w(hourly daily monthly yearly),
+        rows: self.table
+      )
+
+      _respond "<output class=\"mono\"/>\n" + table.to_s + "\n<output class=\"\"/>"
+
+      if Script.current.vars.include?("--report-character")
+        character_info = self.allowed_types.map { |resource|
+          cols = [resource,
+                  with_commas(Character.hourly(type: resource)),
+                  with_commas(Character.daily(type: resource)),
+                  with_commas(Character.monthly(type: resource)),
+                  with_commas(Character.yearly(type: resource)),]
+          if resource.eql?("silver")
+            cols << with_commas(Character.estimate_loot_cap)
+          else
+            cols << ""
+          end
+          cols
+        }
+
+        character_table = Terminal::Table.new(
+          headings: [Char.name] + %w(hourly daily monthly yearly ~lootcap),
+          rows: character_info
+        )
+
+        _respond "<output class=\"mono\"/>\n" + character_table.to_s + "\n<output class=\"\"/>"
+      end
+    end
+
+    def self.main()
+      status_tags
+      while (xml_line = get)
+        line = Ledger::Utility.strip_xml(xml_line.dup)
+        # todo: bloodscrip tracking deposit/withdraw
+        if (match = line.match(@withdraw_silver_regex))
+          silver = match[:silver].delete(',').to_i
+          if match[:debt]
+            # 5 lines is the min, using 10 for safety. Very unlikely of a false positive
+            next unless reget 10, "The local debt collector suddenly enters and walks toward you purposely."
+
+            if /owe (?<debtsilver>[\d,]+) silver/ =~ reget(10, "The debt collector reminds you that you still owe").last
+              # If you deposit but do not have enough to cover dept will take what it can, without this was recording the full fine silver as withdrawn
+              silver -= debtsilver.delete(',').to_i
+            end
+          end
+          echo "recorded.withdraw : #{silver}"
+          self.record_transaction(amount: -silver, type: "silver")
+        elsif (match = line.match(@deposit_regex))
+          silver = match[:silver].delete(',').to_i
+          echo "recorded.deposit : #{silver}"
+          self.record_transaction(amount: silver, type: "silver")
+        elsif (match = line.match(@withdraw_notes_regex))
+          silver = match[:silver].delete(',').to_i
+          fee = match[:fee].delete(',').to_i
+          silver += fee
+          echo "recorded.withdraw : #{silver}"
+          self.record_transaction(amount: -silver, type: "silver")
+        elsif (match = xml_line.match(@withdraw_notes_xml_regex))
+          fee = match[:fee].delete(',').to_i
+          silver = Ledger::Utility.get_note_value(match[:note_id]) # If further notes are withdrawn before this returns they will be missed
+          unless silver && fee # Could not parse note for some reason
+            echo "Failed to get value of withdrawn note."
+            next
+          end
+          silver += fee
+          echo "recorded.withdraw : #{silver}"
+          self.record_transaction(amount: -silver, type: "silver")
+        elsif /\[You have earned (?<amount>[\d,]+) bounty points/ =~ line
+          self.record_transaction(amount: amount.delete(',').to_i, type: "bounty")
+        elsif line =~ /inter-town bank transfer options? available/
+          self.print()
+        end
+      end
+    end
+
+    self.main()
+  end
+end

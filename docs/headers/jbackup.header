@@ -1,0 +1,32 @@
+
+  This script exists to backup several primary files used by lich.
+
+    Usage: #{$lich_char}jbackup help
+
+  Thoughts for future changees:
+    * upload the backup to another source via FTP, SFTP, etc.
+    * save a maximum given number of backups and delete anything additional.
+
+        author: elanthia-online
+  contributors: Jahadeem, Tysong
+      required: Lich > 5.0.0
+       version: 0.2.3
+          game: All
+          tags: backup, back up, lich, files, copy
+
+  0.0.1 (2019-09-14): Initial Version
+  0.0.2 (2019-09-15): QOL updates
+  0.0.3 (2019-09-16): Added safe script trust information.
+    Prepended all output with script name.
+  0.0.4 (2019-09-18): Added detection for invdb.lic to backup inv.db3
+  0.1.0 (2019-09-19): Changed invdb.lic detection to Scripts.exists?
+    Added ability to add, remove, & list files to backup.
+  0.1.1 (2019-09-19): Bug fixes.
+  0.2.0 (2019-09-30): Backups made with this version on will be put in a jbackup folder under your lich folder.
+    Inside folders will be date and time coded with the associated backup date and time.
+  0.2.1 (2019-09-30): Fixed bug where not running init caused no backups.
+    Changed all output to catch and output all at once at script exit.
+  0.2.2 (2023-01-23): Update for Ruby v3 compatibility
+  0.2.3 (2023-03-15): Rubocop cleanup
+    Fix unnecessary creation of backup folders when running add, remove, init, list, reset, help commands
+

@@ -1,0 +1,32 @@
+locates and forages what you want and how many then returns you to the room you started.
+
+syntax is ;betazzherb <herb name> <qty you want to find> <location (optional)>
+
+;betazzherb setup for GUI setup.
+
+example: ;betazzherb some pothinir grass 9 greymist woods (to find 9 pothinir in greymist woods only)
+or ;betazzherb some acantha leaf 17 (just to find 17 acantha leaf anywhere close)
+
+****Item name has to match, almost all herbs have 'some' in front, 'some acantha leaf'****
+
+finds any forageable items including sticks and wiregrass
+
+This script doesnt care if creatures are in the room, so be careful using it.
+*******AGAIN, THIS SCRIPT HAS NO COMBAT CAPABILITIES, DO NOT LEAVE UNATTENDED!!!*******
+
+v5 update: Mini-update to change a _drag command to put, hopefully bypassing some weirdness?
+
+v4 update: Handle luminsecent indigo mushrooms properly, MARK them unsellable when found.
+           This has not been fully tested, because I haven't dug any up myself yet.
+           Let me know how it works for you.
+
+author: Zzentar
+location function added by Baswab/Gibreficul
+GUI setup, additional features by Gnomad
+Ongoing maintence by Gnomad
+tags: foraging, herbs
+
+version: 6 (Interim) 3/24/2020
+  GUI adjusted to GTK3 specs
+version: 6 
+

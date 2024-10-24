@@ -1,0 +1,47 @@
+    Dramatically shortens most combat text.
+    Designed for use in big group combat (cough REIM cough) or invasions to manage the spam and screen scroll.
+    USAGE:
+        ;briefcombat [self|You] [player] [-x]
+        ;briefcombat                - default settings
+        ;briefcombat -x             - extreme settings; will completely silence searches, remove cast descriptions (might interfere with GameObj? not sure)
+        ;briefcombat self           - default settings, exclude your self
+        ;briefcombat You            - Same as self
+        ;briefcombat self Player1 Player2  - exclude yourself, Player1 and Player2 actions from being shortened
+        ;briefcombat -x self        - extreme settings, but excluding yourself
+        
+
+     author: Daedeus (updates by Tysong/Ragz)
+       name: briefcombat
+       tags: brief, briefcombat, condensing, condense, combat, squelch
+    version: 0.0.8
+
+    changelog:
+        0.0.8 (2020-06-01)
+            Fixed 917 so it's identified properly instead of being lumped with 635
+        0.0.7 (2020-05-14)
+            Added parameter options:
+                -x        Extreme mode, will squelch searches and spell messaging.
+                [player]  Added ability to not shorten actions by specific players
+            Removed spell number to improve immersion
+            Now retains a little bit of spell cast color, for immersion
+              - This can be disabled with the "-x" parameter
+            Improve handling of bard song weaving
+            Fixed a known issue, now (more) accurately counts kills and status effects
+            Added indentation to kill / stunned counts
+        0.0.6 (2020-05-05)
+            Revert 0.0.5 changes and added a bunch of new code
+            Detection of most common AOE spells, and more aggressive shortening of their text
+            when no damage is dealt, will preserve last message.  This allows most buffs (117, 515, etc) to show correctly.
+            Hopefully improved detection of 709 arms decaying
+        0.0.5 (2020-05-01)
+            fix for additional condensing of various casting
+            fix to now show player deaths (previously would squelch/hide)
+        0.0.4 (2017-05-15)
+            added a 50ms sleep so GameObj can update npc status,
+            increasing reliability of status effects
+        0.0.3 (2017-04-16)
+            add catch for polearms
+        0.0.2 (unknown)
+            cleaned up some comments, unused code
+        0.0.1 (unknown)
+            initial release

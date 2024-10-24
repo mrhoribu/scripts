@@ -1,0 +1,40 @@
+
+  Logs raw XML output to lich\logs\<game code>-<char name>\<date>-<number>.xml
+  starts a new file after 30,000 lines (somewhere around 1mb)
+
+  SYNTAX:  ;logxml
+           ;logxml --timestamp="%F %T %Z"
+           ;logxml --rnum
+           ;autostart add --global logxml --timestamp=\"%F %T %Z\" --rnum
+           log format based on https://apidock.com/ruby/DateTime/strftime
+
+  Shamelessly stolen and slightly altered (to use XML) from Tillmen's log script.
+
+  Messages from the client will be wrapped in <!-- CLIENT -->...<!-- ENDCLIENT --> tags.
+
+       author: elanthia-online
+ contributors: LostRanger, Xanlin, Tysong
+         game: gs
+      version: 0.6.0
+
+  changelog:
+    0.6.0 (2024-09-10):
+      * add --rnum support
+    0.5.0 (2023-03-31):
+      * Rubocop code cleanup
+      * Adjust filename to include hours, minutes, seconds
+      * Save into subdirectories by year/month
+      * Starts a new file when the day changes
+      * Add log timestamp CLI option for non-DragonRealms
+    0.4.1 (2019-12-28):
+      * Implement 0.4, correctly.
+    0.4 (2019-12-28):
+      * ';logxml streams' will now include pushStream and popStream messages.  Note that this may be very, very noisy
+        due to room window updates and such.
+    0.3 (2017-04-24):
+      * fix output including both XML and plaintext from downstream.
+    0.2 (2017-04-23):
+      * Indicate where full logging started in the log file (as opposed to contents from regetall).  Client data before
+        this point can't be fully logged due to Lich not loading the script in time, so yell about it.
+      * Use a more configuration-safe mechanism of complaining about not being trusted.  Also, explain why trust is
+        needed.

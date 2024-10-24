@@ -1,0 +1,21 @@
+This script walks you through the bandit area and sniffs out any hidden bandits, but DOES NOT run any attack scripts. This is for people who use attack scripts that run in the background or just prefer to attack bandits manually. Based on the bandit script by Hazado, all credit for the original one goes to him.
+
+How to use ;BanditPatrol
+
+        author: elanthia-online
+  contributors: Brute
+          game: Gemstone
+          tags: bandits, bounty, utility, stormfront
+       version: 1.0.0
+      required: Lich >= 5.7.0
+
+     Script currently in maintenance mode, not actively developed.
+     Bugfixes or contributions can be made by visiting:
+        https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.0 (2024-05-13)
+    - migration from Ryjex author to EO
+    - rubocop cleanup
+

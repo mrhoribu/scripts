@@ -1,0 +1,22 @@
+  Show total number of magic ranks and effective magic ranks per level.
+  Used for runestaff DS calculations
+
+  SYNTAX - ;runestaffds
+
+        todo: none
+      author: elanthia-online
+contributors: Tysong
+        name: runestaffds
+        tags: runestaff, ds, magic ranks
+    requires: Lich > 5.4.0
+     version: 1.0.2
+
+  changelog:
+    1.0.2 (2024-05-01)
+      Char.level to Stats.level fix
+    1.0.1 (2023-04-04)
+      Rubocop cleanup
+      Typo and lore fixes
+    1.0.0 (2023-04-04)
+      Initial release
+

@@ -1,0 +1,23 @@
+  Automatic coin giving script
+
+  SYNTAX:
+    ;coins <NAME>          - Performs wealth and gives coins to NAME
+    ;coins <NAME> <SILVER> - Performs wealth and gives coins to NAME if more than SILVER
+
+         todo: unsure
+       author: elanthia-online
+ contributors: Tysong
+         name: coins
+         tags: coins, silver
+      version: 1.3.1
+
+  changelog:
+    1.3.1 (2023-09-21)
+      Bugfix for matching change in wealth output.
+    1.3.0 (2022-11-08)
+      Updated to use Lich::Util.quiet_command_xml
+      Now supports optional keep silvers option
+    1.02 (2020-09-08)
+      Updated to support new commas output in WEALTH command
+    1.01 (2020-05-20)
+        Changed WEALTH command to new WEALTH QUIET command

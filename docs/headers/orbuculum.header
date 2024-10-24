@@ -1,0 +1,12 @@
+  Orbuculum - A xNarost/Narost-Glass mashup
+
+    xNarost Author:      LostRanger (thisgenericname@gmail.com)
+    Narost Glass Author: Quinnus (DR)
+    Narost Author:       Tillmen (tillmen@lichproject.org)
+
+	game: Gemstone
+	tags: core, movement
+     version: 1.0.1
+    required: Lich > 5.0.0
+      
+  v1.0.1 - Update for Ruby v3 compatibility

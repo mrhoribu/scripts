@@ -1,0 +1,104 @@
+=begin
+  Rehash of gemsort.lic.
+  Usage example:
+    ;gemsort2 SOURCE DESTINATION VALUE
+    ;gemsort2 sack vest 2000
+    ;gemsort2 "black sack" pouch 3000
+    ;gemsort2 pouch "blue cloak" 2500
+
+  Will run through your source bag and sell gems under the stated value.
+  Will put items over value in the destination bag.
+  If no value is specified, will default to 1600.
+
+        author: elanthia-online
+  contributors: Naamit, Zhiart
+          game: Gemstone
+          tags: gems, sorting
+       version: 1.0.4
+
+  Help Contribute: https://github.com/elanthia-online/scripts
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.4 (2023-09-19)
+    - Bugfix
+  v1.0.3 (2023-07-26)
+    - update usage examples
+    - code cleanup
+  v1.0.2 (2020-09-12)
+    - Comma and regex support c/o Xanlin
+  v1.0.1 (2017-09-27)
+    - Change SELL_VALUE to include optional mininmum value; updated usage instructions
+  v1.0.0 (2017-05-01)
+    - Import from ;gemsort (Author: Zhairt)
+
+=end
+
+module GemSort2
+  if Script.current.vars[3].nil?
+    @sell_value = 1600
+  else
+    @sell_value = Script.current.vars[3].to_i
+  end
+
+  def self.appraise_gems(source_sack, destination_sack)
+    container = GameObj.inv.find { |inv_item| inv_item.name =~ /\b#{source_sack}\b/ }
+    gem_container = GameObj.inv.find { |inv_item| inv_item.name =~ /\b#{destination_sack}\b/ }
+    kept_amount = kept_gems = sold_amount = sold_gems = 0
+
+    gems = container.contents.select { |item|
+      item.type =~ /gem/
+    }
+
+    silence_me
+    gems.each { |gem|
+      dothistimeout "take ##{gem.id} from  ##{container.id}", 5, /^You remove|You retrieve/
+      fput "appraise ##{gem.id}"
+      result = matchfind("I'll give you ? for it").delete(',').to_i
+      if result < @sell_value then
+        echo "#{result} < #{@sell_value}, selling"
+        fput "sell ##{gem.id}"
+        sold_amount += result
+        sold_gems += 1
+      else
+        dothistimeout "put ##{gem.id} in  ##{gem_container.id}", 5, /^You put/
+        kept_amount += result
+        kept_gems += 1
+      end
+    }
+    silence_me
+    respond "All gems sorted"
+    return kept_amount, kept_gems, sold_amount, sold_gems
+  end
+
+  # Go2 the gemshop and return only once there
+  def self.go_to_gemshop
+    unless Room.current.tags.include?('gemshop')
+      Script.run('go2', 'gemshop')
+    end
+  end
+
+  def self.number_commas(number)
+    return number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+  end
+
+  def self.main
+    go_to_gemshop
+    kept_amount, kept_gems, sold_amount, sold_gems = appraise_gems(Script.current.vars[1], Script.current.vars[2])
+    respond "Kept #{kept_gems} gems worth a total of #{number_commas(kept_amount)}."
+    respond "Sold #{sold_gems} gems worth a total of #{number_commas(sold_amount)}."
+  end
+end
+
+# Start code in main()
+if Script.current.vars[1].nil? || Script.current.vars[2].nil?
+  respond "You didn't specify the proper settings!"
+  respond "Usage: ;gemsort2 <SOURCESACK> <DESTINATION> <VALUE>"
+  respond ""
+  respond "Examples:"
+  respond "   ;gemsort2 sack vest 2000"
+  respond "   ;gemsort2 \"black sack\" pouch 3000"
+  respond "   ;gemsort2 pouch \"blue cloak\" 2500"
+  respond ""
+  exit
+end
+GemSort2.main

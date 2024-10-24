@@ -1,0 +1,32 @@
+    Duskruin Arena Script
+    Automatic Duskruin arena script that will fight for you. Just go into the entrance
+    and the script will take over (as long as you were running it before going in).
+
+    SYNTAX - ;tdusk <SLIP/TOKEN/BOOKLET/JAR/VOUCHER>
+
+    See ;tdusk help
+    For additional setup/help info.
+
+    https://github.com/elanthia-online/scripts
+
+       todo: unsure
+     author: Tysong (horibu on PC), original Nylis
+       name: tdusk
+       tags: duskruin, arena, dusk ruin, tdusk
+    version: 1.26.2
+
+    changelog:
+        1.26.2 (2024-05-01)
+            Char.prof to Stats.prof fix
+        1.26.1 (2023-08-19)
+            Slight adjustment of experience checks, see ;tdusk help for examples
+        1.26.0 (2023-08-13)
+            Fix to turn off enhancives if still considered in combat
+            Add wait until below percentexperience option between runs
+        1.25.0 (2023-08-12)
+            Add user selectable waggle script, more details in ;tdusk help
+        1.24.1 (2023-08-12)
+            Anchor wave regex with start of new line
+        1.24.0 (2023-08-01)
+            Add support for 5v5
+            Rubocop code cleanup

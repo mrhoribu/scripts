@@ -1,0 +1,27 @@
+  localchat.lic: Creates a separate window to isolate chat messages you care about
+
+        author: elanthia-online
+  contributors: Eleazzar
+          game: Gemstone
+          tags: chat
+      required: Lich >= 5.0
+       version: 1.0.4
+
+     Help Contribute: https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.4 (2023-07-11)
+    - bugfix: window will now allow shrinking after printing text instead of forcing a width
+    - bugfix: change timeout back to 0.1 from 0.01 to give get time to process before giving up
+  v1.0.3 (2023-07-06)
+    - bugfix: ignore quoted statements that contain read, " to avoid sign related spam
+  v1.0.2 (2023-07-04)
+    - chore: refactor loop for simplicity and to be more rubyish
+    - bugfix: removed unintentional delay in closing the window with the close button
+    - bugfix: no longer displays non-dialog lines through better synchronization
+  v1.0.1 (2023-07-03)
+    - bugfix for default dialog text
+  v1.0.0 (2023-07-01)
+    - initial release
+

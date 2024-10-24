@@ -1,0 +1,16 @@
+  basic grepping for Gemstone commands
+
+  features:
+    * && chaining
+
+  
+  examples:
+    >locker manifest landing | grep coraesine|urnon
+      a coraesine dagger
+    >locker manifest landing | grep vorpal
+      ...no matches
+    >locker manifest land && locker manifest sol | grep brace*
+  
+  Required: Lich 4.3.12
+  Author: Ondreian
+  tags: util, grep, search

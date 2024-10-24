@@ -1,0 +1,35 @@
+    Bolt DF Summary Charts
+    A simple script to output known bolt spells and their modified DF values.
+
+    SYNTAX - ;boltdf <BASE/LORE/CLOTH/LEATHER/SCALE/CHAIN/PLATE/ALL/ALL_LORE>
+
+    See ;boltdf help
+    For additional setup/help info.
+
+        author: elanthia-online
+  contributors: Tysong
+          name: boltdf
+          tags: bolt, df, spells
+          game: gs
+       version: 2.3.0
+
+   Help Contribute: https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v2.3.0 (2023-07-10)
+    Added Astral Spear
+    Rubocop code cleanup
+  v2.2.0 (2019-07-04)
+    Added Undead, Living, & Evoke 306 DFs to the chart
+    Added base 6mana 1206 DF to the chart
+  v2.1.0 (2019-07-04)
+    Added All and All_Lore
+    Made variables case-insensitive
+  v2.0.0 (2019-04-26)
+    Updated with Spring Spectacular lore changes
+  v1.0.0 (2018-04-17)
+    initial release
+
+  credit & thanks:
+    Ragz for asking about a script to display modified DF values

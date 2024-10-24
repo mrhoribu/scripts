@@ -1,0 +1,30 @@
+    Duskruin Arena PRAYing Script
+    Automatic Duskruin arena PRAYing script.
+
+    SYNTAX - ;tduskpray
+
+    See ;tduskpray help
+    For additional setup/help info.
+
+    https://github.com/elanthia-online/scripts
+
+       todo: unsure
+     author: Tysong (horibu on PC)
+       name: tduskpray
+       tags: duskruin, arena, dusk ruin, tdusk, pray
+    version: 1.4.1
+
+    changelog:
+        1.4.1 (2021-02-13)
+            Add support for stamina, see ;tduskpray help
+        1.3 (2020-02-12)
+            Found issue with dothistimeout causing PRAY not to match properly
+        1.2 (2020-02-12)
+            Fix for various messaging of magical/physical energy restored.
+        1.1 (2020-02-11)
+            Added new setting for CoL/wrack users to only use BELOW spirit threshold
+        1.0 (2020-02-10)
+            Initial release
+
+    credit & thanks:
+        Naamit for the messaging of PRAY

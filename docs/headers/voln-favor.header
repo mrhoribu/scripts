@@ -1,0 +1,48 @@
+
+  Updated Voln favor tracking using the new RESOURCE command.
+
+  Set the script to start on login.
+  Type "favor" with the script running to see how much favor you have.
+
+  This requires Ruby 2.5+
+
+  If you aren't sure your Ruby version, download version.  Run ;version
+  If you have an old version of Ruby you can download the latest ruby4lich http://bit.ly/WinLich
+  During the install only select to install Ruby and you will be good.
+
+  Todo:
+    Add favor gain/spent for session
+    Add ability to customize formatting
+
+    Requres: oleani-lib.lic (will auto download)
+     author: elanthia-online
+       game: Gemstone
+       tags: voln, favor
+ previously: asexualfavors.lic
+    version: 1.0.1
+
+   changelog:
+      1.0.1 (2023-09-18):
+        bugfix for resource command squelching eating mono close tag
+        remove running in quiet mode
+        rubocop cleanup
+      1.0.0 (2021-10-27):
+        renamed asexualfavors script and objects to voln-favor
+        updated regex to match current system undead release message
+      0.0.6 (2020-11-11):
+        Updated to the newest Oleani
+        Pushed to Elanthia-Online
+      0.0.5 (2020-07-07):
+        Added Ruby version check
+      0.0.4 (2020-06-29):
+        Adjusted some output formatting
+      0.0.3 (2020-06-26):
+        Added Voln Member check
+        Added initial notice to calibrate by praying
+        Added Voln Master check to hide certain information
+      0.0.2 (2020-06-25):
+        Fixed version error
+        Fixed pray favor updating
+      0.0.1 (2020-06-25):
+        Initial Release
+

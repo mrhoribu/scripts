@@ -1,0 +1,14 @@
+  EffectMon is a supplemental script to be used with ProfanityFE.
+  Allows for sending effect timers to specific template xmls.
+  See template\eleazzar.xml for sample on how to utilize.
+
+        author: elanthia-online
+  contributors: Eleazzar
+          game: Gemstone
+          tags: profanityfe, effects, timers
+       version: 1.0.0
+
+  Version Control:
+  Major_change.feature_addition.bugfix
+  v1.0.0 (2024-08-14)
+    - initial release

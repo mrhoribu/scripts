@@ -1,0 +1,16 @@
+
+  this script uses the new playershop system by Naos to parse in-game shop directories 
+  and generate JSON files that can be consumed by external systems.
+
+  This script also exposes the Bodega module that other scripts may call.
+
+  ;bodega --help is your friend
+ 
+  Author: Ondreian
+  Requirements: Ruby >= 2.3
+  version: 0.2
+  tags: playershops
+
+  changelog:
+    v0.2 - Update for Ruby v3 compatibility
+

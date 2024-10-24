@@ -1,0 +1,36 @@
+  Group Count & Misc. Script
+
+  SYNTAX - ;group <OPTION>
+
+  Options Include:
+    COUNT - count how many people total in group and not
+     HOLD - attempt to group EVERYONE not currently in the group
+   RANDOM - outputs group list randomized
+   THRONE - outputs group list beginning with max of 2 sorcerers and 1 empath,
+            randomizing remaining group members, and tails with the group leader
+    SPLIT - shows current total of silvers and how it would be split based on group count
+            can have two additional options shown below:
+            ;group split <#WAYS> <WITHHOLD_AMMOUNT>
+
+          todo: none
+        author: elanthia-online
+  contributors: Tysong
+          name: group
+          tags: group, reim, random, silvers, share
+       version: 3.2.2
+
+  changelog:
+    3.2.2 (2023-05-21)
+      Fix quiet_command for groupcheck to work properly
+    3.2.1 (2023-05-21)
+      Fix groupcheck for updated GROUP output display
+    3.2.0 (2022-11-15)
+      Converted to a class to prevent namespace issues
+    3.1.0 (2018-06-06)
+      Sorted COUNT option lists
+    3.0.0 (2017-09-24)
+      Added HOLD option to group EVERYONE not in group currently
+    2.0.0 (2017-09-21)
+      Added SPLIT option and added a few more sorcerers/empaths to list
+    1.0.0 (2017-07-19)
+      Initial Release

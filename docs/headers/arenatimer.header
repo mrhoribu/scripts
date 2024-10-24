@@ -1,0 +1,19 @@
+    Duskruin Arena Timer
+    Updated timer script to give more statistics about your run.
+	
+    SYNTAX - ;arenatimer2
+	
+	todo: unsure
+     author: Tysong (horibu on PC), original Nylis
+       name: arenatimer2
+       tags: duskruin, arena, timer
+    version: 1.1
+
+    changelog:
+       1.1 (2017-08-19)
+            Added fixes for new messaging of waves and compatibility for 1v1, 2v2, & 3v3 matches.
+       1.0 (2017-04-28)
+            Initial Release
+			
+    credit & thanks:
+        Alastir for his script I found on the repo, Tgo01 for some other code from his on PC

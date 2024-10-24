@@ -1,0 +1,24 @@
+
+This script attempts to improve returns on the joust by recognizing knight behavior patterns. Four patterns are known as of this version, there appears to be one to two more or the 5th is random.
+
+It starts by assuming a specific path to perfect joust and then adjusts based on results. There is plenty of randomness to the jousting so keep that in mind.
+
+The behaviors could change, no guarantees there.
+
+You can ";vars set interrupt=yes" to interrupt the script before the start of another run. Set to "no" to use again.
+
+        author: elanthia-online
+  contributors: Tovklar, Elkiros, Rjex, Tysong
+          game: Gemstone
+          tags: jousting, rumor woods
+       version: 1.2.0
+
+Changelog
+  v1.2.0
+    - Updated for 2024 beetle/spider
+    - Updated to use real ID#s instead of Lich ID#s
+    - rubocop cleanup
+  v1.1.1
+    - Corrected hep syntax
+  v1.1.0
+    - Updated Joustsmart to be year agnostic

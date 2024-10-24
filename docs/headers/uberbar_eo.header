@@ -1,0 +1,26 @@
+
+  Based off uberbarv_d, which was a fork of uberbarv, which was a fork of uberbar
+  Integrates with ;bank script to display Silver and Bounty points gained during the day (optional)
+
+  IMPORTANT: This script is now lich5 only.  If you don't use lich5 then use version 1.6
+
+          author: elanthia-online
+    contributors: Dantax, Tysong, Gibreficul, Bait, Xanlin, Khazaann
+            game: gemstone
+            tags: bar, uber, vitals
+         version: 1.0.2
+        required: Lich >= 5.6.2
+            todo: Add ;ledger integration
+
+  Help Contribute: https://github.com/elanthia-online/scripts
+       Screenshot: https://imgur.com/KWN5yTG
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.2 (2024-07-13)
+    - Add Paladin to resource tracking
+  v1.0.1 (2024-05-01)
+    - Change Char.level to Stats.level
+  v1.0.0 (2024-03-10)
+    - initial release and forking from uberbarv_d version 2.1
+

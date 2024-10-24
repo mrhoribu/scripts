@@ -1,0 +1,56 @@
+  eloot.lic: eLoot is fork/update/rewrite of sloot.
+
+  Some primary changes from sloot include using in-game STOW settings instead of variables.
+  Locksmith pool handling, loot room, exclusion support, appraise limits.
+  eloot also auto-writes settings to your Lich5/Data/eloot folder per character.
+
+            author: elanthia-online
+   original author: SpiffyJr (sloot)
+        maintainer: elanthia-online
+      contributors: SpiffyJr, Athias, Demandred, Tysong, Deysh, Ondreian, Lieo
+              game: Gemstone
+              tags: loot
+           version: 1.6.36
+  Improvements:
+  Major_change.feature_addition.bugfix
+  v1.6.36 (2024-08-16)
+    - pause script instead of exit when failing to empty container
+  v1.6.35 (2024-08-10)
+    - fix for emptying container but failing due to full bag
+  v1.6.34 (2024-08-07)
+    - bugfix for box_in_hand method
+  v1.6.33 (2024-07-25)
+    - add additional get_regex for READY WEAPON
+  v1.6.32 (2024-07-20)
+    - box_in_hand method updated to process both hands.
+  v1.6.31 (2024-06-30)
+    - add toggle for coin hand closing to be optional after selling
+  v1.6.30 (2024-06-28)
+    - fix for coin hand not closing after selling routine
+  v1.6.29 (2024-05-13)
+    - Option to use Sigil of Determination if loot fails due to injury
+  v1.6.28 (2024-05-01)
+    - Change bad Char.methods to Stats.method
+  v1.6.27 (2024-04-28)
+    - add additional disk noun bassinet
+  v1.6.26 (2024-04-24)
+    - fix for GST and F2P accounts
+    - fix for disk noun regex word boundary
+  v1.6.25 (2024-04-24)
+    - handle all the new custom disk nouns
+  v1.6.24 (2024-04-05)
+    - update change_stance to use percentstance instead of checkstance
+    - add support for CMAN STANCE in change_stance
+  v1.6.23 (2024-04-05)
+    - additional open/close messaging for squelching
+    - reduce Lich::Util.quiet_command_xml timeout from default 5 to 2 seconds
+  v1.6.22 (2024-03-29)
+    - fix for Frozen Bramble creatures requiring left hand to be empty in order to loot
+  v1.6.21 (2024-03-26)
+    - add messaging for valence weapons
+  v1.6.20 (2024-03-16)
+    - added use of trash verb
+    - (F2P) withdraw a note when the max bank account balance is reached
+    - fix to not "Share silvers" from the allotment of "Keep Silvers"
+    - fix to locksmith rooms without trashcans
+    - change help to terminal table

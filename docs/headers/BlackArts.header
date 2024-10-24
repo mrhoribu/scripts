@@ -1,0 +1,14 @@
+    Alchemy script rewrite based on the original Tillman Alchemy script of DOOM!!!!!!1!!!11.
+    Currently relies on the following scripts for full utilization:
+      - bigshot, eherbs, eloot
+        author: elanthia-online
+  contributors: Deysh, Tysong, Gob
+          game: Gemstone
+          tags: alchemy
+       version: 1.2.2
+
+  Improvements:
+  Major_change.feature_addition.bugfix
+  v1.2.2 (2024-07-25)
+    - bugfix for learn/teach options selected for illusions
+    - bugfix for no guild ranks

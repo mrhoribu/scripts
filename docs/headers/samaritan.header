@@ -1,0 +1,17 @@
+  samaritan will pull your companions to their feet,
+  unstuns them (if you know 108 or 1040), and keeps you
+  on your feet while engaged in battle.
+
+  The script may also be started with the --invasion flag,
+  for when you need to defend your city within it's walls.
+
+    * special thanks to Jemiquist for helping test & bard logic!
+
+  examples:
+    ;samaritan
+    ;samaritan --invasion
+
+  Required: Lich 4.3.12
+  Author: Ondreian
+  Tags: util
+

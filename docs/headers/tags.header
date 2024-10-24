@@ -1,0 +1,35 @@
+  Automates adding/remove/listing Room tags
+
+  *** for adding/removing tags with spaces in the name, you must use quotes ***
+
+  usage:
+    ;tags --add [tag1] [tag2]...[tagN]   adds a list of tags to the room
+    ;tags --rm  [tag1] [tag2]...[tagN]   removes a list of tags from the room
+    ;tags --sense                        attempt to use your survival skill to add missing herbs to a room
+    ;tags --ls                           shows all current tags for the room
+    ;tags --crawl current                crawl the current area using survival sense
+    ;tags --crawl <location>             crawl an area using survival sense, pauses before moving more than 100 rooms
+    ;tags --crawl <location> confirm     crawl an area and don't pause when moving more than 100 rooms away
+    ;tags --crawl <location> all         crawl an area and don't skip recently sensed rooms
+    ;tags --list <location>              list rooms for a location, whether to skip or crawl
+
+  crawl options (can be mixed and matched)
+    ;tags --crawl ranger                  # only does rooms that need
+    ;tags --crawl climate                 # only does ranger sense for climate/terrain
+    ;tags --crawl outside                 # only does outside rooms
+    ;tags --crawl noskip                  # doesn't skip rooms already sensed
+
+  single tag operations:
+    ;tags + [tag]                        add a single tag, no need to use quotes
+    ;tags - [tag]                        remove a single tag, no need to use quotes
+
+  for --add/--rm operations with spaces in the name, you must use quotes
+    ;tags --add "small tomato" "onion skin"
+    ;tags --rm "small tomato" "onion skin"
+
+  Required: Lich 4.3.12
+  Tags: tags
+  Author: elanthia-online
+  Contibutors: Ondreian, Xanlin
+  Version: 1.6.6
+

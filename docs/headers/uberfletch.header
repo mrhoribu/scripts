@@ -1,0 +1,37 @@
+
+*** Please note while functional this is still the first draft and could still be bugs i have not picked up on. ***
+
+Will make, paint and crest arrows/arrows/heavy botls. If you are in a mapped room it can run to the shop and buy more items.
+This is mostly aimed at master fletchers as it will always try and complete the arrow, but should cope with botching arrows.
+Future updates will let you choose to stop part way.
+Will keep on going untill you tell it to stop or you hit the limit you set.
+';uberfletch help' for help
+';uberfletch setup' to change your settings
+';uberfletch bundle' will attempt to bundle all your arrows, this will likely fail if you are not at, or near mastered, as you make arrows of all different qualities
+';uberfletch' while the script is running will bring up a mini report(same as you get after finishing an arrow
+';uberfletch stop' while the script is running will tell the script to stop after finsihing the current arrow
+
+note:: arrowheads must be seperated and put into your fletch-sack and called barbed arrowhead for this to work curently
+**** Change log ****
+16/12/2015 -planned update to add scriber options
+15/12/2015 -added dart, heavy bolt capability, flip option, added light bolt option
+14/12/2015 -Added exp checkrest, flip option
+27/08/2015 - When using option for paintstick 1 the stow was failing, now works
+26/08/2015 - Fixed a few bugs. Should now properly check for wood and stow items in the correct container.
+13/05/2012 - released
+
+#planed updated
+*Batch mode - do each step in batches so glue/pain can dry sitting in your bag while you work on another arrow
+*Fix so bow can be kept in a container, currently needs to be worn
+*check containers/axe/knife/bow exist before starting
+*on first run scan inv and guess most likely settings
+
+#todo
+--#fix_me  light bolt shafts must be first in fletch_sack or script fails
+--checkrest  --added exp check, checkrest
+--cut all shafts in batches
+--make own fletchings
+--save arrow profiles
+--flip arrows *2/3/4--added option for 1 flip arrows
+--scan inventory for knife/axe/bow
+--scan inventory for containers

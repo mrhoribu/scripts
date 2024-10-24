@@ -1,0 +1,22 @@
+    Outputs randomly generated clothing for alteration ideas
+    Designs may not adhere to GS alteration policy
+
+    Original concept: Fenog's Regulars "Gownifer" website
+
+    SYNTAX for usage - ;alteration
+
+         todo: More colors and worn locations. Always more post-noun long descs
+       author: elanthia-online
+ contributors: Naamit
+         name: alteration
+         tags: alter, alteration, alterations, gownifer
+      version: 1.4
+
+  Help Contribute: https://github.com/elanthia-online/scripts
+
+    changelog:
+        1.4 (2023-03-04) Rubocop code cleanup
+        1.3 (2022-06-03) Updated gown list per Gownifer update w/ Jastalyn. Fixed typos.
+        1.2 (2022-01-26) Added more longs to gowns
+        1.1 (2020-12-18) Consolidated Gownifer with Corset, Shirt, and Pant variants
+        1.0 (2020-12-17) Initial Release

@@ -1,0 +1,10 @@
+
+  Cast disks for people. By default, it will try to create a disk for everyone
+  in the room unless they already have one. Will also accept a list of names to
+  only cast disks for the specified people.
+
+   author: Kragdruk
+     game: Gemstone
+     tags: magic, disk
+  version: 0.10
+

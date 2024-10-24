@@ -1,0 +1,22 @@
+
+*** Made some updates to ;fletching. ***
+
+Learning mode will restart after cutting nocks, and wait while mind is above 60%
+Has the ability to make arrows, light and heavy bolts.
+
+Have only the fletchings you want to use in your supplies container, the script does not distinguish
+between types of fletchings when working, it only checks to make sure the kind you entered are in your
+supplies sack.
+
+Will make, paint and crest arrows. If you are in a mapped room it can run to the shop and buy more basic items.
+Will keep on going untill you tell it to stop or you hit the limit you set.
+
+Bow or crossbow must be worn before starting script. Crossbow must be cocked and unloaded.
+
+';fletchit help' for help
+';fletchit setup' to change your settings
+';fletchit bundle' will attempt to bundle all your arrows, this will likely fail if you are not at, or near mastered, as you make arrows of all different qualities
+';fletchit' while the script is running will bring up a mini report(same as you get after finishing an arrow
+';fletchit stop' while the script is running will tell the script to stop after finsihing the current arrow
+
+

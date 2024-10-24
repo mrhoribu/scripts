@@ -1,0 +1,15 @@
+  Rainbowear - Simple picker for color and fabric
+  
+  For usage info please run ;rainbowear help 
+
+        author: elanthia-online
+  contributors: Naamit
+          game: Gemstone
+          tags: fluff, rainbow wear, rainbowear, clothing
+       version: 1.0.0
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+
+  v1.0.0
+    - Public release

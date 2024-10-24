@@ -1,0 +1,16 @@
+    enhdetect.lic: A script for detecting changes in current INVENTORY ENHANCIVE TOTAL output
+
+    Useful for doing a quick detection of an item's enhancives.
+      Step 1 - ;enhdetect base
+      Step 2 - hold/wear item to test and ;enhdetect change
+
+    Please see ;enhdetect help for additional informaiton.
+
+             author: elanthia-online
+       contributors: Tysong
+               game: Gemstone
+               tags: enhancives
+            version: 1.0.0
+
+  1.0.0 (2024-07-24)
+    - initial release

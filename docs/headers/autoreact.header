@@ -1,0 +1,10 @@
+
+Automatically uses reactions when available.
+
+Version: 1.1
+Author: Andreas
+Tags: combat, reaction
+Date: 08/08/2021
+
+v1.1 = Fixed bug that prevented the reaction from firing
+

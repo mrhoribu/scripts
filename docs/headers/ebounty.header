@@ -1,0 +1,44 @@
+
+  An adventure's guild script to assist in various tasks assigned.
+  Currently does not support grouping or gem hoarding.
+  Currently relies on the following scripts for full utilization:
+    - bigshot, echild, ego2, eherbs, eloot
+
+        author: elanthia-online
+  contributors: Deysh, Nisugi, Tysong, Rinualdo
+          game: Gemstone
+          tags: bounty, adventure's guild, advguild, bounties
+       version: 1.3.11
+
+  Version Control:
+  Major_change.feature_addition.bugfix
+  v1.3.11 (2024-09-24)
+    - fix to allow for CLI foraging without setting Gem/Default profile
+  v1.3.10 (2024-08-19)
+    - bugfix for ask_guard response
+  v1.3.9 (2024-08-14)
+    - logic fix when once_and_done is set and rejected bounty not exiting (but going out to hunt instead)
+  v1.3.8 (2024-07-12)
+    - add timer to not spam INFO during should_hunt? method
+  v1.3.7 (2024-07-08)
+    - add quiet info command to should_hunt? method to refresh stats
+  v1.3.6 (2024-06-23)
+    - update ebounty fog routine to match bigshot
+  v1.3.5 (2024-05-15)
+    - add exit if gembounty complete but using eloot sell excludes gems
+  v1.3.4 (2024-05-01)
+    - Change Char.prof to Stats.prof
+  v1.3.3 (2024-04-13)
+    - bug in escort task acceptance
+  v1.3.2 (2024-04-09)
+    - bug in forage for 1011 song of peace usage
+  v1.3.1 (2024-04-01)
+    - updated keep_hunting not to run in bigshot bounty mode. Also, added better messaging for why
+    - consolidated herbalist names and switched to ID for turnin
+    - updated wiki changelog
+    - removed change log before v1.1.14 - full log: https://gswiki.play.net/Lich:Script_Ebounty
+  v1.3.0 (2024-03-17)
+    - added exclusion options for individual gems and locations
+    - added help section
+    - bugfix for UI title
+    - removed shattered specific actions not referenced in UI (requesting spells and healing in the nexus)

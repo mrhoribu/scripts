@@ -1,0 +1,224 @@
+=begin
+
+  Tries to parse the "creatures by level page" on the wiki to mimic the old
+  behavior from ;beastiary
+
+  for usage info:
+    ;ebestiary help
+
+   author: elanthia-online
+     game: Gemstone
+     tags: info, play.net, wiki, bestiary, monsters, critters, help, bestiary, elanthia-online
+  version: 1.2
+
+  changelog:
+    1.2 - 2024-05-01
+      - Change Char.level to Stats.level
+    1.1 - 2024-01-25
+      - updates to handle new wiki format
+    1.0.1 - 2023-02-23
+      - adds code to handle creatures with non-standard name capitalization schemes
+    1.0
+      - initial release as ebestiary (formerly wikibeast)
+
+=end
+
+require 'net/https'
+require 'terminal-table'
+require 'uri'
+require 'rexml/document'
+
+class EBestiary
+  include REXML
+
+  def initialize(args, charsettings)
+    @base_url = 'https://gswiki.play.net/List_of_creatures_by_level'
+    @disarm_url = 'https://gswiki.play.net/List_of_creatures_that_can_cause_item_loss'
+    @script_name = 'ebestiary'
+    @args = args
+    @charsettings = charsettings
+    # bug fix for old version
+    @charsettings['creatures_by_level'] ||= Hash.new
+    @output = Terminal::Table.new headings: ['Level', 'Creature', 'Types', 'Wiki Link']
+    parse_args
+  end
+
+  def get_page(url)
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    req = Net::HTTP::Get.new(uri.request_uri)
+    # at one point during the changeover the page was not parsing at all
+    # so we try to parse it, and if it fails then we manually pull out the table
+    # element with some lame text manipulation
+    begin
+      resp = http.request(req)
+      http_code = "HTTP: #{resp.code}"
+    rescue StandardError
+      http_code = 'DNS or connection error'
+    end
+    echo "Error retrieving #{uri} (#{http_code})" unless resp.is_a? Net::HTTPSuccess
+    [http_code, resp.body]
+  end
+
+  def get_level_from_main(tab, level)
+    url_root = 'https://gswiki.play.net'
+    lvl_list = XPath.first(tab, "//td/b/a[text()=\"Level #{level}\"]").parent.parent
+    lvl_list = XPath.match(lvl_list, './/li/a')
+    @charsettings['creatures_by_level'][level] = []
+    lvl_list.each do |m|
+      @charsettings['creatures_by_level'][level].push({ "name": m.text.capitalize, "link": "#{url_root}#{m['href']}" })
+    end
+  end
+
+  def pretty_print_level(lvl, type_filter = nil)
+    add_sep = false
+    @charsettings['creatures_by_level'][lvl].each do |mob|
+      add_sep = true
+      fake_mobj = fake_obj(mob[:name])
+      types = get_types(fake_mobj)
+      unless (type_filter == '') || types =~ (/#{type_filter}/) || (types == 'UNKNOWN') || mob[:name] =~ (/#{type_filter}/i)
+        next
+      end
+
+      @output.add_row [lvl, mob[:name], types, mob[:link]]
+    end
+    @output.add_separator if add_sep && (@output.to_s.split("\n").last =~ /\d/)
+  end
+
+  # some creature types have dynamic names that break the automated type definitions
+  # because the wiki entry is a generic version
+  # example: wiki name is -> nasty little gremlin
+  #          in game (and thus gameobj data) is -> nasty little (random color) gremlin
+  # we manually set these here so they don't show up as UNKNOWN
+  def name_override(creature)
+    name_overrides = {
+      'Nasty little gremlin'       => 'nasty little red gremlin',
+      'Myklian'                    => 'red myklian',
+      'Decaying citadel guardsman' => 'decaying Citadel guardsman',
+      'Rotting citadel arbalester' => 'rotting Citadel arbalester',
+      'Putrefied citadel herald'   => 'putrefied Citadel herald',
+      'Supple ivasian inciter'     => 'supple Ivasian inciter',
+      'Magna vereri'               => 'voluptuous magna vereri'
+    }
+    return name_overrides.fetch(creature, creature)
+  end
+
+  # makes a fake creature game obj to check type
+  def fake_obj(creature)
+    creature = name_override(creature)
+    c_noun = creature.split(' ').last
+    # weird capitalization permutations
+    noun_and_name_permutations = [
+      [c_noun, creature],
+      [c_noun, creature.downcase],
+      [c_noun.downcase, creature],
+      [c_noun.downcase, creature.downcase]
+    ]
+    noun_and_name_permutations.each { |c_noun_and_name|
+      fakeobj = GameObj.new(666_999, c_noun_and_name[0], c_noun_and_name[1])
+      return fakeobj if fakeobj.type
+    }
+    return GameObj.new(666_999, c_noun, creature)
+  end
+
+  def get_types(fakeobj)
+    types = fakeobj.type
+    types = 'UNKNOWN' if (types.nil? || types.empty?)
+    types = types.split(',')
+    types.reject! { |t| t == 'aggressive npc' }
+    types.join(',')
+  end
+
+  def search_mobs
+    _respond "Loading local cache of creature list from wiki (last updated: #{@charsettings['updated_at']})"
+    levels = @args[0].scan(/(\d+)/)
+    type_filter = @args[0].scan(/([a-z-']+)/i).join('|')
+    if !levels.nil? && !levels.empty?
+      if levels.length > 2
+        echo 'Too many things that look like levels in your arguments'
+        exit
+      elsif levels.length == 2
+        lvl_range = [levels[0][0].to_i, levels[1][0].to_i].sort
+        lvl_range = (lvl_range[0]..lvl_range[1])
+      else
+        lvl_range = [levels[0][0].to_i]
+      end
+    elsif levels.nil? || levels.empty?
+      lvl_range = ((Stats.level.to_i - 5)..(Stats.level.to_i + 5)).to_a
+    end
+
+    lvl_range.each do |lvl|
+      if lvl.nil?
+        echo 'Error parsing given level range'
+        exit
+      end
+      next if lvl < 1
+
+      pretty_print_level(lvl, type_filter)
+    end
+    _respond @output
+  end
+
+  def refresh_cache
+    _respond "Updating local cache of creature list from wiki (last updated: #{@charsettings['updated_at']})..."
+    _http_code, resp = get_page(@base_url)
+    @charsettings['page_cache'] = resp
+    @charsettings['updated_at'] = Time.now
+    begin
+      @page = Document.new(resp)
+    rescue
+      resp_lines = resp.split("\n")
+      tab_lines = []
+      in_tab = false
+      resp_lines.each { |l|
+        if l =~ /<table/
+          tab_lines.push(l.gsub(/^.*<table/, '<table'))
+          in_tab = true
+        elsif l =~ /<\/table>/
+          tab_lines.push(l)
+          break
+        elsif in_tab
+          tab_lines.push(l)
+        end
+      }
+      @page = Document.new(tab_lines.join())
+    end
+    @creature_table = XPath.first(@page, '//table')
+    max_level = resp.scan(/Category:Level ([0-9]+) Creatures/).flatten.map(&:to_i).max
+    echo 'Building cache by level...'
+    (1..max_level).each do |l|
+      echo "level #{l}" if l.modulo(10).zero? || l == max_level
+      get_level_from_main(@creature_table, l)
+    end
+    echo 'Done!'
+  end
+
+  def parse_args
+    if @args.include? 'help'
+      _respond 'usage:'
+      _respond "    ;#{@script_name} refresh                              - refresh local cache of the 'creatures by level' page"
+      _respond '                                                      this happens automatically if you have not run this script previously'
+      respond "    ;#{@script_name} <start level> <end level (optional)> - show creatures between start and end level"
+      _respond '                                                      if end level is omitted, only shows creatures of <start level>'
+      _respond "    ;#{@script_name}                                      - show creatures that are +/-5 from your current level"
+      _respond ''
+      _respond ' any other non-numeric argument will filter results that have that as a name or creature type'
+      _respond " i.e. ;#{@script_name} 20 undead             - show level 20 undead"
+      _respond "      ;#{@script_name} 5 10 orc              - show orcs between levels 5 and 10"
+      _respond '      note: any mob with an UNKNOWN type will always be displayed'
+      _respond '            these mobs are not being parsed correctly from the gameobj-data file'
+      exit
+    elsif @args.any? { |ar| ar =~ /refresh|reload/ }
+      refresh_cache
+      exit
+    elsif !@charsettings['updated_at'] || ((Time.now.to_i - @charsettings['updated_at'].to_i) > 2_592_000)
+      respond "Automatically refreshing the creature cache. This happens on first run and once every 30 days thereafter."
+      refresh_cache
+    end
+  end
+end
+
+eb = EBestiary.new(script.vars, CharSettings.to_hash)
+eb.search_mobs

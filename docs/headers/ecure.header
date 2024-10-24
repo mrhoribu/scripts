@@ -1,0 +1,28 @@
+  ecure.lic - a script to handle healing while resting or hunting.
+
+  Features include taking scars if your training allows, custom healing messages *should* work, as well as a lot of customization options!
+
+  Please use ";ecure setup" first!
+
+  author: elanthia-online
+  maintainers: Tayre, Ashraam, Talonhawke
+  game: Gemstone
+  tags: heal, cure, empath, healing
+  required: Lich > 5.0.1
+  version: 1.0.3
+
+     Help Contribute: https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.3 (2023-07-26)
+    - correct sleep/pauses for CURE usage for less than 3 second RT
+  v1.0.2 (2023-07-26)
+    - fix for NilClass comparison for @doneVerb
+    - fix for enabling use of CoL signs but not knowing Clotting or Staunching
+  v1.0.1 (2023-05-22)
+    - fixed group functionality after Naijin's return
+  v1.0.0 (2023-04-08)
+    - Rebase cure.lic to ecure.lic
+    - rubocop cleanup
+

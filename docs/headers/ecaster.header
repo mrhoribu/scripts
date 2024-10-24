@@ -1,0 +1,23 @@
+  ecaster - make spellcasting great again, based on 'voodoo'
+
+        author: elanthia-online
+  contributors: Selandriel
+          tags: magic, spell, casting
+          game: gs
+      required: Lich > 5.7.0
+       version: 1.0.2
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+      1.0.2: bugfix for rapid fire channel 0sec RT casting
+      1.0.1: change checkmana to Char.mana calls
+      1.0.0: forked and renamed as ecaster
+             Rubocop cleanup
+             upstream hook name fix
+      0.9.6: fix CAST_RX to catch more roundtimes more correctly
+      0.9.5: fix verb handling to better support all options
+      0.9.4: add support for configuring verb and stance for aliases
+      0.9.3: add timeout to cast procedure to prevent lockups
+      0.9.2: fix 'other' target handling; complete multicast support
+      0.9.1: fix channel rt handling to be less bad
+      0.9.0: initial release

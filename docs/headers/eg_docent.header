@@ -1,0 +1,18 @@
+  Cheat and do the EG Guidebook quest for you.
+
+  known issues:
+    - sometimes a task just doesn't complete. this was just kinda cobbled together
+      but it's worked on a number of alts for me. Sometimes you just have to run it
+      for a certain task multiple times. The worst culprit is chapter 8.
+
+  examples:
+    ;eg_docent help - for info on how to use this script
+
+  version: 0.0.2
+  Tags: ebon gate, eg, ebon, guidebook
+  Author: Someone
+
+  changelog:
+    0.0.2 - add sanity checks for chapter 9
+    0.0.1 - initial release
+

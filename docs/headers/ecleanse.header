@@ -1,0 +1,31 @@
+   A script that removes status affects and combines several previous separate scripts. Will cover dispels, disarmed, and other status affects.
+   Configuration can be accessed via ;ecleanse setup
+        author: Deysh
+  contributors: Tysong
+          game: Gemstone
+          tags: dispel, unpoison, undisease, disarmed, effects
+       version: 1.1.3
+
+  Improvements:
+  v1.1.3  (2024-09-24)
+    - bugfix for Unholy Quickening not breaking out of routine
+  v1.1.2  (2024-09-11)
+    - more Wall of Thorns bugfix
+  v1.1.1  (2024-09-03)
+    - bugfix to include Wall of Thorns poison checking
+  v1.1.0  (2024-08-18)
+    - refactor of the queue process to improve disarm response
+    - added help section
+    - updated issue_command method to mirror Lich
+  v1.0.19 (2024-08-06)
+    - add chaotic spatial anomaly to dispelable items (found in HW by gigas disciples)
+  v1.0.18 (2024-08-04)
+    - fix disarm not waiting for bonded weapon
+  v1.0.17 (2024-05-01)
+    - fix for Char.level -> Stats.level
+    - fix for Char.prof -> Stats.prof
+  v1.0.16 (2023-11-24)
+    - bugfix for stun recover - check to make sure not in a belly or innards
+    - added check for silvery blue globe and spiraling ghostly rift in Moonsedge
+    - added check for disarm maneuver in Moonsedge and Sanctum
+    - added check for Sanctum disease needing the vat

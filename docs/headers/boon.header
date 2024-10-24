@@ -1,0 +1,25 @@
+
+    Code mostly derived from SpiffyLoot by SpiffyJr
+  Was specifically asked to remove sloot2 so I did. However, I have friends that use this as well so I renamed it to
+  prevent confusion while allowing me to maintain this spin-off project.
+
+       todo: add weapon pickup by name
+     author: Steworaeus
+     name: boon
+       tags: personal
+    version: 3.5
+
+    changelog:
+        3.0 (2015-11-19)
+            Add massive boulder skinning as a rolled up krynch sushi roll
+        3.1 (2016-01-27)
+            Added ability to try and sell boxes at pawn (useful for after a lockpick session if you keep mithril ones)
+            Added ability to sell scarabs at the gemshop
+        3.2 (2016-06-19)
+            Updated the get_item and put_item code to not care about your container
+    3.3 (2017-02-18)
+      Updated to use spiders in spidersilk bags.
+    3.4 (2017-10-06)
+      Updated to appraise gems and only sell ones below a set value you provide.
+    3.5 (2022-01-25)
+      Updated to support GTK3

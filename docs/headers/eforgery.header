@@ -1,0 +1,47 @@
+
+     help:                    ;eforgery ?
+     current Settings:        ;eforgery display
+     gui:                     ;eforgery setup
+
+    ;eforgery will start it if you have it set up right
+
+  IMPORTANT (READ THIS DAMNIT):
+     ~Oil type (if needed) will auto-determined.
+     ~Leaving the Average and Scrap settings BLANK will cause those pieces to be discarded.
+     ~Block, Slab, Keeper, and Scrap containers MUST be different, although the last one is optional.
+     ~'Average' & 'Keeper' containers should be different as finished pieces are identical-looking.
+     ~To make HANDLES, set handle order # for glyph, and wood OR metal for material.
+     ~This script DOES NOT COMBINE/VISE the pieces for you...thats the fun part!!
+
+       Author: elanthia-online
+ Contributors: Moredin, Tillek, Gnomad, Tysong
+     Category: Artisan
+         Tags: forging, forge, craft, artisan, perfect
+      Version: 1.1.0
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+
+  v1.1.0 (2023-07-11)
+    Remove support for making iron slabs via ;iron script as not working and labor/time intensive
+  v1.0.5 (2023-06-26)
+    Fix for ClimateWear containers
+    Fix for missing glyph
+    Fix for grind/tongs RT check
+  v1.0.4 (2023-06-03)
+    Fix for vaalor material oil
+    Rubocop cleanup
+  v1.0.3 (2022-05-03)
+    Bugfix for variables outside of class.
+  v1.0.2 (2022-05-02)
+    Bugfix for regex match
+  v1.0.1 (2022-04-29)
+    Fix for commageddon. Combine buy regex, remove location check
+  v1.0.0 (2022-03-29)
+    Rename to eforgery from forgery for ease of distribution
+    Change versioning to semantic system
+  v19    (2022-03-29)
+    Bugfix for material_oil typo
+  v18    (2021-10-12)
+    Updated to support GTK3
+

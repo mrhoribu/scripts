@@ -1,0 +1,55 @@
+
+   Script to heal yourself with herbs.
+
+   Will use herbs in your herbsack, or on a bench or something.
+   Works with any combination of herbs from any town.
+   Can buy herbs.
+   Might heal your traveler.
+
+  ;eherbs help
+
+            author: Elanthia-Online
+      contributors: Tillmen, Tysong, Doug, Rinualdo, Xanlin, Deysh
+              game: Gemstone
+              tags: healing, herbs
+          requires: Lich >= 4.6.0
+           version: 2.0.15
+  2.0.15 (2024-10-10)
+    - skip herbs that can't be bundled when bundling herbs
+  2.0.14 (2024-09-25)
+    - bugfix for depositing in Pinefar, need to wait for banker
+  2.0.13 (2024-08-30)
+    - bugfix for excessive ANALYZE for survival kits logic
+    - bugfix for wait_rt method
+  2.0.12 (2024-08-27)
+    - adjust doses for Ta'Vaalor
+    - update note buying process for in-hand recognition
+    - bugfix in stock_requested_herbs when not using a note
+  2.0.11 (2024-08-26)
+    - Add missing Ta'Vaalor tinctures
+  2.0.10 (2024-08-15)
+    - bugfix failed finding blood herbs if use_yaba is on with no yaba found
+  2.0.9 (2024-07-20)
+    - change note variable to just use the noun instead of full name
+    - use quiet command for _injury 2
+    - consolidate inventory check methods
+    - general code consolidation
+    - change log added to wiki
+  2.0.8 (2024-07-12)
+    - pause script ego2 if running
+  2.0.7 (2024-07-12)
+    - drinkable variable not being set when buying
+  2.0.6 (2024-07-10)
+    - changed drinkable boolean in favor of checking regex during herb usage or boolean
+  2.0.5 (2024-01-17)
+    - fix for wrong variable reference
+  2.0.4 (2024-01-03)
+    - bugfix for Zul Logoth location check
+  2.0.3 (2024-01-01)
+    - bugfix for use_potions variable
+  2.0.2 (2023-12-15)
+    - send injury command to refresh XML before attempting to heal self incase missing injury from XML
+  2.0.1 (2023-11-10)
+    - bugfix to use id instead of name for distiller
+    - added setting output for debugging ;eherbs settings
+  Previous change logs can be found on the wiki: https://gswiki.play.net/Lich:Script_Eherbs

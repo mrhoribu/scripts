@@ -1,0 +1,24 @@
+
+   Alchemy Script of Doom!!!1!one
+
+   ;alchemy help
+
+       updated by: Elanthia-online
+  original author: Tillmen (tillmen@lichproject.org)
+             game: Gemstone
+             tags: alchemy, guild
+          version: 0.21
+         required: alchemy-recipes.lic >= 0.3
+
+   changelog:
+      0.21 (2022-02-09):
+         update MEASURE for new exact measurements
+      0.20 (2022-02-08):
+         fix for new info verb
+      0.16 (2020-10-20):
+         fix commas in silver check
+      0.15 (2018-09-15):
+         fix collecting water
+      0.14 (2017-11-11):
+         fix squelching of gld verb for inactive members
+

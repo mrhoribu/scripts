@@ -1,0 +1,18 @@
+
+    Update your Lich version from 5.x to the current release version.
+    Logout of all characters except one and run the script ;lich5-update --announce
+    Review the changes, and if you like the changes you can ;lich5-update --update
+    Then quit and restart lich.
+
+    Pro Tip - check out ;lich5-update --help for options on how to include in
+    your autostart list, how to backup your existing Lich5 files (not all
+    scripts, just these distributed by EO for Lich5), and even how to completely
+    refresh your Lich5 ecosystem to current files, if you're unsure what you need.
+
+             author: Elanthia-Online
+               game: Gemstone
+               tags: core, update, lich, lich5
+           required: Lich > 5.0.1
+            version: 2.0.0
+    2024-06-20 - v2.0.0
+      Replace code with Lich 5.9.2 module coding

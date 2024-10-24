@@ -1,0 +1,28 @@
+  Buff_tracker.lic
+
+  Wrayth window that tells you if you are missing buffs.
+  You choose what spells you care about. It tells you which ones you are missing.
+
+        author: Nisugi
+          game: Gemstone
+  contributors: Nisugi, Maodan
+          tags: hunting, combat, buff tracking, buff, wrayth
+       version: 1.1
+      required: Wrayth
+
+  ;buff                     Start tracking your selected buffs.
+  ;buff watch               Start tracking your selected buffs.
+  ;buff add <buff>          Add a buff to track. Accepts spell number or name.
+  ;buff remove <buff>       Remove a buff from tracking. Accepts spell number or name.
+  ;buff list                List buffs you are currently tracking.
+  ;buff quickload           Adds all of your currently worn (+ known) spells to the list.
+
+  Change Log:
+  v1.1 (2023-09-21)
+    - Converted to interactable
+    - Added quickload command
+    - Updated list output
+    - Prevent duplicate adding
+    - Updated sort algorithm
+  v1.0 (2023-09-16)
+    - Initial Release

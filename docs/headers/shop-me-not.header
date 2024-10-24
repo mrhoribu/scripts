@@ -1,0 +1,10 @@
+  this script attempt to prevent you from accidentally shopping items that are present in READY LIST
+
+  notes:
+    1. the descriptions for your hands are not the same as in the READY LIST so it's a "best guess"
+    2. scripts are unaffected by shop-me-not!
+    3. you can do `sudo shop sell` to override shop-me-not
+
+  Required: Lich 4.3.12
+  Author: Ondreian
+  Tags: util, shop

@@ -1,0 +1,34 @@
+    EG Guidebook Companion
+    Reads and outputs a more friendly formatted display.
+    Please have guidebook on you and readable (stored in an open container)
+
+    SYNTAX:
+         ;guidebook            - Shows both merchants and raffles
+         ;guidebook m(erchant) - Shows only merchants
+         ;guidebook r(affle)   - Shows only raffles
+
+         todo: unsure
+       author: elanthia-online
+ contributors: Tysong
+         name: guidebook
+         tags: eg, ebon gate, ebon, guidebook, guide, merchant, raffle
+      version: 1.0.5
+      website: https://github.com/elanthia-online/scripts/
+
+	changelog:
+        1.0.5 (2022-10-18)
+            Regex updates for more things
+        1.0.4 (2022-10-18)
+            Added error handling for missing terminal-table gem
+            Added display of additional go2 room# matches incase multiple
+        1.0.3 (2022-10-18)
+            Add handling for guidebook not on epilogue or not found/unreadable.
+        1.0.2 (2022-10-18)
+            Add line breaks for long raffle descriptions.
+            Added Totals to merchant and raffle listings.
+            Added clickable ;go2 links for PnC clients.
+        1.0.1 (2022-10-17)
+            Regex updates
+        1.0.0 (2022-10-17)
+            Initial release
+

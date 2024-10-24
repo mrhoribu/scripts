@@ -1,0 +1,8 @@
+  keeps tonis active if you have more than 75 mana
+
+  Example:
+    ;tonis
+  
+  Required: Lich 4.3.12
+  Author: Ondreian
+  Tags:hunting, experience
