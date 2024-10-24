@@ -1,4 +1,4 @@
-name: Publish Updates
+name: Create Manifest JSON
 on:
   push:
     branches: [ 'master' ]
