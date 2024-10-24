@@ -15,9 +15,18 @@ jobs:
         run: sudo apt-get update -y
       - name: Run jinxp
         run: |
+          echo "*************************"
           wget --tries=5 --retry-connrefused --retry-on-host-error https://github.com/elanthia-online/jinxp/releases/download/v0.4.0/jinxp \
           && chmod +x jinxp \
           && ./jinxp -i scripts
+          echo "*************************"
+          ls dist/assets
+          echo "*************************"
+          ls dist/headers
+          echo "*************************"
           ls dist
+          echo "*************************"
           ls
-          cat manifest.json
+          echo "*************************"
+          cat dist/manifest.json
+          echo "*************************"
