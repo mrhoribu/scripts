@@ -8,7 +8,7 @@
   contributors: SpiffyJr, Tillmen, Kalros, Hazado, Tysong, Athias, Falicor, Deysh, Nisugi
           game: Gemstone
           tags: hunting, bigshot, combat
-       version: 5.9.11
+       version: 5.10.0
       required: Lich >= 5.12.6
 
   Setup Instructions: https://gswiki.play.net/Script_Bigshot
@@ -17,6 +17,8 @@
 
   Version Control:
     Major_change.feature_addition.bugfix
+  v5.10.0  (2025-10-15)
+    - migrate HEAD/TAILS to an Queue structure
   v5.9.11  (2025-10-11)
     - bugfix for encumbrance command check
   v5.9.10  (2025-10-03)
@@ -7622,3 +7624,4 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
     end
   end
 end
+
