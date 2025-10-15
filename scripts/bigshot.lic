@@ -510,26 +510,55 @@ class Bigshot
     attr_accessor :type, :created_at, :room_id, :cmd_input
 
     @@RECOGNIZED = [:HUNTING_PREP_COMMANDS, :HUNTING_SCRIPTS_START, :CAST_SIGNS, :ATTACK, :PREP_REST,
-                    :HUNTING_SCRIPTS_STOP, :RESTING_SCRIPTS_START, :RESTING_PREP_COMMANDS, :DISPLAY_WATCH, :START_WATCH, :STOP_WATCH, :SINGLE_STOP,
-                    :FOLLOWER_OVERKILL, :STAY_QUIET, :FOLLOW_NOW, :LOOT, :CUSTOM_PUT, :CUSTOM_CMD, :CUSTOM_DO_CLIENT,
-                    :PUBLIC_SEND, :GO2_WAYPOINTS, :GO2_RESTING_ROOM, :GO2_RALLY_ROOM, :GO2_HUNTING_ROOM, :CHECK_MIND, :JOIN_LEADER, :FOG_RETURN, :CHECK_SNEAKY,
-                    :LEAVE_GROUP, :HUNT_MONITOR_START, :HUNT_MONITOR_STOP]
+                    :HUNTING_SCRIPTS_STOP, :RESTING_SCRIPTS_START, :RESTING_PREP_COMMANDS, :DISPLAY_WATCH, 
+                    :START_WATCH, :STOP_WATCH, :SINGLE_STOP, :FOLLOWER_OVERKILL, :STAY_QUIET, :FOLLOW_NOW, 
+                    :LOOT, :CUSTOM_PUT, :CUSTOM_CMD, :CUSTOM_DO_CLIENT, :PUBLIC_SEND, :GO2_WAYPOINTS, 
+                    :GO2_RESTING_ROOM, :GO2_RALLY_ROOM, :GO2_HUNTING_ROOM, :CHECK_MIND, :JOIN_LEADER, 
+                    :FOG_RETURN, :CHECK_SNEAKY, :LEAVE_GROUP, :HUNT_MONITOR_START, :HUNT_MONITOR_STOP]
 
     def initialize(type, time_stamp, room_id, c_in = nil)
       raise "Event type not recognized" unless @@RECOGNIZED.include?(type)
-
-      @type       = type
+      @type = type
       @created_at = time_stamp
-      @room_id    = room_id
-      @cmd_input  = c_in
+      @room_id = room_id
+      @cmd_input = c_in
     end
 
     def stale?
-      if (Room.current.id != @room_id || Time.now.to_i - @created_at > 15)
-        return true
-      else
-        return false
-      end
+      (Room.current.id != @room_id || Time.now.to_i - @created_at > 15)
+    end
+  end
+end
+
+class Bigshot
+  class EventQueue
+    def initialize
+      @events = []
+      @mutex = Mutex.new
+    end
+    
+    def push(event)
+      @mutex.synchronize { @events.push(event) }
+    end
+    
+    def shift
+      @mutex.synchronize { @events.shift }
+    end
+    
+    def clear
+      @mutex.synchronize { @events.clear }
+    end
+    
+    def size
+      @mutex.synchronize { @events.size }
+    end
+    
+    def any?(&block)
+      @mutex.synchronize { @events.any?(&block) }
+    end
+    
+    def empty?
+      @mutex.synchronize { @events.empty? }
     end
   end
 end
@@ -647,12 +676,14 @@ class Bigshot
     end
 
     def add_event(type, room = Room.current.id)
-      @members.each_pair do |_k, v|
-        begin
-          v.add_event(type, Time.now.to_i, room)
-        rescue
-          @leader.message("yellow", "Error adding #{type} event to members stack(add_event): #{$!}")
-          @leader.message("yellow", $!.backtrace.join("\n"))
+      @mutex ||= Mutex.new
+      @mutex.synchronize do
+        @members.each_pair do |_k, v|
+          begin
+            v.add_event(type, Time.now.to_i, room)
+          rescue => e
+            @leader.message("yellow", "Error adding #{type} event: #{e.message}")
+          end
         end
       end
     end
@@ -672,16 +703,19 @@ class Bigshot
       end
       return false
     end
-
+    
     def group_assist(should_attack)
-      @members.each_pair { |k, v|
-        begin
-          v.set_help_group(should_attack)
-        rescue
-          @leader.message("yellow", "Error polling member(group_assist). Removing #{k}!")
-          @members.delete(k)
-        end
-      }
+      @mutex ||= Mutex.new
+      @mutex.synchronize do
+        @members.each_pair { |k, v|
+          begin
+            v.set_help_group(should_attack)
+          rescue => e
+            @leader.message("yellow", "Error in group_assist for #{k}: #{e.message}")
+            @members.delete(k)
+          end
+        }
+      end
     end
 
     def add_leader_event(event)
@@ -2231,7 +2265,7 @@ class Bigshot
     debug_msg(@DEBUG_SYSTEM, "initialize | options: #{options} | called by #{caller[0]}")
 
     @followers = nil
-    @event_stack = []
+    @event_stack = EventQueue.new
 
     check_required_values
     load_settings.each do |key, (clean, default)|
@@ -7426,37 +7460,71 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
       elsif (event.type == :HUNTING_SCRIPTS_START)
         bs.run_scripts(bs.HUNTING_SCRIPTS, false)
       elsif (event.type == :ATTACK)
-        if (event.stale?) # consider timestamp and room_id
+        if (event.stale?)
           bs.message("yellow", " Skipping attack because it's stale")
           next
         end
 
+        # FIXED: Better state management for attacks
         stop_attack = false
         target = nil
+        attack_start_time = Time.now
+  
         while (!stop_attack)
-          stop_attack = event.stale?
+          # Check if event is stale
+          if event.stale?
+            bs.debug_msg(bs.instance_variable_get(:@DEBUG_COMBAT), "Attack event stale, stopping")
+            break
+          end
+
+          # Find and attack targets
           while ((target = bs.find_target(target)) && !stop_attack)
+            # Check for interrupting events before each attack
             if (bs.event_stack.any? { |a| a.type == :PREP_REST })
               bs.message("yellow", " Preparing to move, skipping attack")
               stop_attack = true
               break
             end
+
+            # Check if we should loot instead
             if (bs.event_stack.any? { |a| a.type == :LOOT }) && group.looter == Char.name
               stop_attack = true
               break
             end
 
-            target = bs.find_target(nil) if !$bigshot_bandits && @PRIORITY && !bs.priority(target)
-            bs.attack(target)
+            # Handle priority targeting
+            if !$bigshot_bandits && bs.instance_variable_get(:@PRIORITY) && !bs.priority(target)
+              target = bs.find_target(nil)
+              next unless target
+            end
 
+            # Perform the attack
+            begin
+              bs.attack(target)
+            rescue => e
+              bs.debug_msg(bs.instance_variable_get(:@DEBUG_COMBAT), "Attack error: #{e.message}")
+              break
+            end
+
+            # Check escape rooms
             bs.escape_rooms
 
+            # Check if we should stop
             stop_attack = bs.should_rest?
+
+            # Safety timeout
+            if Time.now - attack_start_time > 30
+              bs.message("yellow", " Attack timeout reached")
+              stop_attack = true
+            end
           end
           break if stop_attack
 
+          # Check for prep rest event
           stop_attack = bs.event_stack.any? { |a| a.type == :PREP_REST }
-          sleep(0.3)
+
+          # Small delay before checking for new targets
+          sleep(0.3) unless stop_attack
         end
       elsif (event.type == :CHECK_MIND)
         next if Char.name == leader
@@ -7555,3 +7623,4 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
     end
   end
 end
+
