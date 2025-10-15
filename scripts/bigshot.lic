@@ -611,6 +611,7 @@ class Bigshot
 
     def initialize()
       @members = Hash.new
+      @mutex = Mutex.new
     end
 
     def set_leader(leader)
@@ -676,7 +677,6 @@ class Bigshot
     end
 
     def add_event(type, room = Room.current.id)
-      @mutex ||= Mutex.new
       @mutex.synchronize do
         @members.each_pair do |_k, v|
           begin
@@ -705,7 +705,6 @@ class Bigshot
     end
     
     def group_assist(should_attack)
-      @mutex ||= Mutex.new
       @mutex.synchronize do
         @members.each_pair { |k, v|
           begin
@@ -7623,4 +7622,3 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
     end
   end
 end
-
