@@ -7473,7 +7473,7 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
         while (!stop_attack)
           # Check if event is stale
           if event.stale?
-            bs.debug_msg(bs.instance_variable_get(:@DEBUG_COMBAT), "Attack event stale, stopping")
+            bs.debug_msg(@DEBUG_COMBAT, "Attack event stale, stopping")
             break
           end
 
@@ -7493,7 +7493,7 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
             end
 
             # Handle priority targeting
-            if !$bigshot_bandits && bs.instance_variable_get(:@PRIORITY) && !bs.priority(target)
+            if !$bigshot_bandits && @PRIORITY && !bs.priority(target)
               target = bs.find_target(nil)
               next unless target
             end
@@ -7502,7 +7502,7 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
             begin
               bs.attack(target)
             rescue => e
-              bs.debug_msg(bs.instance_variable_get(:@DEBUG_COMBAT), "Attack error: #{e.message}")
+              bs.debug_msg(@DEBUG_COMBAT, "Attack error: #{e.message}")
               break
             end
 
@@ -7623,3 +7623,4 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
     end
   end
 end
+
