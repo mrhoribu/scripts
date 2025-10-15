@@ -512,10 +512,10 @@ class Bigshot
     attr_accessor :type, :created_at, :room_id, :cmd_input
 
     @@RECOGNIZED = [:HUNTING_PREP_COMMANDS, :HUNTING_SCRIPTS_START, :CAST_SIGNS, :ATTACK, :PREP_REST,
-                    :HUNTING_SCRIPTS_STOP, :RESTING_SCRIPTS_START, :RESTING_PREP_COMMANDS, :DISPLAY_WATCH, 
-                    :START_WATCH, :STOP_WATCH, :SINGLE_STOP, :FOLLOWER_OVERKILL, :STAY_QUIET, :FOLLOW_NOW, 
-                    :LOOT, :CUSTOM_PUT, :CUSTOM_CMD, :CUSTOM_DO_CLIENT, :PUBLIC_SEND, :GO2_WAYPOINTS, 
-                    :GO2_RESTING_ROOM, :GO2_RALLY_ROOM, :GO2_HUNTING_ROOM, :CHECK_MIND, :JOIN_LEADER, 
+                    :HUNTING_SCRIPTS_STOP, :RESTING_SCRIPTS_START, :RESTING_PREP_COMMANDS, :DISPLAY_WATCH,
+                    :START_WATCH, :STOP_WATCH, :SINGLE_STOP, :FOLLOWER_OVERKILL, :STAY_QUIET, :FOLLOW_NOW,
+                    :LOOT, :CUSTOM_PUT, :CUSTOM_CMD, :CUSTOM_DO_CLIENT, :PUBLIC_SEND, :GO2_WAYPOINTS,
+                    :GO2_RESTING_ROOM, :GO2_RALLY_ROOM, :GO2_HUNTING_ROOM, :CHECK_MIND, :JOIN_LEADER,
                     :FOG_RETURN, :CHECK_SNEAKY, :LEAVE_GROUP, :HUNT_MONITOR_START, :HUNT_MONITOR_STOP]
 
     def initialize(type, time_stamp, room_id, c_in = nil)
@@ -538,27 +538,27 @@ class Bigshot
       @events = []
       @mutex = Mutex.new
     end
-    
+
     def push(event)
       @mutex.synchronize { @events.push(event) }
     end
-    
+
     def shift
       @mutex.synchronize { @events.shift }
     end
-    
+
     def clear
       @mutex.synchronize { @events.clear }
     end
-    
+
     def size
       @mutex.synchronize { @events.size }
     end
-    
+
     def any?(&block)
       @mutex.synchronize { @events.any?(&block) }
     end
-    
+
     def empty?
       @mutex.synchronize { @events.empty? }
     end
@@ -705,7 +705,7 @@ class Bigshot
       end
       return false
     end
-    
+
     def group_assist(should_attack)
       @mutex.synchronize do
         @members.each_pair { |k, v|
@@ -2701,7 +2701,6 @@ class Bigshot
     bounty_eval = %Q{!!(checkbounty =~ /^You.*?(succeeded|located|failed )|your task is failed/ && checkmind != 'saturated' && !$bigshot_bandits)} # non-bandit bounty complete
     bounty_eval += %Q{ || !!(checkbounty =~ /^You.*?(succeeded|located|failed )|your task is failed/ && $bigshot_bandits)} # bandit bounty complete
     bounty_eval += %Q{ || !!(checkbounty =~ /^You are not currently assigned / && !Effects::Cooldowns.to_h.include?('Next Bounty'))}
-
 
     if checkbounty =~ /A local divinist has had visions of the child fleeing/
       bounty_eval += %Q{ || !!(checkbounty =~ /^You have made contact with the child/ && GameObj.npcs.any? { |npc| npc.name =~ /\\bchild\\b/ })}
@@ -7470,7 +7469,7 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
         stop_attack = false
         target = nil
         attack_start_time = Time.now
-  
+
         while (!stop_attack)
           # Check if event is stale
           if event.stale?
@@ -7624,4 +7623,3 @@ elsif (Script.current.vars[1] =~ /tail|follow|link/i)
     end
   end
 end
-
