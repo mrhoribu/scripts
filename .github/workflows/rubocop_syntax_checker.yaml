@@ -28,6 +28,7 @@ jobs:
         with:
           ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -63,7 +64,7 @@ jobs:
             echo "No changes to commit"
           else
             git add -u
-            git commit -m "Auto-fix: Apply rubocop autocorrections"
+            git commit -m "Auto-fix: Apply rubocop autocorrections [skip ci]"
             git push
           fi
       
