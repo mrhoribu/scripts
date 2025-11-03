@@ -11,6 +11,10 @@ on:
       - 'scripts/**'
       - 'type_data/migrations/**'
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   rubocop:
     runs-on: ubuntu-latest
@@ -19,25 +23,55 @@ jobs:
         ruby: ['3.3']
     name: Run Rubocop on Ruby ${{ matrix.ruby }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get changed files
-        id: changed-files
-        uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1
-        with:
-          files: |
-            **/*.lic
-            **/*.rb
-        
-      - uses: ruby/setup-ruby@v1
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-
-      - name: Rubocop
+      
+      - name: Run Rubocop autocorrect on changed files
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            bundle exec rubocop $file
-          done
+          # Get list of changed Ruby files (.rb, .rbw, and .lic)
+          git fetch origin ${{ github.base_ref }}
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM origin/${{ github.base_ref }} HEAD | grep -E '\.(rb|rbw|lic)$' || true)
+          
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "Running rubocop -a on changed files:"
+            echo "$CHANGED_FILES"
+            echo "$CHANGED_FILES" | xargs -I {} bundle exec rubocop -a {}
+          else
+            echo "No Ruby, .rbw, or .lic files changed"
+          fi
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add -u
+            git commit -m "Auto-fix: Apply rubocop autocorrections"
+            git push
+          fi
+      
+      - name: Run Rubocop check on changed files
+        run: |
+          # Get list of changed Ruby files (.rb, .rbw, and .lic, including any newly committed fixes)
+          git fetch origin ${{ github.base_ref }}
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM origin/${{ github.base_ref }} HEAD | grep -E '\.(rb|rbw|lic)$' || true)
+          
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "Running rubocop check on changed files:"
+            echo "$CHANGED_FILES"
+            echo "$CHANGED_FILES" | xargs -I {} bundle exec rubocop {}
+          else
+            echo "No Ruby, .rbw, or .lic files to check"
+          fi
