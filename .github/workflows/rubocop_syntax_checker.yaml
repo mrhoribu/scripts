@@ -44,7 +44,7 @@ jobs:
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop -a on changed files:"
             echo "$CHANGED_FILES"
-            echo "$CHANGED_FILES" | xargs rubocop -a
+            echo "$CHANGED_FILES" | xargs -I {} bundle exec rubocop -a {}
           else
             echo "No Ruby, .rbw, or .lic files changed"
           fi
@@ -71,7 +71,7 @@ jobs:
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop check on changed files:"
             echo "$CHANGED_FILES"
-            echo "$CHANGED_FILES" | xargs rubocop
+            echo "$CHANGED_FILES" | xargs -I {} bundle exec rubocop {}
           else
             echo "No Ruby, .rbw, or .lic files to check"
           fi
