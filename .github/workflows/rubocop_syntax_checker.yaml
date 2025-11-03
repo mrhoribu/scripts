@@ -34,7 +34,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version:  ${{ matrix.ruby }}
+          ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       
       - name: Determine base reference and fetch
