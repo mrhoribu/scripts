@@ -26,7 +26,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Ruby
@@ -38,13 +38,18 @@ jobs:
       - name: Run Rubocop autocorrect on changed files
         run: |
           # Get list of changed Ruby files (.rb, .rbw, and .lic)
-          git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM origin/${{ github.base_ref }} HEAD | grep -E '\.(rb|rbw|lic)$' || true)
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            git fetch origin ${{ github.base_ref }}
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z origin/${{ github.base_ref }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
+          else
+            # For push events, compare with the previous commit
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z ${{ github.event.before }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
+          fi
           
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop -a on changed files:"
-            echo "$CHANGED_FILES"
-            echo "$CHANGED_FILES" | xargs -I {} bundle exec rubocop -a {}
+            echo "$CHANGED_FILES" | tr '\0' '\n'
+            echo "$CHANGED_FILES" | xargs -0 -I {} bundle exec rubocop -a {}
           else
             echo "No Ruby, .rbw, or .lic files changed"
           fi
@@ -65,13 +70,18 @@ jobs:
       - name: Run Rubocop check on changed files
         run: |
           # Get list of changed Ruby files (.rb, .rbw, and .lic, including any newly committed fixes)
-          git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM origin/${{ github.base_ref }} HEAD | grep -E '\.(rb|rbw|lic)$' || true)
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            git fetch origin ${{ github.base_ref }}
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z origin/${{ github.base_ref }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
+          else
+            # For push events, compare with the previous commit (before the auto-fix commit)
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z ${{ github.event.before }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
+          fi
           
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop check on changed files:"
-            echo "$CHANGED_FILES"
-            echo "$CHANGED_FILES" | xargs -I {} bundle exec rubocop {}
+            echo "$CHANGED_FILES" | tr '\0' '\n'
+            echo "$CHANGED_FILES" | xargs -0 -I {} bundle exec rubocop {}
           else
             echo "No Ruby, .rbw, or .lic files to check"
           fi
