@@ -16,73 +16,103 @@ permissions:
   pull-requests: write
 
 jobs:
-  rubocop:
+  rubocop-autofix:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby: ['3.3']
-    name: Run Rubocop on Ruby ${{ matrix.ruby }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
+          fetch-depth: 0
+      
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: '3.3'
           bundler-cache: true
       
-      - name: Run Rubocop autocorrect on changed files
+      - name: Determine base reference and fetch
+        id: base_ref
         run: |
-          # Get list of changed Ruby files (.rb, .rbw, and .lic)
           if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "base=${{ github.base_ref }}" >> $GITHUB_OUTPUT
+            echo "compare_ref=origin/${{ github.base_ref }}" >> $GITHUB_OUTPUT
             git fetch origin ${{ github.base_ref }}
-            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z origin/${{ github.base_ref }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
           else
-            # For push events, compare with the previous commit
-            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z ${{ github.event.before }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
+            # For push events, check if it's a new branch
+            if [ "${{ github.event.before }}" == "0000000000000000000000000000000000000000" ]; then
+              echo "New branch detected, comparing with default branch"
+              DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+              echo "base=$DEFAULT_BRANCH" >> $GITHUB_OUTPUT
+              echo "compare_ref=origin/$DEFAULT_BRANCH" >> $GITHUB_OUTPUT
+              git fetch origin $DEFAULT_BRANCH
+            else
+              echo "base=${{ github.event.before }}" >> $GITHUB_OUTPUT
+              echo "compare_ref=${{ github.event.before }}" >> $GITHUB_OUTPUT
+            fi
           fi
+      
+      - name: Get changed files
+        id: changed_files
+        run: |
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z ${{ steps.base_ref.outputs.compare_ref }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
           
           if [ -n "$CHANGED_FILES" ]; then
-            echo "Running rubocop -a on changed files:"
-            echo "$CHANGED_FILES" | tr '\0' '\n'
-            echo "$CHANGED_FILES" | xargs -0 -I {} bundle exec rubocop -a {}
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "$CHANGED_FILES" > /tmp/changed_files.txt
+            echo "Changed files:"
+            cat /tmp/changed_files.txt | tr '\0' '\n'
           else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "No Ruby, .rbw, or .lic files changed"
           fi
       
-      - name: Commit changes
+      - name: Run Rubocop autocorrect on changed files
+        if: steps.changed_files.outputs.has_changes == 'true'
+        run: |
+          echo "Running rubocop -a on changed files..."
+          cat /tmp/changed_files.txt | xargs -0 -I {} bundle exec rubocop -a {} || {
+            echo "Warning: Rubocop autocorrect encountered issues but continuing..."
+            exit 0
+          }
+      
+      - name: Check for changes and commit
+        if: steps.changed_files.outputs.has_changes == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
           if git diff --quiet; then
-            echo "No changes to commit"
+            echo "No changes made by rubocop autocorrect"
           else
-            git add -u
-            git commit -m "Auto-fix: Apply rubocop autocorrections [skip ci]"
-            git push
+            # Check if we can push (not a protected branch issue)
+            if git add -u && git commit -m "Auto-fix: Apply rubocop autocorrections [skip ci]"; then
+              if git push 2>&1 | tee /tmp/push_output.txt; then
+                echo "Successfully pushed autocorrect changes"
+              else
+                if grep -q "protected branch" /tmp/push_output.txt || grep -q "permission" /tmp/push_output.txt; then
+                  echo "::warning::Cannot push to protected branch. Rubocop fixes were not committed."
+                  echo "Please apply rubocop fixes manually or adjust branch protection rules."
+                else
+                  echo "::error::Failed to push changes"
+                  exit 1
+                fi
+              fi
+            else
+              echo "::error::Failed to commit changes"
+              exit 1
+            fi
           fi
       
       - name: Run Rubocop check on changed files
+        if: steps.changed_files.outputs.has_changes == 'true'
         run: |
-          # Get list of changed Ruby files (.rb, .rbw, and .lic, including any newly committed fixes)
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            git fetch origin ${{ github.base_ref }}
-            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z origin/${{ github.base_ref }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
-          else
-            # For push events, compare with the previous commit (before the auto-fix commit)
-            CHANGED_FILES=$(git diff --name-only --diff-filter=ACM -z ${{ github.event.before }} HEAD | grep -zE '\.(rb|rbw|lic)$' || true)
-          fi
-          
-          if [ -n "$CHANGED_FILES" ]; then
-            echo "Running rubocop check on changed files:"
-            echo "$CHANGED_FILES" | tr '\0' '\n'
-            echo "$CHANGED_FILES" | xargs -0 -I {} bundle exec rubocop {}
-          else
-            echo "No Ruby, .rbw, or .lic files to check"
-          fi
+          echo "Running rubocop check on changed files..."
+          cat /tmp/changed_files.txt | xargs -0 -I {} bundle exec rubocop {}
+      
+      - name: Summary
+        if: always() && steps.changed_files.outputs.has_changes == 'false'
+        run: |
+          echo "✅ No Ruby, .rbw, or .lic files were changed in this ${{ github.event_name }}"
