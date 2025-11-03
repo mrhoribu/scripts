@@ -35,22 +35,18 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       
-      - name: Install Rubocop
-        run: |
-          gem install rubocop
-      
       - name: Run Rubocop autocorrect on changed files
         run: |
-          # Get list of changed Ruby files (.rb and .lic)
+          # Get list of changed Ruby files (.rb, .rbw, and .lic)
           git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(rb|lic)$' || true)
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM origin/${{ github.base_ref }} HEAD | grep -E '\.(rb|rbw|lic)$' || true)
           
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop -a on changed files:"
             echo "$CHANGED_FILES"
             echo "$CHANGED_FILES" | xargs rubocop -a
           else
-            echo "No files changed"
+            echo "No Ruby, .rbw, or .lic files changed"
           fi
       
       - name: Commit changes
@@ -68,14 +64,14 @@ jobs:
       
       - name: Run Rubocop check on changed files
         run: |
-          # Get list of changed Ruby files (.rb and .lic, including any newly committed fixes)
+          # Get list of changed Ruby files (.rb, .rbw, and .lic, including any newly committed fixes)
           git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(rb|lic)$' || true)
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACM origin/${{ github.base_ref }} HEAD | grep -E '\.(rb|rbw|lic)$' || true)
           
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop check on changed files:"
             echo "$CHANGED_FILES"
             echo "$CHANGED_FILES" | xargs rubocop
           else
-            echo "No files to check"
+            echo "No Ruby, .rbw, or .lic files to check"
           fi
