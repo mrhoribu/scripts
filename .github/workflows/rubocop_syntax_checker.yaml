@@ -38,19 +38,19 @@ jobs:
       - name: Install Rubocop
         run: |
           gem install rubocop
-
+      
       - name: Run Rubocop autocorrect on changed files
         run: |
-          # Get list of changed Ruby files
+          # Get list of changed Ruby files (.rb and .lic)
           git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.rb$' || true)
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(rb|lic)$' || true)
           
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop -a on changed files:"
             echo "$CHANGED_FILES"
             echo "$CHANGED_FILES" | xargs rubocop -a
           else
-            echo "No Ruby files changed"
+            echo "No files changed"
           fi
       
       - name: Commit changes
@@ -65,17 +65,17 @@ jobs:
             git commit -m "Auto-fix: Apply rubocop autocorrections"
             git push
           fi
-
+      
       - name: Run Rubocop check on changed files
         run: |
-          # Get list of changed Ruby files (including any newly committed fixes)
+          # Get list of changed Ruby files (.rb and .lic, including any newly committed fixes)
           git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.rb$' || true)
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(rb|lic)$' || true)
           
           if [ -n "$CHANGED_FILES" ]; then
             echo "Running rubocop check on changed files:"
             echo "$CHANGED_FILES"
             echo "$CHANGED_FILES" | xargs rubocop
           else
-            echo "No Ruby files to check"
+            echo "No files to check"
           fi
