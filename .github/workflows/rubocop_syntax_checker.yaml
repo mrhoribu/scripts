@@ -18,6 +18,9 @@ permissions:
 jobs:
   rubocop-autofix:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: ['3.3']
     
     steps:
       - name: Checkout code
@@ -30,7 +33,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version:  ${{ matrix.ruby }}
           bundler-cache: true
       
       - name: Determine base reference and fetch
