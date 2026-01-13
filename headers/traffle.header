@@ -1,0 +1,17 @@
+    Updated version of Raffle Script by Cait to include more information.
+    Includes FULL description of ticket, Prize per ticket, and ticket quantity.
+    Sorts output according to time.
+
+    ;TRAFFLE HELP - for more info
+
+      todo: none
+    author: elanthia-online
+      name: traffle
+      tags: raffle, raffles
+   version: 2.0.0
+
+  changelog:
+    2.0 (2025-10-18)
+      Complete refactor to object-oriented architecture
+      Moved to TRaffle namespace
+      Replaced Settings with YAML file storage

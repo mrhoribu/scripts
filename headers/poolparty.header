@@ -1,0 +1,75 @@
+
+              author: Elanthia-Online
+        Original Author: Glaves
+               game: Gemstone
+               tags: locksmith, pool, locksmith pool, picking, boxes, loot, locksmith
+           required: Lich > 5.0.1
+            version: 2.1.5
+
+ Box pool script
+
+ Original work done by Glaves, but now maintained via elanthia-online
+ If you find any bugs please report them to the Gemstone Scripting Discord Channel
+
+ **Change Log**
+ 1.00 - initial release
+ 1.01 - Added RR waste bin
+ 1.02 - added Icemule (Boss) NPC
+ 1.03 - Added plinite support
+ 1.04 - Added very basic disk logic (you still need a box in your inventory to trigger the initial deposit, but it will check your disk while at the pool)
+ 1.05 - Removed the need for Foreach, added better disk logic, fixed wastebins
+ 1.06 - Added Solhaven NPC
+ 1.07 - Fixed wastebin in Solhaven, added plucking for plinites
+ 1.08 - Updated Plinite handling logic
+ 1.09 - Should have the RT issue fixed - Thank you Lostranger
+ 1.10 - Updated the disk logic - Reverted change to RT back to a dumber hard pause
+ 1.11 - Added the ability to only run the looting portion of the script ;PoolParty loot
+ 1.12 - Props to Licel - Added a help menu, you can now set your tip ;poolparty tip ## - LICEL!
+ 1.13 - Fixed syntax with new Tip setting feature
+ 1.14 - Added a check to make sure you have your lootsack set
+ 1.15 - Added the ability to toggle waiting for a disk ;Poolparty skipdiskwait to toggle- Licel
+ 1.16 - Fixed plinites being put in the wastebin - Thank you Sentral!
+ 1.17 - Added Zul Logoth
+ 1.18 - Added Canister to trashbins - Sped up looting a bit
+ 1.19 - Fixed issue with the flippable coins
+ 1.20 - Shout to Selfane - Added ability to toggle between percentage or flat tip - Selfane
+ 1.21 - Added SETTINGS - Check your current settings ;poolparty settings
+ 1.22 - Fixed a Typo!, oops.
+ 1.23 - Changed Vars to regex for case insensitive
+ 1.24 - Will now open lootsack before running logic - Shout out to Gidion for the suggestion!
+ 1.25 - Apparently using regex for the vars was bad.  i fixed it
+ 1.26 - Had to move where/when the script opens your lootsack so it wasn't annoying while changing settings
+ 1.27 - Added logic for items left in boxes before trashing
+ 1.28 - fixed not defaulting to percentage based tip
+ 1.29 - Fixed an issue with the flat/silver thing not working right - Selfane
+ 1.30 - Ooops - But i fixed it
+ 1.31 - Added a check for a full l ootsack
+ 1.32 - Fixed wandering gnome npc issue on FWI - Shout to Lieo for catching the bug!
+ 1.32 - Added check another check for loot still in boxes
+ 1.33 - FIXED!!!!  The stupid shit with peoples disks/names matching inside the regex and then trying to use it as a wastebin
+ 1.34 - Attempting to speed things up a bit
+ 2.00 - Rewrite - Steel Talon - See Poolparty help - REQUIRES ABOVE RUBY 2.0 (Update your ruby people)
+ 2.01 - Fixed the library not downloading/loading issue
+ 2.02 - Moved to Elanthia Online
+ 2.03 - Fixed commas in INFO
+ 2.04 - Changed Helper module to Helper to not conflict with shared library
+ 2.05 - Code cleanup.  Hand sanity check for boxes.
+ 2.06 - Fixed issue with not waiting for disk during deposit
+ 2.07 - Fixed script specific scoping
+        Fixed issue with tip-type incorrectly erroring out
+        Added ability to pass in amount of boxes to loot via ;poolparty loot num  EG ;poolparty loot 5
+        Reworked internal errors to provide a better experience.
+        Reworked all Oleani code to now match the new Oleani scoping
+ 2.08 - minor typo fix for Oleani::Support constant
+ 2.09 - Fix for missing PoolParty namespace in caught exceptions
+ 2.10 - Fixed a bug where scanboxes would exit out prematurely
+        Fixed a typo in the root rescue
+        Added code to better handle looting unknown boxes
+        Fixed non-recognized boxes not being moved to your lootsack
+ 2.11 - Added the option to look into each box before dumping it
+        Fixed error when attempting to hand in an already unlocked box
+ 2.12 - Add trickster to list of pool boss names (Icemule update)
+ 2.13	Updated Oleani version to account for inventory verb changes
+ 2.14	Add loot option to loot boxes to match stow list before dumping in default container
+ 2.15   Use TRASH command for trashing items
+

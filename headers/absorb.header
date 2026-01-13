@@ -1,0 +1,30 @@
+  version: 1.0
+
+  Experience pulse utility script
+
+  By default, this script will run in the background and announce experience
+  gains as they are absorbed.
+
+  Also supports some actions around pulses and mind saturation:
+    * Run until experience absorbed and then exit (ala ;pulse.lic)
+    * Run a command or start another script on an experience pulse (ala ;errand.lic)
+    * Log off when mind clears or reaches a specified level
+
+  Usage:
+    # Run in background and announce absorbed experience
+    ;absorb announce
+
+    # Announce experience until mind clears below 50% full, then stop script
+    ;absorb unfry
+
+    # Announce experience until mind clears below 100% full, then logoff
+    ;absorb unsat --auto-logoff
+
+    # Wait until some exp is absorbed then run a script
+    ;absorb script go2 bank
+
+    # Wait until some exp is absorbed then perform a command
+    ;absorb do gird
+
+  Author: Kragdruk
+  Tags: util

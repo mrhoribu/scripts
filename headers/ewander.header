@@ -1,0 +1,24 @@
+
+  Moves around by selecting the adjacent room that was visited least recently.
+
+  Stops in a room only if:
+    there is a live, targetable npc in the room
+    there are no characters in the room that aren't in your group
+    there is no disk in the room that belongs to someone not in your group
+
+  Use   ;ewander add              and
+          ;ewander remove           to set up boundaries to keep you in your hunting area.
+  Use   ;ewander delay <number>   to set the movement delay
+  Use   ;ewander <npc1> <npc2>    to stop only for specific npcs.
+  Use   ;ewander <pc>             to stop for another specific character.
+  Use   ;ewander                  to stop for any targetable npcs.
+
+   author: elanthia-online
+     game: Gemstone
+     tags: movement
+ required: Lich >= 5.11.0
+  version: 1.0.0
+
+  changelog:
+    1.0.0 (2025-03-19):
+      - initial fork of wander.lic

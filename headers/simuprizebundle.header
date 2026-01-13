@@ -1,0 +1,11 @@
+  simuprizebundle.lic - A Lich script to bundle all the Rumor Woods prizes that can be bundled.
+
+        author: elanthia-online
+  contributors: Dissonance, Tysong, Jervil
+          game: Gemstone
+          tags: utility, rumor woods
+       version: 1.0.0
+
+  Changelog:
+    v1.0.0 (2025-04-21)
+      - Script created

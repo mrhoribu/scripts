@@ -1,0 +1,85 @@
+  eloot.lic: eLoot is fork/update/rewrite of sloot.
+
+  Some primary changes from sloot include using in-game STOW settings instead of variables.
+  Locksmith pool handling, loot room, exclusion support, appraise limits.
+  eloot also auto-writes settings to your Lich5/Data/eloot folder per character.
+
+            author: elanthia-online
+   original author: SpiffyJr (sloot)
+        maintainer: elanthia-online
+      contributors: SpiffyJr, Athias, Demandred, Tysong, Deysh, Ondreian, Lieo, Lobe, Etheirys
+              wiki: https://gswiki.play.net/Lich:Script_Eloot
+              game: Gemstone
+              tags: loot
+          required: Lich >= 5.12.9
+           version: 2.6.4
+  Improvements:
+  Major_change.feature_addition.bugfix
+  v2.6.4  (2026-01-12)
+    - increase upper limit of appraisal amount from 1,000,000 to 10,000,000
+  v2.6.3  (2025-12-02)
+    - bugfix trying to skin/loot failed bounty children npcs
+    - update debug messaging
+    - bugfix in blood band/bracer settings
+  v2.6.2  (2025-11-21)
+    - force looting of bounty heirloom items if found
+  v2.6.1  (2025-11-11)
+    - bugfix in open_loot_containers
+    - bugfix in get_weapon_inv
+  v2.6.0  (2025-10-26)
+    - add bloodband support
+    - bugfix for save_trash_box method
+    - bugfix box tipping default missing on first run
+    - bugfix for open_single_container when using a string
+    - moved tooltips out of UI xml
+  v2.5.7  (2025-10-19)
+    - bugfix for debt when entering locker
+  v2.5.6  (2025-10-08)
+    - bugfix for store/ready ranged_weapon to ranged
+  v2.5.5  (2025-10-05)
+    - bugfix for non-standard ready/stow list items
+  v2.5.4  (2025-10-04)
+    - bugfix for nil items
+    - bugfix in logic for return_hands
+  v2.5.3  (2025-10-03)
+    - bugfix for return_hands
+    - toggle righthand and lefthand off at initialization
+    - minimum lich version to 5.12.9
+  v2.5.2  (2025-10-02)
+    - bugfix for incorrect method call typo
+  v2.5.1  (2025-09-30)
+    - bugfix for store/ready secondary_weapon to 2weapon
+  v2.5.0  (2025-09-19)
+    - switch to using Lich methods ReadyList and StowList
+    - removed change log in script before 2.4.0. Full change log on the wiki
+    - fix for SG trash can
+  v2.4.11 (2025-09-12)
+    - add option to always use the locksmith when a gem bounty is active
+  v2.4.10 (2025-09-06)
+    - rework box contents check to store box instead of pausing
+    - bugfix for looting coins on the ground
+  v2.4.9 (2025-09-05)
+    - bugfix in regex for use_coin_hand method
+  v2.4.8 (2025-08-30)
+    - bugfix for setting ELoot.data.coin_bag_full to false when empty.
+  v2.4.7 (2025-08-15)
+    - if debug to file enabled, allow for when started with a parameter (sell/pool/etc)
+  v2.4.6 (2025-08-12)
+    - fix encumbered after box opening by depositing silvers in process_boxes
+  v2.4.5 (2025-07-22)
+    - bugfix for default locksmith_withdrawl_amount
+  v2.4.4 (2025-07-16)
+    - allow customizable locksmith tip amount withdrawal
+    - typo correction in bulk sell gem method
+    - force clean overflow containers from sell_container list
+    - utilize File.join for save/load
+    - bugfix in pool_return to allow up to 2 seconds for GameObj right/left hand to populate
+    - remove Unicode characters in formula explanation for scaled box tipping (non-logic change) / Warlock
+  v2.4.3 (2025-07-15)
+    - bugfix for town locksmith regex to open box after return being too generic
+  v2.4.2 (2025-07-09)
+    - bugfix for silver withdrawals failing on f2p accounts with low bank balances
+  v2.4.1 (2025-06-05)
+    - bugfix for unable to lighten load during pool return and no silvers to deposit to allow more boxes to be returned
+    - bugfix for box loot to deposit coins if too many coins on yourself to be able to loot coins from box
+    - change class checks to is_a? checks

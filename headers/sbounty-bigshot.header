@@ -1,0 +1,15 @@
+
+    SBounty Bigshot Proxy
+    
+    This script is intended to be used with SBounty to proxy
+    hunter calls through Bigshot.
+    
+       author: elanthia-online
+ contributors: spiffyjr
+         name: SpiffyBounty Bigshot
+         tags: bounty
+      version: 1.0.1
+
+    v1.0.1 - 2022-11-04
+      Fix variables to be string
+

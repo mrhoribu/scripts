@@ -1,0 +1,16 @@
+  CreatureBar Coordinate Calibrator
+
+  Visual tool to calibrate body part coordinates for CreatureBar silhouettes.
+
+  Usage: ;CreatureBarCalibrate
+
+        author: Elanthia Online
+  contributors: Nisugi
+          game: Gemstone
+          tags: hunting, combat, creatures
+       version: 1.0
+      required: Lich >= 5.13.0
+
+  Author: Coordinate calibration helper
+  v1.0 (2025/11/30)
+    - initial release

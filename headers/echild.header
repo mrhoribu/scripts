@@ -1,0 +1,44 @@
+
+  Escorts a child to the nearest guard.
+
+  Run this script after finding the child to escort, and while in the same room as the child.
+
+  USAGE:
+    ;echild
+    or
+    ;echild roomnumber
+
+  You must also have the script move2.lic (preferred) or step2.lic to operate!
+
+    maintainer: elanthia-online
+  contributors: Drafix, Catrania, Kaldonis, Kalros, Hazado, Tysong, Xanlin
+          name: echild
+          game: Gemstone
+          tags: escort, child, advguild, adventurer guild, guild
+       version: 1.20.3
+
+  2025-05-23 - 1.20.3
+    - fix for detecting familiars incorrectly
+  2025-01-19 - 1.20.2
+    - fix for constant redefinition Ruby warnings
+  2024-09-12 - 1.20.1
+    - convert to use RealID instead of LichID
+  2024-08-07 - 1.20.0
+    - add customizable, always use, disabler option via --disabler=617
+    - convert min_mana, use_disablers to CharSettings instead of Settings
+  2024-07-06 - 1.19.1
+    - bugfix in Maaghara routine for climb failure
+    - order spells by actual mana cost calc'd from Spell and not by the number of the spell
+    - allow for usage of move2.lic usage instead of step2.lic
+  2024-03-12 - 1.19.0
+    - add CLI option to disable disablers via ;echild nodisablers
+    - modify ;echild list to now also trigger for help. expand output to show current settings
+  2024-02-25 - 1.18.11
+    - return child to correct location with manual ask of child
+  2024-02-15 - 1.18.10
+    - bug in standing for Maaghara routine
+  2023-07-08 - 1.18.9
+    - rubocop cleanup
+    - add Atoll creatures to 706 Mind Jolt exclusion
+  2023-02-23 - 1.18.8
+    - Bugfix for Ruby v3.x compatibility

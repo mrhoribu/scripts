@@ -1,0 +1,19 @@
+  MechFire by Nisugi
+
+  author: Nisugi
+    name: MechFire
+    tags: ranged crossbow mechanical combat
+   version: 3.1
+
+
+   This is a highly configurable combat script for use with a mechanical crossbow.
+
+   It is designed with the sniper in mind. Depending on your settings, it will kneel
+   hide, and kill every critter in the room until the room is cleared or it reaches
+   the amount of kills you set to come out of hiding and loot. It will jump back in
+   hiding and resume killing after looting.
+
+   If you disable looting I recommend enabling single kill mode to prevent losing any
+   corpses to decay from the room swarming.
+
+   For more information please run ;mechfire help

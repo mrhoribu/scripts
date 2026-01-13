@@ -1,0 +1,38 @@
+    Changes Deaths and Arrivals window messaging
+    Replaces normal death messaging with specific town instead.
+    Replaces normal/RP login and logout messagins with generic messaging
+    Works in Stormfront, not sure if works in Wizard.
+	
+    SYNTAX - ;messaging
+	
+    Abbreviations:
+        WL    - Wehnimer's Landing
+        CY    - Cysaegir
+        RR    - River's Rest
+        TI    - Ta'Illistim
+        IMT   - Icemule Trace
+        KD    - Kharam Dzu (Teras Isle)
+        TV    - Ta'Vaalor
+        SOL   - Solhaven
+        FWI   - Four Winds Isle
+        ZUL   - Zul Logoth
+        REIM  - Settlement of REIM
+        TRAIL - Trail to Solhaven
+        RED   - Red Forest & Aradhul Road
+        RIFT  - Rift
+        SOS   - Sanctum of Scales
+        EC    - Elemental Confluence
+		KF    - Kraken's Fall
+		OSA   - Open Sea Adventures
+		
+       todo: add additional confluence messaging
+     author: Tysong (horibu on PC)
+       name: messaging
+       tags: death, messaging, login, logout
+    version: 1.1.0
+
+    changelog:
+        1.1.0 (2021-08-03)
+            Updates from Virtuousin
+        1.0 (2017-03-26)
+            Initial Release

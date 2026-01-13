@@ -1,0 +1,33 @@
+    Various Event Squelching Script
+    Currently supports the following squelch scenarios:
+        EG Fishing - Will squelch other's fishing attemps and related messaging
+        EG Digging - Will squelch other's digging attempts and related messaging
+
+    ;TSQUELCH
+
+      todo: add Reim specific messaging, additional missed EG game/diving/etc messaging
+    author: Tysong (horibu on PC)
+      name: tsquelch
+      tags: EG, digging, Ebon Gate, dig, squelching, squelch, fishing, fish
+   version: 2.3
+   website: https://github.com/elanthia-online/scripts/
+
+    changelog:
+        2.3 (2025-11-03)
+            wrap into TSquelch namespace
+        2.2 (2022-10-05)
+            Initial EG 2022 update
+        2.1 (2021-02-16)
+            Added Duskruin arena entrance and scripmaster
+        2.0 (2018-10-13)
+            Rewrote majority of all REGEX matches to be less greedy, hopefuly meaning less ReDoS lag
+        1.4 (2018-10-06)
+            Added extra fish pits, tide pools, and eel bed rooms
+        1.3 (2017-10-12)
+            Added EG Game - Tidepools, Eel Beds, Fish Pits
+        1.2 (2017-10-11)
+            Corrected a few regex matches due to GMs updating syntax with proper grammar
+        1.1 (2017-10-08)
+            Code/Regex cleanup
+        1.0 (2017-10-08)
+            Initial Release

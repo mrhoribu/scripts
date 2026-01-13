@@ -1,0 +1,27 @@
+  A script to play the Ebon Gate Herb Hunt mini-game.
+
+  For setup instructions, please see ;herbhunt help
+
+        author: elanthia-online
+  contributors: Tysong, Alastir
+          game: gemstone
+          tags: herb hunt, ebon gate, ebongate, games
+       version: 1.3.2
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.3.2 (2025-10-19)
+    - additional corrections
+  v1.3.1 (2025-10-14)
+    - check hands for herb sack if hunt ended early
+  v1.3.0 (2025-10-13)
+    - fix for using redeemed entries, so just go entrance now
+  v1.2.0 (2023-10-03)
+    - fix to continue foraging when no toadshade found
+  v1.1.1 (2023-10-03)
+    - fix to pause if found unknown result incase of something important found
+  v1.1.0 (2023-10-02)
+    - add option to rest till percent experience setting, see help for info!
+  v1.0.0 (2023-10-02)
+    - initial release
+    - fork of mandrake.lic by Alastir with a few minor updates and code cleanup

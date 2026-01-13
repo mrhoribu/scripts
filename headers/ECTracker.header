@@ -1,0 +1,27 @@
+   A script that tracks enhancive charge loss. Will check charge level in the background when enhancives are active.
+
+   ;ECTreacker help
+      - list out the commands
+   ;ECTracker alert
+      - Toggle alert message when charge loss recorded
+   ;ECTracker verbose
+      - Toggle alert message when charge level is checked (mainly for troubleshooting)
+
+   ;ECTracker 300
+      - Start tracking, # determins time between checks in seconds. Defaults to 60 if left blank.
+   ;eq ECTracker.generate_item_summary("item_name")
+      - Lists a summary of the item selected. Accepts partial name.
+   ;eq ECTracker.find_simultaneous_charge_loss
+      - Lists events when more than one item lost a charge.
+
+        author: Nisugi
+  contributors: Nisugi
+          game: Gemstone
+          tags: enhancives, charge, tracking, data
+       version: 1.1.0
+
+  v1.1.0
+    - added some more data to the display.
+    - cleaned up time formatting in data
+  v1.0.0
+    - Initial Release

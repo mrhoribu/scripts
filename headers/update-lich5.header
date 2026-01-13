@@ -1,0 +1,15 @@
+
+  update-lich5.lic: A defunct updater that tells people to use the other one
+
+        author: elanthia-online
+  contributors: Athias
+          game: Gemstone
+          tags: Lich5
+       version: 1.0.0
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+
+  v1.0.0 (2022-03-02)
+    -Initial creation
+

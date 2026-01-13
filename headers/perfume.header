@@ -1,0 +1,14 @@
+
+  Perfume: use ;perfume setup to set your item.. be it perfume/cologne or something else. and the container you want to keep it in.
+  If wearable, just check the checkbox and list what the item is in the top text entry box.
+  Let me know how it works..
+
+    author: elanthia-online
+      game: Gemstone
+      tags: cologne, perfume, utility, roleplay, rp
+   version: 1.0.0
+
+  changelog:
+    1.0.0  (2025-03-07):
+      - initial release
+      - fork of Nomada's fragrance script

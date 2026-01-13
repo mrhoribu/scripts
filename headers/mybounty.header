@@ -1,0 +1,35 @@
+
+MyBounty
+
+Use a BOOST BOUNTY, then ;mybounty will help you be picky about what bounty you want to keep and which to ignore without risking carpal tunnel. Asks for a bounty at the Adventurer's Guild until you get the bounty/bounties you want. When the bounty matches, it'll run you to the NPC and ask what the bounty is.
+
+You can use it anywhere and it will go to the Adventure Guild for you and start asking for bounties.
+
+Please report any difficulties or bugs to Luxelle, this was a huge update or three.
+
+    author: Luxelle
+    game: Gemstone
+    tags: bounty, gems, herbs, specific, lumnis, contest, boost bounty, bounty boost, exclude bounties, bounties, skins, limit
+    version: 3.6
+    Tested in: Ta'Illistim, Wehnimer's, Solhaven, Icemule
+
+    Notes: to set the bounties you want, you need to first use:  ;mybounty setup
+
+    Credits: GTK GUI pulled from Bigshot & Dreavening. All credit goes to Azanoth, SpiffyJr, Tillmen, and Dreaven for this great code!
+
+    Thanks: Doug, Mice, Selandriel, Atanamir, Ondrein, and Pukk
+            and a big thanks to Pukk for adding the GUI Setup <3
+
+    Usage: ;mybounty
+           ;mybounty setup
+
+    Changelog:
+      v3.6 - 2025 May 28 - Add support for HW's herbalist/healer task removal as well
+      v3.5 - 2025 Apr 24 - Add support for HW's herbalist/healer tasks
+      v3.4 - 2024 Jan 04 - Add support for HW's taskmaster name Halfwhistle
+      v3.3 - 2021 Sep 13 - Intergrated Mister Doug's GTK 3 support
+      v3.2 - 2021 Jul 28 - The big PSM 3 update fix
+      v3.1 - 2021 Jul 05 - Should avoid asking a companion/familiar/spirit/etc for a bounty
+      v3.0 - 2021 Apr 22 - added run to see what bounty is, it will go to the advguild
+                           if you are not there when it starts
+      v2.1 - 2017 Sep 21 - cleaned up testing errors from 2.0  oops!

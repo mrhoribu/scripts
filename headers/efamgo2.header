@@ -1,0 +1,24 @@
+
+  Ever had your familiar/eye stranded somewhere?
+
+  This script tells your familiar to walk to a room#.
+  It's not fool-proof since they sometimes cannot enter certain areas.
+
+  Note:
+  The script will pause if there's a special procedure for the area.
+  It's up to you to figure out what to tell you pet from then on.
+  Unpause the script when you resolve the special procedures.
+
+  --Drafix
+
+  Fork of famgo2.lic by Drafix.
+
+         author: elanthia-online
+           game: any
+           tags: movement, step2, go2, move2, familiar, eye
+        version: 1.0.0
+
+  Change Log:
+    v1.0.0 (2025-05-01)
+      - initial release and fork from famgo2.lic
+      - add support for u##### (real ID#s)

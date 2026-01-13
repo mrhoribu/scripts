@@ -1,0 +1,27 @@
+  Shows the route between your current room and the target room, or between two target rooms.
+
+  Intended for troubleshooting mapDB issues
+
+    author: elanthia-online
+    contributors: LostRanger, Deysh, Tysong
+    game: gs
+    tags: utility
+    required: Lich >= 5.6.2
+
+  version: 0.4
+
+  changelog:
+    version 0.4  (2025-01-19)
+      * Add support for route2 a custom go2 target
+      * Remove location column if not GS4
+
+    version 0.3  (2024-09-03)
+      * Change output to use terminal-table
+
+    version 0.2  (2020-03-04)
+      * Cleanup output to be more friendly and useable.
+      * Actually add polish for release-quality scripts
+      * Should now work with tags in addition to room numbers and descriptions.
+
+    version 0.1  (2020-03-04)
+      * First public release

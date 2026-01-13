@@ -1,0 +1,39 @@
+
+  trix.lic: A utility script for using magic items from a container
+
+  Accepts a container parameter to specify which container to operate on.
+  Will inventory magic items in the container (they must have loresong unlocked) and allow you
+  to cast the spells from them using a menu interface.
+
+            author: elanthia-online
+      contributors: Scribs, Claude
+              game: gs
+              tags: utility, containers, magic items, spells, miu
+           version: 1.0.2
+          required: Lich >= 5.0.0
+
+  Usage:
+    ;trix scan <container>      -scan a container for magic items
+    ;trix                       -displays menu of saved magic items
+    ;trix -bonus                -displays menu with spell bonuses
+    ;trix -name                 -displays menu with item names
+    ;trix <menu number>         -will attempt to activate that magic item
+    ;trix <menu number> -f      -will force activating that magic item even if it has 1 charge remaining
+    ;trix clear                 -delete all saved trix magic item data from character settings
+
+  Examples:
+    ;trix scan backpack
+    ;trix scan backpack -bonus -name
+    ;trix scan "leather bag"
+    ;trix -bonus -name
+    ;trix 1 -f
+    ;trix clear
+
+  changelog:
+    1.0.2 (2025-10-29)
+      Reformatted the menu and added some options to make it more concise
+    1.0.1 (2025-09-10)
+      Refactored into module/class architecture to avoid namespace conflicts
+    1.0.0 (2025-09-09)
+      Initial release with basic functionality for one container and few safeguards
+

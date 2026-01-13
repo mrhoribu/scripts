@@ -1,0 +1,13 @@
+  A utility for editing StringProc objects in the MapDB
+
+  ;proctor --help is informative
+  
+  Required: Lich 4.3.12
+  Tags: core, util, mapdb, strinprocs
+  Author: Ondreian
+  version: 1.0.1
+
+  changelog:
+    v1.0.1: Use Gem.ruby for finding the real ruby path to verify syntax
+            do not rate limit non-HTTP beautifier
+

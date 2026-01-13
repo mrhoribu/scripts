@@ -1,0 +1,25 @@
+    DARTS Skill Rankup
+    This script will play darts automatically for you in attempts to rank up
+    your skill to the max. Will track total thrown darts & rankups.
+	
+    SYNTAX - ;tdarts
+
+    Variables to set:
+         Set name of your darts as follows:"
+         ;e echo UserVars.tdarts[:darts_name] = "violet-hued dart"
+
+         Set target modifier below (default INNER):"
+         ;e echo UserVars.tdarts[:location_modifier] = "inner"
+
+         Set target location below (default BULLSEYE):"
+         ;e echo UserVars.tdarts[:location_target] = "bullseye"
+
+       todo: nothing
+     author: Tysong (horibu on PC)
+       name: tdarts
+       tags: darts, games
+    version: 1.0
+
+    changelog:
+        1.0 (2018-02-23)
+            Initial release

@@ -1,0 +1,9 @@
+  a minimal LNet inbox utility. 
+  Works for both lnet & 0net
+  ;inbox help for more info
+  
+  Required: Lich 4.3.12
+  Tags: lnet, 0net, meta, core
+  Author: Ondreian
+
+

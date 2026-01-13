@@ -1,0 +1,27 @@
+  enhancives - Elanthia Online's enhancive item charge tracker.
+  Tracks and monitors your enhancives - warns you if any enhancive falls below a threshold you set.
+  No more panicking that you might miss your warning on your crumbly enhancive's one charge remaining.
+
+  Requires Ruby version 3.0 or higher.  For the best results while testing with this script,
+  install Lich 5.9.2 from the installer with Ruby 3.3.1.
+
+  Options include:
+    * Chosing your own threshold level.
+    * Seeing a report that shows the charges of all enhancives held / worn.
+    * Optionally saving your enhancives' state to generate a history (no more frequently than daily).
+    * Seeing your enhancives' state over time (day over day, week over week, etc.)
+
+      author: elanthia-online
+      game: Gemstone
+      tags: core, mechanics, utility
+      required: Lich > 5.6.2
+      version: 0.0.3 experimental
+
+  changelog:
+    v 0.0.3 experimental (2025-03-06)
+      removed unnecessary namespace scope from script
+    v 0.0.2 experimental (2024-07-26)
+      correct db entry to properly save threshold
+    v 0.0.1 experimental (2024-07-11)
+      * released for testing and feedback
+

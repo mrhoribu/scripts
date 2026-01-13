@@ -1,0 +1,22 @@
+
+  healbot_actions.lic: Companion script to healbot_core - maintains collection of commands
+
+        author: Elanthia-Online
+  contributors: Athias
+          game: Gemstone
+          tags: utility, shattered, automated
+       version: 1.3.0
+      required: Lich >= 4.6.58
+        source: https://github.com/elanthia-online/scripts
+
+  notes:
+    This script is intended to be completely automated
+    AFK scripting a violation of ToS, and this script is only intended for use in Shattered
+
+  Healbot Actions:
+     eatbread - eats mana bread if needed
+    givebread - give mana bread to (character)
+     healdown - healwounds until they are rank 1 or less
+     sendmana - send mana to (character)
+     transfer - transfer wounds from (character)
+

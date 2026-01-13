@@ -1,0 +1,13 @@
+  Automated locker moving.
+  If you aren't premie you must give it a speed. Options include immediate(default), express, or standard
+
+  example: ;uhaul landing teras immediate
+
+  Required: Lich 4.6.4
+  Tags: lockers, movers, move
+  Author: Ondreian
+  version: 2.0.2
+
+  Xanlin:
+    Added Kraken's Fall and Cysaegir.
+    No longer requires trust.

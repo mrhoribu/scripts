@@ -1,0 +1,44 @@
+  ECure - Enhanced healing script for Gemstone IV
+
+  A modular healing automation system for Empath characters
+
+  To setup, please run this first:
+    ;ecure setup
+
+  Features:
+    - Custom healing thresholds per body part
+    - Group and room healing capabilities
+    - GUI configuration interface
+    - Alternative behavior modes
+
+       author: elanthia-online
+         game: Gemstone
+         tags: heal, cure, empath, healing
+      version: 2.0.2
+     required: Lich >= 5.12.0
+
+  Improvements:
+  Major_change.feature_addition.bugfix
+  v2.0.2  (2025-10-17)
+    - bugfix in regex for missing hand/arm/leg extra space
+  v2.0.1  (2025-09-27)
+    - bugfix in wait_for_mana infinite stack level
+    - fix to attempt APPRAISE up to 3 times due to failure
+    - fix in regex wound array
+  v2.0.0  (2025-09-27)
+    - rewrite into proper module/class structure
+    - regex fixes for additional injury matching
+    - retry on spell hindrance
+    - condense GUI window
+    - add Exertion curing
+  v1.0.3 (2023-07-26)
+    - correct sleep/pauses for CURE usage for less than 3 second RT
+  v1.0.2 (2023-07-26)
+    - fix for NilClass comparison for @doneVerb
+    - fix for enabling use of CoL signs but not knowing Clotting or Staunching
+  v1.0.1 (2023-05-22)
+    - fixed group functionality after Naijin's return
+  v1.0.0 (2023-04-08)
+    - Rebase cure.lic to ecure.lic
+    - rubocop cleanup
+

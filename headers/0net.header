@@ -1,0 +1,51 @@
+
+  Extended chat client for Lich.  Offers the ability to add custom callbacks to
+  arbitrary Lich requests, but is completely backwards compatible with ;lnet
+
+  best practices:
+    - be respectful, Tillmen is generous to offer lnet as a service
+    - cache when possible (ala: locates)
+    - though tempting, do not overwrite standard Lich requests!
+      instead define your own namespaced hook like: :bounty-struct
+
+  permissions:
+    - all normal lnet permissions work, but it is up the callback authors
+      to implement permissions for their custom callbacks
+
+  libraries:
+    - ;0net automagically loads ;lnet-callbacks if the script is present
+      after booting, so you can override any defaults if desired
+
+  examples:
+    # a custom roundtime callback to respond to roundtime requests
+    # in some script (perhaps hunting)
+    LNet.add_callback(:roundtime, "roundtime") do |resp|
+       {hard: checkrt, soft: checkcastrt}
+    end
+
+    # using your custom callback in another script
+    respond LNet.get_data("Ondreian", "roundtime")
+
+  ;0net help
+
+  author: Ondreian
+  game: any
+  tags: core
+  required: Lich >= 4.3.12
+  version: 0.0.10
+
+  changelog:
+    0.0.1 initial release
+    0.0.2 add LNet.safe_send static method
+    0.0.3 fix a dangling `:` being in requests
+    0.0.4 removed references to $SAFE
+          rearranged some single line defs to be more readable
+    0.0.5 rubocop cleanup
+          remove spell-ranks data collection
+          remove forage tracking thread that reported to lnet servers
+    0.0.6 remove combat leadership skill
+    0.0.7 rotate in new cert from that nutty Tillmen
+    0.0.8 put in prevention to not run on newer REXML gem versions (3.3.2+) due to compatibility issue
+    0.0.9 change class checks to is_a? checks
+    0.0.10 add safeguards to REXML streams for non-valid XML, allows newer REXML ruby gem usage
+

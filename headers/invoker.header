@@ -1,0 +1,45 @@
+  Runs continuously and notifies you when the invoker has returned.
+  If you are already in FWI Gardenia Commons it will use them automatically.
+  Note: Once it prompts you if you would like to use them,
+  the script will not do so automatically if you move in to the room.
+
+        author: elanthia-online
+  Contributors: Nesmeor, Athias, Tysong
+          name: invoker
+          tags: utility, spellup
+       version: 2.4.1
+
+  Changelog:
+  2.4.1 (2025-04-12)
+    - Change @variables to @@variables
+    - Logic to wait for invoker if got there too early
+  2.4.0 (2024-08-06)
+    - Change tzinfo/tzinfo-data gem loading to allow for install
+  2.3.1 (2024-08-06)
+    - Correct endless looping issue after Invoker move to Mist Harbor
+  2.3.0 (2024-06-18)
+    - Updated timing to run every even hour using UTC time
+    - Rubocop cleanup
+  2.2.0 (2021-08-11)
+    - Namespace changes to correct messaging
+    - Updated header information
+    - other minor bug fixes
+  2.1.1 (2021-05-15)
+    - Bug fixes and tuning
+  2.1.0 (2021-05-10)
+    - Added customizable script pausing/killing, debugging
+  2.0.1 (2021-05-08)
+    - Fixed auto & toggling behavior
+  2.0.0 (2021-04-28)
+    - Script rewritten to be class based (Thanks Athias!)
+    - Functionality optimized for less error prone interaction.
+    - Script pausing functionality
+  1.3.0 (2021-04-27)
+    - Updated to Semantic Versioning
+    - Created  msg to handle messaging
+    - Added error messaging for spells being asked multiple times
+  1.2.0 (2021-04-26)
+    Added auto-use if in Park room. Removed room customization from command line as the invoker only ever shows up in one place. If you need to change it you can still change the invoker_location variable at the top of the script, but I prefer simplicity where possible :)
+  1.1.0 (2021-04-24)
+    Added colorized text for stormfront UI
+

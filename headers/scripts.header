@@ -1,0 +1,33 @@
+  Tiny wrapper around Lich's script directory that provides CLI-like utils
+
+  commands:
+    
+    List all installed Lich scripts in sorted alphabetically:
+      ;scripts ls
+      ;scripts dir ... windows sucks
+      ;scripts list
+
+    Remove scripts
+      ;scripts rm <script>
+      ;scripts del <script> ... windows sucks
+      ;scripts remove <script>
+
+    Read a script
+      ;scripts cat <script>
+      ;scripts type <script> ... windows sucks
+      ;scripts read <script>
+    
+    Search for a script by name
+      ;scripts search <pattern>
+    
+    Search the contents of scripts
+      ;scripts grep <pattern>
+  
+  Required: Lich > 5.0.0
+  Author: Ondreian
+  Tags:meta, scripts
+  
+  version: 1.0.1
+  
+  1.0.1 - Update for Ruby v3 compatibility
+  

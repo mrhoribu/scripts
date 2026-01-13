@@ -1,0 +1,10 @@
+   Automagically adds your looted silvers 
+   to your weightless coinbag
+
+   requires you to set the coinbag var
+
+   example :
+    ;var set coinbag=silvery mesh coin bag
+
+  author:  Ondreian
+  version: 0.0.1

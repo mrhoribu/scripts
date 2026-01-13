@@ -1,0 +1,66 @@
+
+  Automatically starts scripts when Lich starts.
+
+  ;autostart help
+
+        author: Tillmen (tillmen@lichproject.org)
+ maintained by: Elanthia-Online
+  contributors: Athias
+          game: any
+          tags: core
+       version: 0.66
+      required: Lich >= 4.6.58
+
+  changelog:
+    0.66 (2025-09-01):
+      cleanup of single-run logic pieces
+      always show lich5 announce updates
+    0.65 (2025-04-15):
+      updated .class type check to .is_a? type check
+    0.64 (2024-11-14):
+      Ensure repository always runs before dependency for DR. Rejig first run detection.
+    0.63 (2024-08-03):
+      Prevent blindly automatic updating of Lich5, there be dragons!
+    0.62 (2024-06-13):
+      Prep for Lich5 5.10.0 release and infomon DB refresh API
+    0.61 (2024-05-20):
+      Use internal Lich5 update module on Lich > 5.6.2 instead of script
+    0.60 (2023-09-07):
+      Removal of #quiet to prevent script being ran in quiet mode.
+    0.59 (2023-07-29):
+      Update to Infomon.sync db check to prevent race condition against possible XML stream
+    0.58 (2023-06-04):
+      Change Infomon::CLI.sync to Infomon.sync
+    0.57 (2023-03-12):
+      Prep work for infomon.rb library to not run older infomon.lic script
+    0.56 (2022-05-29):
+      Change default started scripts for fresh install
+    0.55 (2022-03-31):
+      Added messaging for DR users noting this script isn't normally used with DR-Scripts
+      Adding check for dependency, with note.
+    0.54 (2022-03-15):
+      Added logic to welcome Dragonrealms.
+      DragonRealms/GemstoneIV infomon detection
+      Removed xnarost from default autostarting
+    0.53 (2021-07-27):
+      Fixed defect where autostart would error if a completely new / fresh install with no lich.db3 existing.
+    0.52 (2021-05-10):
+      Fixed removal of lich being updated when running Lich5
+    0.51 (2020-09-09):
+      Added LR detect GTK version
+      Forcing unset-lich-updatable to prevent overwriting GTK3-enabled Lich only if GTK3 detected
+      Exclude narost / alias from update list if GTK3 detected
+      The above are only intended to be used in the GTK3 distro.
+    0.5 (2020-07-05):
+      Forced infomon and repository update to run at start
+      Prevented duplicate runs of infomon
+      Fixed bug with repository update not running
+      Made go2 and narost defaults
+      Formatting changes
+    0.4 (2015-07-12):
+      start infomon before other scripts
+    0.3 (2014-11-23):
+      add default settings on first run
+    0.2 (2014-11-10):
+      auto add infomon to global autostart list
+

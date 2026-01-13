@@ -1,0 +1,62 @@
+map - Elanthia Online's fork of LostRanger's narost fork.
+Tracks your current room on visual maps
+
+  Key differences between this and ;narost:
+    * map has a better-organized map list with submenus, and uses 'proper' map names instead of filenames.
+    * map sorts the list of tags.
+
+  click on a room to go there
+  shift-click on a room to show its description
+  right-click for some options
+
+      author: elanthia-online
+      contributors: LostRanger, Tillmen, Eleazzar
+      game: Gemstone
+      tags: core, movement, mapping
+      required: Lich > 5.0.1
+      version: 1.4.1
+
+  changelog:
+    v1.4.1 (2025-07-08)
+      * Handle a location of false
+    v1.4.0 (2025-07-04)
+      * Add Locations drop down (similar to tags)
+    v1.3.10 (2025-05-29)
+      * Fix for missing dark maps causing GTK errors and DR not having any dark maps
+    v1.3.9 (2025-05-10)
+      * Fix for default geometry and primary display saved settings forcing window back to primary monitor
+      * Correct MapData variable return to be class variable instead of instance variable
+    v1.3.8 (2025-04-20)
+      * Fix for initial default window position for tiling window managers that do not set monitor geometry
+    v1.3.7 (2025-04-15)
+      * Fix reset and initial default value/position of window to primary monitor location
+    v1.3.6 (2025-03-06)
+      * Bugfix for toggling dark mode when no map available for current room in mapdb
+    v1.3.5 (2025-02-23)
+      * Add opacity setting to reset option
+    v1.3.4 (2024-08-23)
+      * Bugfix on Find Room loading map file
+    v1.3.3 (2024-08-09)
+      * Update Settings to save location / size parameters per character
+    v1.3.2 (2024-07-12)
+      * Additional fixes for WSL and responsiveness
+    v1.3.1 (2024-06-29)
+      * fix popup menu crash under WSL
+      * fix pointer click offset issues in WSL
+    v1.3.0 (2024-06-26)
+      * add runtime toggle for opacity (ala orbuculum)
+      * add runtime toggle for borderless window and no scrollbar window (also orbuculum)
+    v1.2.0 (2024-05-19)
+      * fix crash when closing window after opening context menu
+      * add runtime togglable 'dark mode'
+      * added spacer to keep window position on Mac OS
+    v1.1.2 (2024-04-30)
+      * update to use File.join where appropriate
+      * change to use MAP_DIR instead of LICH_DIR+'maps' folder.
+      * change to use lich constants instead of global vars
+    v1.1.1 (2024-02-27)
+      * fix to unhide circle when doing a 'find room' search
+    v1.1.0 (2023-12-15)
+      * add RESET option to set all Settings back to default
+    v1.0.0 (2023-08-18)
+      * initial release and forking from xnarost v1.0.3

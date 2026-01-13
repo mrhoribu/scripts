@@ -1,0 +1,17 @@
+  attunecheck.lic:
+  Help find all the items that are attuned.
+  Currently checks worn items and items in worn containers.
+  Does not check items in nested containers.
+
+        author: elanthia-online
+          game: Gemstone
+          tags: items, attuned
+       version: 1.0.0
+
+     Help Contribute: https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.0  (2026-01-06)
+    - initial release
+

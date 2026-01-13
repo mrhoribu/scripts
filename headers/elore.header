@@ -1,0 +1,36 @@
+  ELore - Modernized Loresinging Script
+
+        author: Elanthia Online
+  contributors: DrunkenDurfin, Tysong, Nisugi
+          game: Gemstone
+          tags: bard, loresing, loresong, magic
+       version: 2.0.0
+      required: Lich >= 5.0.0
+
+  Changelog:
+    2.0.0 - Major rewrite:
+      - 2-line verses default (fast, ~3-5s RT), 4-line optional (powerful, ~11-12s RT)
+      - Added retry logic for incomplete revelations
+      - Integrated container processing (merged loreloop.lic)
+      - Removed logging functionality
+      - Made bot mode pause script configurable via CharSettings
+      - Proper error handling and cleanup
+
+  Usage:
+    ;elore              - Sing to item in right hand (2-line, fast)
+    ;elore power        - Sing with 4-line verses (more powerful, slower)
+    ;elore target <noun>           - Sing to item in room (can't hold)
+    ;elore target <noun> power     - Sing to room item with 4-line verses
+    ;elore bot          - Service mode (accept items from players)
+    ;elore bot power    - Service mode with 4-line verses
+    ;elore container <noun>        - Process all items in container
+    ;elore container <noun> power  - Container mode with 4-line verses
+    ;elore settings     - Show current settings
+    ;elore set <key> <value>  - Change a setting
+    ;elore help         - Show this message
+
+  CharSettings (per-character):
+    CharSettings['elore.pause'] = 'scriptname'  - Script to pause in bot mode
+    CharSettings['elore.retry'] = 3             - Max retries per verse
+    CharSettings['elore.mana'] = 50             - Min mana before singing
+    CharSettings['elore.power'] = false         - Use 4-line by default

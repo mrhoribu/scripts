@@ -1,0 +1,21 @@
+  automated chronomage day pass usage
+  between Icemule <-> Wehnimer's Landing
+  between Ta'Vaalor <-> Ta'Illistim
+
+  example:
+    ;portkey
+    ;portkey bank
+
+      author: elanthia-online
+        tags: chronomage, day pass, travel, go2
+    required: Lich >= 5.7.0
+     version: 1.1.0
+
+  Changelog:
+  Major_change.feature_addition.bugfix
+  v1.1.0  (2025-03-05)
+    - added support for Ta'Illistim <-> Ta'Vaalor
+    - added silver check to only go to bank if not enough funds
+    - fixed inventory check
+    - bugfix Lich 5.11+ compatibility
+    - rubocop cleanup

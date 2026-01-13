@@ -1,0 +1,34 @@
+  Reports versions of Lich, Ruby, and other important builtins, as well as other diagnostic information.
+
+        author: elanthia-online
+  contributors: LostRanger, Doug, Tysong
+          game: gs
+          tags: utility, version
+       version: 1.2.1
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.2.1 (2025-09-08)
+    - show autostart args, if any, in output
+  v1.2.0 (2025-08-24)
+    - show ARGV lich.rbw CLI parameters if any were given
+  v1.1.5 (2025-06-17)
+    - show DR dependency version in list
+  v1.1.4 (2025-03-27)
+    - fix for autostart list  when dependency isn't running in DR
+  v1.1.3 (2024-08-25)
+    - fix for autostart list to not be hardcoded to GSIV
+  v1.1.2 (2024-07-10)
+    - fix to allow for - character in script version check
+  v1.1.1 (2024-05-08)
+    - remove unnecessary code
+    - cleanup output to use $clean_lich_char
+    - use File.join where appropriate
+  v1.1.0 (2024-05-06)
+    - add $frontend to output
+    - change Account type to show unknown if non-Lich authenticated
+  v1.0.1 (2024-05-05)
+    - add Lich Location to report
+  v1.0.0 (2024-04-01)
+    - add account and game type to output
+

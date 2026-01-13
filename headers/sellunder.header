@@ -1,0 +1,41 @@
+  sellunder.lic
+
+  Sells items to gemshop and pawnshop only if they're valued at or under a specified price ceiling
+
+  Usage: ;sellunder [price_ceiling] [--return]
+         ;sellunder <price_ceiling> --single (sell item in hand only)
+         ;sellunder setup (opens GUI configuration)
+         ;sellunder list (shows current settings)
+         ;sellunder help (displays usage information)
+         ;sellunder <price_ceiling> --shop_type=gemshop,pawnshop
+         ;sellunder <price_ceiling> --stow_list=gem,default,treasure
+         ;sellunder --shop_type=gemshop,pawnshop (updates settings without running)
+         ;sellunder --stow_list=gem,default,treasure (updates settings without running)
+
+  Options:
+    --return    Return to starting room after completion
+    --single    Sell only the item in right hand at current location
+
+  Example: ;sellunder 60000
+    This will sell items valued at 60,000 silvers or under and save the price ceiling
+
+  Example: ;sellunder 60000 --return
+    Sell items and return to starting room when finished
+
+  Example: ;sellunder 60000 --single
+    Quick sell - sell only the item in your right hand at current location
+
+  Example: ;sellunder
+    Uses previously saved price ceiling (must be set via setup or command line first)
+
+  Example: ;sellunder --shop_type=gemshop
+    Updates shop type setting to gemshop only without running the script
+
+        author: elanthia-online
+          game: Gemstone
+          tags: selling, pawnshop, gemshop
+       version: 1.0.0
+
+  changelog:
+    1.0.0 (2026-01-11)
+      initial release

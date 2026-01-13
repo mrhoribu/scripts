@@ -1,0 +1,40 @@
+
+  FlareLog - Expand your data.
+
+ Requires Lich 5.10.0 or higher as it utilizes the new CritRanks lib. I recommend 5.10.3+ to make sure crit tables are up to date.
+
+ Will keep a count of non damaging flares, can track specifics such as resource returned from mana and aganjira flares.
+ Tracks damage flares and records Flare: type_of_crit: location_of_crit: rank_of_crit: [damage, damage].
+
+ If you're on Wrayth, there is a window to display some statistics. The window can be a bit much though.
+  ;flarelog debug                     Toggles debug messages. Shows whats going on behind the scenes.
+  ;flarelog window                    Toggles Wrayth window to display flare statistics.
+  ;flarelog --flares=<flare>,<flare>  Choose which flares to display in the Wrayth window.
+                                      ;flarelog --flares=lightning,briar,necromancy lore,holyfire,air_lore
+
+ A few other commands
+  ;eq FlareLog.save(true)         Force a save to the yaml file. Automatically does this on exit.
+  ;eq FlareLog.damage_flares      Displays a list of damage flares currently implemented
+  ;eq FlareLog.no_damage_flares   Displays a list of non damaging flares currently implemented
+  ;eq FlareLog.update_window      Forces an update to the Wrayth window.
+  ;eq FlareLog.data.keys          Displays a list of the the flares recorded. FlareLog.data returns the database.
+  ;eq FlareLog.reset_data         Start Fresh.
+  ;eq FlareLog.display_data       Displays breakdown of flare data in story window depending on which you set with --flares=
+  ;eq FlareLog.display_data("<flare>")    Displays breakdown for specific flare only.
+  ;eq FlareLog.display_data("all")        Displays breakdown for all flares recorded.
+
+ Please provide me with any ERROR messages you recieve. This is still a work in progress.
+ ***   ERROR no match for damage:
+ ***   ERROR no match for crit:
+
+        author: Nisugi
+  contributors: Nisugi
+          game: Gemstone
+          tags: data, flares, damage, critical
+       version: 1.0.0
+      requires: Lich >= 5.10.0
+
+  Needs: Crit tables error checked: Cold, Crush, Disintegrate, Fire, Lightning, Plasma, Puncture, Unbalance
+  Improvements:
+  v1.0.0 (09/12/2024)
+    Initial launch

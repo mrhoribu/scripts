@@ -1,0 +1,56 @@
+  Executes a series of commands for each item matching the criteria you specify.
+
+  Some examples:
+    ;foreach box in inv; move to locker
+    ;foreach box in locker; move to backpack
+    ;foreach gem in cloak; get item; appraise item; put item in container
+    ;foreach gem in red sack; move to gemcutter; turn gemcutter; move to blue sack
+    ;foreach scroll in inv; read item
+    ;foreach gem in backpack; get item; prep 704; cast item; put item in container   (Note: won't check mana)
+    ;foreach reagent in inv; get item; sell item
+    ;foreach gem in backpack; get item; ;my_script item; put item in container
+    ;foreach name=*quartz orb in inv; get item; put item in locker
+
+  Basic usage:
+    ;foreach [UNIQUE] [FIRST #] [AFTER #] [[ATTRIBUTE]=VALUE] in <CONTAINER>[; command; command; ...]
+
+  Type ;foreach or ;foreach help for more details and information on functionality, or visit:
+  https://github.com/dewiniaid/gs4-lich-scripts/blob/master/Foreach.md
+
+  ;foreach is blind to closed containers.
+
+        author: Elanthia-Online
+  contributors: LostRanger
+          game: Gemstone
+          tags: utility, inventory,
+      required: Lich > 5.0.1
+       version: 1.2.0
+
+  changelog:
+    1.2.0 (2026-01-11)
+      * Add support for SELLABLE as an attribute.
+        example:  ;foreach sellable=pawnshop in my cloak; get item; sell item
+    1.1.0 (2024-03-19)
+      Add support for TRASH command
+    1.0.7 (2024-01-09)
+      Fix regex match for filter causing all queries to default to TYPE
+    1.0.6 (2024-01-06)
+      Remove experimental feature, no longer used
+    1.0.5 (2024-01-05)
+      Rubocop cleanup
+      Fix for constant variables
+    1.0.4 (2021-12-09)
+      Updates from inventory and alongside verb changes
+    1.0.3 (2020-03-10)
+      * Container names (;foreach in CONTAINER) can now be suffixed with a questionmark to prevent ;foreach from failing
+        if the container was closed or not found.  i.e. `;foreach box in inv,disk?;locker` works even if you have no disk.
+    1.0.2 (2020-03-10)
+      * Add `;foreach...; locker`   as a shortcut for `;foreach...; move to locker`
+    1.0.1 (2019-11-21)
+      * Fixes to avoid items possibly being missed under certain circumstances due to Lich limitations.  This was
+        most likely to happen in `;foreach ... in inv...` on large inventories on certain combinations of hardware
+        and internet connectivity.
+    1.0.0 (2019-10-21)
+      Now handles collective containers.  Example:
+      If you have "You see three mannequins.  Looking at the mannequins, you see a dark grey mannequin, [...]"
+      foreach on mannequins   will ;foreach every mannequin in the list.

@@ -1,0 +1,11 @@
+  crits.lic - very short prototype / example script to demonstrate potential usage of the CritRanks module.
+
+             author: elanthia-online
+               game: Gemstone
+               tags: combat, information, demonstration
+           required: Lich > 5.11.0
+            version: 0.1.0 experimental / demonstration
+
+  0.1.0 (2025-07-09)
+    - initial concept release
+    - intended to demonstrate methods to get crit information from the CritRanks module in Lich

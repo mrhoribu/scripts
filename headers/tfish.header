@@ -1,0 +1,58 @@
+    Ebon Gate Fishing Script
+
+      Need to put stuff here
+
+      Requires your lootsack to be set for bundling seashells and storing loot
+      ;vars set lootsack=cloak
+
+      ;TFISH HELP
+      Show additional help.
+
+         todo: none
+       author: elanthia-online
+ contributors: Tysong
+         name: tfish
+         tags: EG, Ebon Gate, fish, fishing
+      version: 1.9.1
+      website: https://github.com/elanthia-online/scripts/
+
+    changelog:
+        1.9.1 (2025-11-03)
+            handle long description fishing poles, argh!
+        1.9.0 (2024-10-10)
+            add default option to trash fish
+        1.8.7 (2024-10-07)
+            bugfix for Ruby 3.x regex comparisons
+        1.8.6 (2023-10-01)
+            bugfix caught fish detection or bo longer in fishing room
+        1.8.5 (2023-10-01)
+            bugfix for long description weights, curse you!!
+        1.8.4 (2023-10-01)
+            Rubocop code cleanup
+            Update default weights to current EG 2023 glass/glaes weights
+        1.8.3 (2022-10-13)
+            Toggle silence_me with UserVars.tfish[:debug_my_script]
+        1.8.2 (2022-10-06)
+            Update some regex matching
+        1.8.1 (2022-10-06)
+            Add additional container messaging
+        1.8 (2022-10-05)
+            Initial 2022 EG updates
+        1.7 (2020-10-18)
+            Add additional get messaging.
+        1.6 (2020-10-13)
+            Fix for supplies readout regex issue.
+        1.5 (2020-10-13)
+            Cleanup on weight cycling.
+        1.4 (2020-10-13)
+            Added some cleanup when killing script to store supplies
+        1.3 (2020-10-13)
+            Fixes for lure descriptions and other things, credit to Ziled
+        1.2 (2019-10-17)
+            Handling an issue where you attempt to GO PATHWAY but are prone, causing the script to exit
+            Modifying the knife functionality to specify a specific container for the knife (variables: fillet_knife and knife_container)
+        1.1 (2018-10-07)
+            Updated UserVars to allow you to change weight descriptors
+            Changed regex for 25->50 for seashell cost
+        1.0 (2017-10-08)
+            Initial Release, based on Taleph's 3.3.3 script.

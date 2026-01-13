@@ -1,0 +1,11 @@
+  Tiny wrapper around Ruby `gem` package manager
+
+  Example:
+    ;gem install Olib
+    ;gem --help
+    ;gem list --local
+  
+  Required: Lich 4.3.12
+  Author: Ondreian
+  Tags:meta, ruby, gem, gems
+  

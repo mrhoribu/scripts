@@ -1,0 +1,40 @@
+
+This script is a fork and rework of joustsmart2022 done by Elanthia-online to make it more generic
+and to provide updates in capabilities.  All original contributors continue to be listed.
+
+This script attempts to improve returns on the joust by recognizing knight behavior patterns.
+Four patterns are known as of this version, there appears to be one to two more or the 5th is random.
+It starts by assuming a specific path to perfect joust and then adjusts based on results.
+There is plenty of randomness to the jousting so keep that in mind.  The behaviors could change,
+no guarantees there.
+
+See the help info for options and configurations.
+
+        author: elanthia-online
+  contributors: Tovklar, Elkiros, Rjex, Tysong, Dissonance, ChatGPT
+          game: Gemstone
+          tags: jousting, rumor woods
+       version: 2.0.2
+
+Changelog
+  v2.0.2 - 4/19/2025
+    - Code fix to make sure pouch gets dropped
+    - Added check to unhide before moving off to start the next run.
+  v2.0.1 - 4/18/2025
+    - Minor code optimization
+    - Runs to closest node (Aspen Tavern, Commons) if wait for exp absorb enabled
+  v2.0.0 - 4/15/2025
+    - Refactored code and made into a module
+    - Added support for stopping for XP absorbing
+    - Added support for easy changing of faction year and faction names settings
+    - Added more detailed help message
+  v1.2.1
+    - Updated for 2025 bee/bear
+  v1.2.0
+    - Updated for 2024 beetle/spider
+    - Updated to use real ID#s instead of Lich ID#s
+    - rubocop cleanup
+  v1.1.1
+    - Corrected help syntax
+  v1.1.0
+    - Updated Joustsmart to be year agnostic

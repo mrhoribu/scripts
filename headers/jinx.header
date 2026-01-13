@@ -1,0 +1,58 @@
+  Package Manager
+
+  ** THIS SCRIPT REQUIRES RUBY 2.3+ **
+
+  https://gswiki.play.net/Lich_(software)/Installation
+
+  A modern, federated package manager for Lich. This script provides similiar
+  functionality to the ;repository, but aims to make it much easier to share
+  updates to scripts and avoid relying anyone as a single point-of-failure.
+  Instead of a single server, jinx supports multiple repositories to be more
+  resilient against infrastructure outages or players leaving the community.
+
+   author: elanthia-online
+     tags: utility, util, repository, repo, update, upgrade, meta, ruby, development
+  version: 0.8.0
+
+  Changelog:
+  0.8.0 (2026-01-08)
+    add GUI code from Nisugi's jinxgui script
+
+  0.7.3 (2025-12-14)
+    require pathname gem explicitly incase not loaded as part of Ruby std library
+
+  0.7.2 (2025-12-05)
+    prevent script running when load called on file
+    add new GS/DR mapdb-backup repositories
+
+  0.7.1 (2025-08-15)
+    Add auto-update command for bulk updates:
+    - New ;jinx auto-update command to check and update all installed assets
+    - Tracks installed assets via metadata files
+    - Shows progress during bulk updates
+    - Add --dry-run flag to preview updates without installing
+    - Excludes engine assets from auto-update for safety
+    - Detailed reporting of successful and failed updates
+
+  0.7.0 (2025-08-14)
+    Major ergonomic improvements:
+    - Add smart asset type detection - no need to specify script/data/engine
+    - New unified commands: ;jinx install/update/info/search/list <asset>
+    - Automatic routing based on asset type from manifest
+    - Better error messages with helpful suggestions
+    - Backward compatibility maintained for all existing commands
+    - Add --type flag to force specific asset type when needed
+
+  0.6.4 (2024-05-05)
+    Fix helper text if file exists to append --force to command
+  0.6.3 (2023-05-17)
+    Add ability to refresh spell data with new effect-list.xml
+    rubocop cleanup
+  0.6.2 (2023-01-23)
+    Update for Ruby v3 compatibility
+  0.6.1 (2022-04-07)
+    Fix to prevent downloading data files as script and script files as data.
+
+  0.6.0 (2021-12-12)
+    Added pruning for deprecated repos
+

@@ -1,0 +1,14 @@
+  Heal the wounds of another player.
+  This script does not currently handle healing down
+  I usually run ;healself in background mode
+
+  * this is a beta release, as a triage for the new
+    healing updates.  If bugs are discovered, please
+    message me on discord @ondreian#3875
+
+  example :
+    ;mend <Player1>, <Player2>,...<PlayerN>
+
+  author:  Ondreian
+  version: 0.0.2
+  tags: healing, beta

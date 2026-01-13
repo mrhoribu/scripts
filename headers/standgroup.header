@@ -1,0 +1,21 @@
+    standgroup
+    Script will try to pull anyone in the room to their feet while within REIM or a warcamp.
+    Brought to you by the Hand of the Arkati!
+
+    SYNTAX - ;standgroup
+
+         todo: convert to module to prevent namespace conflicts
+       author: elanthia-online
+ contributors: Tysong
+         name: standgroup
+         tags: stand, group
+      version: 1.3
+
+    changelog:
+        1.3 (2024-02-15)
+            Rubocop cleanup
+            Removal of CONSTANT variables and renamed to include sg_ prefix
+        1.2 (2017-09-25)
+            Added support to ignore demeanor cold/reserved
+        1.1 (2017-05-12)
+            Initial Release

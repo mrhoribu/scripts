@@ -1,0 +1,25 @@
+  
+  infomon.lic: This script tracks a bunch of info about your character that isn't available as XML, such as your skills and stats, the spells you have on and their duration, gift of lumis, and other random things
+    Use   ;magic   to see what spells you have on.
+    Use   ;banks   to see how poor you are.
+
+        author: elanthia-online
+  contributors: Tillmen, Shaelun, Athias, Maodan, Tysong
+          game: Gemstone
+          tags: core
+      required: Lich > 5.0.16
+       version: 1.18.21
+        Source: https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  1.18.21 (2023-03-12):
+    Prep work for infomon.rb library to not run older infomon.lic script
+  1.18.20 (2023-02-20):
+    Fix premature silence end for psm skills with text after <output class="">
+  1.18.19 (2023-01-26):
+    Fixed bad PSM evaluations on partial regex match (shield_strike bug)
+    Remove code for ;banks and alias to just sending BANK ACCOUNT
+  1.18.18 (2022-12-28):
+    Fixed tracking for assume aspect cooldowns.
+

@@ -1,0 +1,90 @@
+   A script that removes status affects and combines several previous separate scripts. Will cover dispels, disarmed, and other status affects.
+   Configuration can be accessed via ;ecleanse setup
+        author: Deysh
+  contributors: Tysong
+          game: Gemstone
+          tags: dispel, unpoison, undisease, disarmed, effects
+      required: Lich >= 5.12.10
+       version: 2.2.8
+
+  Improvements:
+  v2.2.8  (2026-01-03)
+    - convert stunmaneuvers to CMan.use
+  v2.2.7  (2025-11-29)
+    - bugfix for silvery blue globe not being targetable
+  v2.2.6  (2025-11-11)
+    - bugfix in weapon recovery with two-weapon combat
+    - bugfix in weapon recovery to fill hands after emptying
+  v2.2.5  (2025-10-27)
+    - bugfix in hive apparatus trap disarm regex when no trap
+  v2.2.4  (2025-10-01)
+    - disarm messaging for hisska warriors
+    - hive traps search logic updates
+    - hive_trap_room additional monitor strings
+  v2.2.3  (2025-08-24)
+    - bugfix in list output
+    - bugfix in not saving current version to settings
+    - bugfix in disarm regex for noun having spaces, aka Hammer of Kai
+  v2.2.2  (2025-07-04)
+    - bugfix in allowing berserk when webbed to actually work
+  v2.2.1  (2025-06-21)
+    - allow dispel magic and dispel webs to be toggled if Spell Cleave or Spell Thieve known.
+  v2.2.0  (2025-04-23)
+    - add support for Covert Arts: Escape Artist
+    - determine whether web/globe/cloud is targetable to avoid dispelling player versions
+    - track web/globe/cloud ids to not retry casting again via CappedCollection
+    - remove spell cleave/thieve from bound/web removal, added to cloud/web/globe avoidance
+    - bugfix for hive trap/apparatus to not search unless actual room detected for them
+    - bugfix add Red Forest fog to invalid cloud check
+    - bugfix in telekinetic disarm xml matching
+  v2.1.1  (2025-04-18)
+    - fix for Moonsedge bind not triggering properly in XML
+    - add Paladin 1635 beseech support in remove_stun and remove_web_bound
+  v2.1.0  (2025-03-16)
+    - added Hive traps
+    - added kiramon weapon-webbing
+    - added kiramon disarm recovery
+    - added bony protrusion disarm recovery
+    - added itchy curse support
+  v2.0.4  (2025-03-16)
+    - bugfix for cloud dispel against gems with cloud in name
+  v2.0.3  (2025-03-13)
+    - bugfix in Char.percent_stance
+  v2.0.2  (2025-03-12)
+    - bugfix Ecleanse.data variable names
+    - fix Lich5 API calls to non-deprecated calls
+    - removed version change announcement
+    - bugfix for cloud dispel against Wyrm and Sybil
+  v2.0.1  (2025-03-12)
+    - bugfix for stunman hide/flee/stand to not repeat if no longer stunned
+  v2.0.0  (2025-03-09)
+    - Lich version now required to be >= 5.8.0
+    - update UI to use yaml to save settings
+    - removed custom issue_command method for Lich method
+    - bugfix for stun maneuvers
+  v1.1.5  (2025-03-08)
+    - bugfix to prevent constant stunman hide usage when stunned and successful hide
+  v1.1.4  (2025-02-25)
+    - bugfix to use UID for SOS vat cleansing
+  v1.1.3  (2024-09-24)
+    - bugfix for Unholy Quickening not breaking out of routine
+  v1.1.2  (2024-09-11)
+    - more Wall of Thorns bugfix
+  v1.1.1  (2024-09-03)
+    - bugfix to include Wall of Thorns poison checking
+  v1.1.0  (2024-08-18)
+    - refactor of the queue process to improve disarm response
+    - added help section
+    - updated issue_command method to mirror Lich
+  v1.0.19 (2024-08-06)
+    - add chaotic spatial anomaly to dispelable items (found in HW by gigas disciples)
+  v1.0.18 (2024-08-04)
+    - fix disarm not waiting for bonded weapon
+  v1.0.17 (2024-05-01)
+    - fix for Char.level -> Stats.level
+    - fix for Char.prof -> Stats.prof
+  v1.0.16 (2023-11-24)
+    - bugfix for stun recover - check to make sure not in a belly or innards
+    - added check for silvery blue globe and spiraling ghostly rift in Moonsedge
+    - added check for disarm maneuver in Moonsedge and Sanctum
+    - added check for Sanctum disease needing the vat

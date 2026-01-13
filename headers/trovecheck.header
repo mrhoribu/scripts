@@ -1,0 +1,19 @@
+
+  Checks for Ebon Gate Trove wins
+
+  Usage:
+    ;trovecheck [optional room numbers]
+
+   author: elanthia-online
+     game: gs4
+     tags: ebon gate, trove
+  version: 1.0.1
+
+  Improvements:
+  Major_change.feature_addition.bugfix
+  v1.0.1  (2025-10-27)
+    - check PROPERTY MINE to prevent checking property trove
+    - bypass property trove and troves 3-5 for Shattered
+  v1.0.0  (2025-10-26)
+    - initial release
+

@@ -1,0 +1,13 @@
+  poisoncraft automation for Gemstone IV
+
+  ;poisoncraft --poison dreamer --limit 300
+
+  changelog:
+    1.0.0 - initial version with poison charge calculations from GSWiki
+    1.0.1 - updated calculate_applications with correct poison charges
+
+  version: 1.0.1
+  required: Lich 4.3.12
+  author: Ondreian
+  tags: rogue, poisoncraft, automation
+

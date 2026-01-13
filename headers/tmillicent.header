@@ -1,0 +1,15 @@
+    Millicent gown shifting script
+    Designed to allow you to pick all three options of a Millicent gown and have it cycle until found.
+    Does not support the NOTHING option for the first descriptor, be more stylish than that!
+
+    SYNTAX - ;tmillicent help
+
+       todo: n/a
+     author: Tysong
+       name: tmillicent
+       tags: millicent, millicent gown, gown
+    version: 1.0
+
+    changelog:
+        1.0 (2018-11-04)
+            Initial Release

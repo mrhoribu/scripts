@@ -1,0 +1,16 @@
+
+  Fork of step2.lic by Tillmen.
+  Adds support for Real IDs (u######) and Lich IDs.
+  Moves one room towards your destination.
+  Will attempt movement call up to 3x before erroring out.
+
+   author: elanthia-online
+     game: any
+     tags: movement, step2, go2
+  version: 1.0.0
+
+  2024-07-06 - 1.0.0
+    - initial release and fork from step2.lic
+    - add support for u##### (real ID#s)
+    - attempt up to 3x way.call
+

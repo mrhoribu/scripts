@@ -1,0 +1,20 @@
+
+  This script formats the output of the bounty verb in a better HUD
+
+  Includes:
+   1. tracking for vouchers used recently
+   2. human readable expiry time for waivers
+   3. bounty points per hour
+   4. table for tasks
+
+   author: Ondreian
+     tags: cosmetic, bounty
+  version: 0.4
+
+  changelog:
+    0.1: initial release
+    0.2: fix for fmt_time
+    0.3: fix monospaced output for SF/Wiz FE, fix rescue for missing gem
+    0.4: fix for Lich refactor 5.11+ namescope issue
+         rubocop cleanup
+

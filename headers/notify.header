@@ -1,0 +1,48 @@
+  version: 1.3.1
+
+  Shows system notifications when:
+    * someone messages you on lnet
+    * someone whispers to you
+    * someone speaks to you
+    * something generally bad happens to your character
+
+  supported:
+    Linux (lib-notify)
+    OSX   (display)
+
+  contributions:
+    Dalem - OSX info
+
+  documentation:
+    ;notify                      turn on the notify watcher
+    ;notify sounds               list all sounds that notify can find on your system
+    ;notify sounds <substring>   list all sounds that match a substring
+    ;notify set-sound <sound>    set the sound to play when
+    ;notify mute                 turns off sound
+
+  usage:
+    # example how to add your own hooks
+    unless Module.const_get("Notify").is_a?(Module)
+      start_script "notify"
+    end
+    # we must set a sound for this script
+    # because it is in a different thread
+    Notify::Sounds.set "zelda/email"
+
+    Notify.notify(to: "Ondreian", from: "taters", body: "i'm important", type: Script.current.name)
+
+  notes:
+    * to be able to use Notify from another script it must be ;trusted
+      otherwise it be available the Main (global) context
+    * will no longer ping you about stuns while doing Dark Chamber reps
+
+  changelog:
+    2-15-2017 add danger notifications for low health and stun
+    2-17-2017 add pattern matching to ;notify sounds command
+    2-18-2017 add spinners to notifications
+    2-26-2025 fix for Lich 5.11+, rubocop code
+
+  Required: Lich 4.3.12, lib-notify
+  Author: Ondreian
+  Tags: util
+

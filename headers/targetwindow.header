@@ -1,0 +1,27 @@
+  TargetWindow.lic
+  Wrayth window that lists hostile creatures and their status with click to target.
+  Only updates when a target enters/leaves or has a status change.
+
+  ;targetwindow window    - Opens a Wrayth window to display targets with status.
+  ;targetwindow quickbar     - Displays targets and their status on the quickbar at the bottom.
+  ;targetwindow showarms  - Toggle displaying Grasp of the Grave arm count. Click to cast Grasp of the Grave.
+  ;targetwindow flash     - Toggle flashing red box around current target. Quickbar only.
+
+        author: Nisugi
+  contributors: Dalzashel
+          game: Gemstone
+          tags: hunting, combat, status tracking, target tracking
+       version: 1.4
+      required: Wrayth
+
+  Change Log:
+  v1.4 (2023-09-23)
+    - Additional information added to header.
+  v1.3 (2023-09-21)
+    - Add showarms setting to include a total count of the number of arms in the room (useful for Sorcerer's to see if they still have arms left)
+  v1.2 (2023-09-19)
+    - adjusted when flashing box occurs
+  v1.1 (2023-09-18)
+    - typos
+  v1.0 (2023-09-16)
+    - Initial Release

@@ -1,0 +1,22 @@
+
+  Tries to parse the "creatures by level page" on the wiki to mimic the old
+  behavior from ;beastiary
+
+  for usage info:
+    ;ebestiary help
+
+   author: elanthia-online
+     game: Gemstone
+     tags: info, play.net, wiki, bestiary, monsters, critters, help, bestiary, elanthia-online
+  version: 1.2
+
+  changelog:
+    1.2 - 2024-05-01
+      - Change Char.level to Stats.level
+    1.1 - 2024-01-25
+      - updates to handle new wiki format
+    1.0.1 - 2023-02-23
+      - adds code to handle creatures with non-standard name capitalization schemes
+    1.0
+      - initial release as ebestiary (formerly wikibeast)
+

@@ -1,0 +1,26 @@
+
+  This script allows you to connect to the Lich server to upload and download scripts,
+  and the map database.
+
+  ;repository help
+
+        author: elanthia-online
+ maintained by: Tillmen, EO team, SpiffyJr
+          game: any
+          tags: core
+      required: Lich > 5.0.1
+       version: 2.69
+
+  changelog:
+    2.69 (2025-12-05):
+      Major refactoring to proper module/class architecture
+      Removed proc usage in favor of instance methods
+      Improved code organization and maintainability
+      Show JINX commands for repository outage failure
+    2.68 (2025-11-26):
+      Bugfix in author change array lookups
+    2.67 (2025-11-05):
+      Remove showing Lich in show-updatable
+      Show all current mapdb updatables for current game type DR/GS logged into
+      Allow setting specific mapdb to be updatable from other instances
+

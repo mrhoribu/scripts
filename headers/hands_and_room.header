@@ -1,0 +1,11 @@
+
+  A window with your Left and Right Hands items.
+  Also shows PCs/NPCs in your room.
+  Updates the display every 1 second.
+  (Based upon ;inactivespells window script by Tillmen.)
+
+   author: Deatrys
+     game: Gemstone
+     tags: items, hands, window
+  version: 0.2
+

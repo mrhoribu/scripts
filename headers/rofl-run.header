@@ -1,0 +1,31 @@
+ This script runs the Rings of Lumnis event
+
+  It requires the following scripts to support it:
+    - rofl-puzzles
+    - rofl-questions
+
+  See the help info for options and configurations.
+
+        author: elanthia-online
+  contributors: Tysong, Dissonance
+          game: Gemstone
+          tags: rings of lumnis, RoL
+       version: 1.0.4
+
+  Changelog:
+  v1.0.4 - 2025-04-25
+    - added xml_encode to help, since .mono isn't currently doing that
+    - corrected style for calling Lich::Messaging.mono
+    - corrected style for calling Lich::Stash.stash_hands
+  v1.0.3 - 2025-04-23
+    - improved hand handling
+    - allowed alternate versions of commands (planes/planar, spirits/spiritual, elements/elemental)
+    - some internal optimizations and restructuring
+    - reworked info display/messaging
+    - fixed typo in planar ring room range
+  v1.0.2 - 2025-04-22
+    - bugfix in header keyword usage
+  v1.0.1 - 2025-04-21
+    - kill rofl-questions and rofl-puzzles on script end
+  v1.0.0 - 2025-04-20
+    - created the script to run the Rings of Lumnis event using existing puzzles and questions scripts.

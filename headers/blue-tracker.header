@@ -1,0 +1,17 @@
+
+  BlueTracker  https://blue-tracker.fly.dev/
+
+  A script to fetch and display recent GM posts from the Gemstone Discord server.
+
+        author: Nisugi
+  contributors: Nisugi
+          game: Gemstone
+          tags: discord, gamemaster, announcements, information
+       version: 1.0.1
+
+  Version Control:
+  v1.0.1
+  - Fixed nil watcher code handling
+  - Improved channel name matching (case-insensitive)
+  - Fixed timestamp consistency between formatters
+  - Improved error handling and truncation

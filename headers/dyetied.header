@@ -1,0 +1,17 @@
+  This script contributes to the share-able dyes list.
+
+  See the help info for options and configurations.
+
+        author: elanthia-online
+  contributors: Dissonance
+          game: Gemstone
+          tags: dyes, dye-n-ator, alchemy, cobbling, crafting
+       version: 1.0.2
+
+  Changelog:
+  v1.0.2 - 2025-05-12
+    - updated the script to use the new Google Sheets URI
+  v1.0.1 - 2025-05-09
+    - extended timeout on sending to Google Sheets to 120 seconds
+  v1.0.0 - 2025-04-20
+    - created the script to find dyes in dye-n-ator, containers, and hands and share them with the community

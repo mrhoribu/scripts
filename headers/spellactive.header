@@ -1,0 +1,31 @@
+    Keeps spells active. This script can be used in place of
+    sigils/signs and will keep any spell in the list active.
+
+      Usage: ;spellactive help
+
+         author: elanthia-online
+   contributors: spiffyjr, Tysong
+           game: Gemstone
+           tags: spells, magic, active
+       requires: Lich >= 5.9.0
+        version: 1.3.3
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+    1.3.3 (2025-03-19)
+      Remove deprecated calls
+    1.3.2 (2024-06-10)
+      Fixed string compare to only operate on strings for .cast result
+    1.3.1 (2023-01-25)
+      Add check for cooldown for short duration buffs
+      Update unable to cast regex for sigils and symbols
+    1.3.0 (2022-07-18)
+      Added nocast rooms.
+    1.2.1 (2022-05-07)
+      Fixed barkskin. Will not check for cooldown.
+    1.2.0 (2022-04-10)
+      Fix for beacon of courage
+    1.1 (2021-10-11)
+      updates to support new cmans
+    1.0 (unknown date)
+      Initial release

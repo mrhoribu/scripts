@@ -1,0 +1,34 @@
+  EO fork of gemhoarder. A script to hoard gems!
+  Features:
+    - fills jars from your gemsack.
+    - takes empty jars from your chest
+    - puts full jars in your wardrobe
+    - partially filled jars go in the bin
+    - raid function
+    - manually set gem amounts
+    - multi-locker edition, premium/plat only, checks if you have gems in other lockers
+    - alphbetical list(alpha)
+    - search function (egemhoarder search "green thingy")
+
+  Todo:
+    - non-Premium lockers do not work
+    - script will seem to lose track of items and need to be restarted
+
+        author: elanthia-online
+  contributors: Caithris, Falicor
+          game: gs
+          tags: gems, hoarding, locker, jars
+       version: 1.2.0
+
+  Version Control:
+  Major_change.feature_addition.bugfix
+  v1.2.0 (2025-09-09)
+    - convert to yaml instead of using lich.db3
+  v1.1.0 (2025-09-08)
+    - change to very basic module
+    - workaround fix for CharSettings sort issue in newer Lich5
+  v1.0.1 (2024-04-04)
+    - update various help text
+  v1.0.0 (2024-04-03)
+    - initial release
+    - fork of gemhoarder2 with Ruby 3.x compatibility

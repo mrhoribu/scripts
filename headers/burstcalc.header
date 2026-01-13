@@ -1,0 +1,29 @@
+    Calculates your spellburst potential for hunting Wyneb, OTF, and Nelemar.
+    *** WARNING! ***
+    This script is a GUIDE, in no way intended or expected to be accurate, be happy it exists and STFU.
+    *** WARNING ***
+
+    Script uses XML information to determine worn spells.
+    It is as close as I can get to a spellburst formula with our(my) current information.
+    It is fairly accurate up until about HALF YOUR LEVEL in wearable mana, and then it becomes increasingly less accurate.
+    If you have information that will improve the accuracy of the script, I'll gladly modify accordingly.
+
+    SYNTAX - ;burstcalc
+
+        author: elanthia-online
+  contributors: Tysong, Gibreficul, Tillmen, Mogonis
+          game: Gemstone
+          tags: burst, mana burst, burst calc
+       version: 1.4
+
+    changelog:
+        1.4 (2024-05-01)
+            Fix for Char.level/Char.prof to Stats.level/Stats.prof
+        1.3 (2021-04-07)
+            Initial attempt to add Monk compatibility
+        1.2 (2021-03-12)
+            Added display of unknown spells to output
+        1.1 (2021-03-12)
+            Fix for unknown XMLData.active_spells giving NilClass error
+        1.0 (2017-10-27)
+            Initial release from Gibreficul

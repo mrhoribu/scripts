@@ -1,0 +1,22 @@
+  Automates planar shift (740).
+
+  Usage:
+    ;shift # (where # is the rune number from your leather book)
+
+        author: elanthia-online
+  contributors: Ryjex
+          game: Gemstone
+          tags: 720, planar shift, sorcerer, sorceror
+       version: 1.0.0
+      required: Lich >= 5.7.0
+
+     Script currently in maintenance mode, not actively developed.
+     Bugfixes or contributions can be made by visiting:
+        https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.0 (2024-05-13)
+    - migration from Ryjex author to EO
+    - rubocop cleanup
+    - converted into module

@@ -1,0 +1,29 @@
+  CombatLog.lic is a damage meter.
+  
+  IN ALPHA STAGE. IN ALPHA STAGE. IN ALPHA STAGE. IN ALPHA STAGE. IN ALPHA STAGE.
+  
+        author: Nisugi
+		  game: Gemstone
+		  tags: hunting, data collection
+	   version: 1.1.1
+	   
+  Version Control:
+    Major_chage.feature_addition.bugfix
+  v1.0.0 alpha
+    Initial creation.
+	Supports fire, barrage, volley, spikethorn, tangleweed, feline companions.
+	Tracks damage and flares for each attack. Reports on death.
+	Make an alias ;alias add dps = CombatLog.report_kill('\?')
+	then just 'dps <target_id>' to report on them.
+  v1.1.0 alpha
+    Rewrites on rewrites. Thing we're getting to a good place for modularity.
+    Added some breeze flare messaging, greater rhimar flares, dislodge, pindown, nature's fury
+  v1.1.1
+    Update for Ruby v3 compatibility	
+	
+  Need to do:
+    EVERYTHING
+	Integrate all attacks/flares/dot type damage
+	Integrate a proper report.
+	Need ;logxml of various combat types to parse.
+	

@@ -1,0 +1,16 @@
+  Better money parser for Gemstone commands
+
+  examples:
+    shop withdraw 30m
+    shop sell 5.34m
+    withdraw 5k silver
+    give Tony 3m
+    exchange right with Tony for 3m silver
+
+  required: Lich 4.3.12
+   version: 1.0.2
+    author: Ondreian
+
+  changelong:
+    1.0.2: fix ignore regex for speech commands
+    1.0.1: add support for CHAT and THINK esp commands

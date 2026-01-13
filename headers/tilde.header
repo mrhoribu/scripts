@@ -1,0 +1,36 @@
+	quick shortcuts for dealing with containers
+
+	examples:
+	  ~cloak                 => look in my cloak
+	  ~cloak box         		 => put box in my cloak
+		~pants ruby amulet     => put ruby amulet in my pants
+		~:lootsack ruby amulet => put ruby amulet in your lootsack
+		^:harness small statue => remove a small statue from your Vars[:harness]
+
+	additive search algorithm weights:
+		1. right hand
+		2. left hand
+		3. loot
+		4. items in GameObj.containers.keys
+
+	profanity integration:
+		This script makes it trivial to have portable macros across all of your characters
+		using ProfanityFE.
+		
+		example:
+			<key id='ctrl+p' macro='\x~:lootsack \?'/>
+
+		this macro will be rebound across all of your characters to use your ;vars in Lich
+
+	Notes:
+
+	1. due to safety concerns it only works on containers in your inventory
+	   however the items that it will try to add to your container can be
+	   anywhere reachable
+	2. only your 'stow' container contents are eagerly loaded in the Game stream
+	   so until you look in some containers, their contents will not be reachable
+
+  Required: Lich 4.3.12
+  Author: Ondreian
+  Tags: util, containers
+  

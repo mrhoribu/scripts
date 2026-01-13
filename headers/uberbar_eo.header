@@ -1,0 +1,48 @@
+
+  Based off uberbarv_d, which was a fork of uberbarv, which was a fork of uberbar
+  Integrates with ;bank or ;ledger script to display Silver gained during day (optional)
+  Integrates with ;bank or ;hud_bounty scrip to display Bounty points gained (optional)
+
+          author: elanthia-online
+    contributors: Dantax, Tysong, Gibreficul, Bait, Xanlin, Khazaann, Dissonance
+            game: gemstone
+            tags: uberbar, bar, uber, vitals, paperdoll
+         version: 2.0.3
+        required: Lich >= 5.11.0
+
+  Help Contribute: https://github.com/elanthia-online/scripts
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v2.0.3 (2025-10-29)
+    - remove saving of XP history into UserVars as not used for anything
+  v2.0.2 (2025-09-24)
+    - update percent capped to use total experience, so it includes ascension experience
+  v2.0.1 (2025-07-04)
+    - allow for empath resource to work
+  v2.0.0 (2025-04-28)
+    - converted to module
+    - made various bars/txt togglable display
+    - made exp/resource check a customizable interval
+    - add support for ledger.lic (daily silver) and hud_bounty.lic (current session bounty points)
+    - convert evals into sends for security
+  v1.2.1 (2025-04-28)
+    - % capped should now update as well
+  v1.2.0 (2025-04-28)
+    - Added rogue to conditional display of resources
+    - Tweaked % capped to display correctly for empaths
+  v1.1.1 (2025-04-27)
+    - Missed some depreciated calls, fixed them.
+  v1.1.0 (2025-04-27)
+    - Replace depreciated calls with new Char. class data
+    - Added % capped bar.
+    - Updated minimum lich required to be slightly newer based on Char class rewrite
+  v1.0.3 (2024-11-05)
+    - Add Rogue to resource tracking
+  v1.0.2 (2024-07-13)
+    - Add Paladin to resource tracking
+  v1.0.1 (2024-05-01)
+    - Change Char.level to Stats.level
+  v1.0.0 (2024-03-10)
+    - initial release and forking from uberbarv_d version 2.1
+

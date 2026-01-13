@@ -1,0 +1,15 @@
+
+  healbot_core.lic: An automated healbot script to run commands based on regex
+
+        author: Elanthia-Online
+  contributors: Athias
+          game: Gemstone
+          tags: utility, shattered, automated
+       version: 1.2.0
+      required: Lich >= 4.6.58
+        source: https://github.com/elanthia-online/scripts
+
+  notes:
+    This script is intended to be completely automated
+    AFK scripting a violation of ToS, and this script is only intended for use in Shattered
+

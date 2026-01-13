@@ -1,0 +1,22 @@
+  Lets you know how many 'spell ranks' worth of defensive buffs you can safely wear in Spellburst areas.
+  Uses different assumptions and calculations than Gibreficul's venerable burst_calc script and its forks.
+  Instead of mana, it uses magic ranks and level to determine how many spell ranks you can wear per level.
+  Assumes foreign spells cost 3x the spell's rank and untrained native spells are 1.5x floored.
+
+  Wearable spell ranks based on average magical ranks per level thresholds with diminishing returns:
+   1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20...
+  140, 210, 257, 292, 320, 343, 363, 381, 397, 411, 423, 435, 446, 456, 465, 474, 482, 490, 497, 504...
+
+        author: elanthia-online
+  contributors: Omnirus, Tysong
+          game: Gemstone
+          tags: spellburst, magic, utility, buffs
+       version: 1.0.1
+      required: Lich >= 5.7.0
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  v1.0.1  (2025-08-15)
+    - force a SKILL refresh to ensure updated skills prior to calc
+  v1.0.0  (2025-03-07)
+    - Initial release, possible inclusion into core Lich5 in the future

@@ -1,0 +1,22 @@
+  A discord webhook module for Lich5.
+  Set your webhook url via:
+    LichDiscordHook.webhook="url here"
+  Use the webhook via:
+    LichDiscordHook.msg("message", title: "title", timestamp: Time.now, description: "whatever")
+  Example One:
+    description =
+      "#{XMLData.room_title.sub(']', " - #{Room.current.id}]")} (u#{XMLData.room_id})\n" +
+      reget(20).join
+    LichDiscordHook.msg("\nLogging Out!", description: description)
+  Example Two:
+    LichDiscordHook.msg("\nFEEDER FOUND!\n```#{line}```")
+
+   author: elanthia-online
+     game: any
+     tags: discord, webhooks
+  version: 1.0.0
+
+  changelog:
+    v1.0.0 - 2025-01-05
+      * initial release
+

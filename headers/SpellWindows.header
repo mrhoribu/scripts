@@ -1,0 +1,48 @@
+  SpellWindow.lic
+
+  Replaces Wrayths integrated spell active windows for spells, buffs, debuffs, cooldowns.
+
+  The script blocks the xml feed for active spells, buffs, debuffs, cooldowns, quickbar, and combat.
+  It grabs the data from Effects:: and populates the wrayth windows.
+  This gives the same exact information, without committing a ddos attack on your frontend.
+
+  Now it also incorporates buff_tracker and targetwindow!
+
+  NOTE ** If you use the combat window, room window, or inventory window, be sure to toggle those feeds with:
+      ;spellwindow combat
+      ;spellwindow room
+      ;spellwindow inventory
+
+  ;spellwindow       - starts the script
+  ;spellwindow help  - for the details
+
+        author: Nisugi
+  contributors: Nisugi
+          game: Gemstone
+          tags: hunting, combat, tracking, spells, buffs, debuffs, cooldowns
+       version: 1.9
+      required: Wrayth
+
+  Change Log:
+  v1.9 (2025-08-23)
+    - Major performance optimizations for multi-boxing
+    - Added configurable target window section ordering (players/targets/group)
+    - Added configurable timer update speed (default 0.25s)
+    - Optimized go2 handling: blocks target updates during travel, allows spell updates
+    - Added betrayer panel and bank dialog feed blocking options
+    - Improved state comparison logic to reduce CPU usage
+    - Fixed command argument parsing for multi-word commands
+    - Added toggles for showing/hiding players and group in target window
+  v1.8 (2025-04-08)
+    - set room and inventory feed to enabled as default instead of disabled.
+    - use Spellsong module for song max duration calculation.
+  v1.7 (2025-04-06)
+    - adjusted Group.check usage
+    - fixed progress bar on bard songs and armor adjustments.
+  v1.6 (2025-03-18)
+    - added room window and inventory feeds to optional blocking
+  v1.5 (2025-03-13)
+    - added adderall and removeall commands for missing spell window
+    - corrected Indef time left display
+  v1.4 (2024-12-31)
+    - fixed syntax error

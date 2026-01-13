@@ -1,0 +1,45 @@
+
+  Script for escorting travellers
+
+  If the script is started before you wait for the traveller, it will go to the
+  pickup room and get him.  If you already have a traveller, he must be in the
+  room when the script is started.
+
+  Destination is determined automatically.
+
+  The script will check for targetable npcs and bandit ambushes, and either pause
+  to let you handle them, or start an attack script to disable/kill them.
+
+  The attack script will be given the ids of targetable npcs in the command line
+  arguments, so that it doesn't have to duplicate that work.  It should do one
+  attack, handle any looting, and exit.  This script will then evaluate the room
+  and start the attack script again if needed.
+
+  The global variable $ego2_travel_cost is used to tell how much silver should be
+  taken for the trip.  If the defaults aren't working out for you, you can change
+  them with a separate script.
+
+  ;ego2 help
+
+   author: elanthia-online
+     game: Gemstone
+     tags: bounty
+  version: 1.0.4
+
+  changelog:
+    1.0.4 (2025-05-06):
+      * update silver_check to use Lich::Util.silver_count
+    1.0.3 (2025-04-03):
+      * correct Icemule dropoff from 2486 to 2412
+      * add additional debug info for not able to find next path location for drop-off
+    1.0.2 (2025-03-06):
+      * remove Zul ferry logic, no longer needed
+      * remove Zul rope ladder logic, no longer needed
+    1.0.1 (2025-02-02):
+      * remove EN ferry logic, no longer needed
+      * update to use eherbs instead of useherbs
+    1.0.0 (2025-01-05):
+      * initial fork of ego2
+      * remove Zul rope bridge pathing as no longer needed
+      * rubocop cleanup
+

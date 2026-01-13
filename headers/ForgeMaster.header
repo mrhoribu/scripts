@@ -1,0 +1,9 @@
+ForgeMaster, by Dintarl
+
+Can be set up to gain skill in any or all forging disciplines.  Has options to create a forging hammer or a perfect forging hammer, and will create the hammer prior to moving on to the non-crafting disciplines.  Works in any town.
+
+To set up:  ;forgemaster setup
+
+Special thanks to SpiffyJr for the code used in creating the GUI. 
+
+Should be updated to get along with ClimateWear scripts.

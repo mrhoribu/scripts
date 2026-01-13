@@ -1,0 +1,17 @@
+  purify gems
+
+  ;puritan --help is useful
+
+  changelog:
+    1.0.1 - remove debug output for 1004 result
+    1.1.0 - add --min-value flag
+            slimmer sitrep and less debug messaging
+    1.1.1 - adds rounds & shatter tracking
+            fixes from commageddon
+    1.2.0 - adds support for wracking & symbol of mana for regaining mana
+
+  version: 1.2.0
+  required: Lich 4.3.12
+  author: Ondreian
+  tags: util, gems, 1004, purify
+

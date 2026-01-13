@@ -1,0 +1,38 @@
+  log_search.lic
+
+  *** use log.lic to log. ;autostart add --global log --timestamp=\"%T\" --rnum ***
+
+  Parse your logs to get search statistics for Gemstones and Dust.
+  Creates two files in your Lich5/data/GSIV/CharName/ folder:
+    searcharraylog.yaml      - log of every line it matched that can be used to verify results
+    SearchDataFromLogs.yaml  - contains the count data
+
+  ;log_search "<folder>" <options>     quotes are not required
+  ;log_search C:/Gemstone/Lich5/logs/GSIV-Nisugi/2024/08/ <options>
+
+  options being:
+    --reset           clears data in memory before run
+    --no-timestamps   logs don't have timestamps at beginning of line
+    --quest-complete  needed if your sybil kill to infuse is not in your logs
+    --txt             if you have wrayth/wizfe log files that end in .txt
+    --debug           announces each file it parses
+
+        author: Nisugi
+          game: Gemstone
+          tags: hunting, combat, tracking, gemstones, jewels, dust, data
+       version: 1.4
+
+  Change Log:
+  v1.4
+    - added monthly/weekly gemstone tracking
+    - added weekly dust tracking
+  v1.3 (2025-04-08)
+    - reset dust search count on weekly reset
+  v1.2 (2025-03-27)
+    - disables timestamps if no timestamps detected instead of erroring
+    - fixed error caused by old error messages in logs
+  v1.1 (2025-03-24)
+    - added mug for searches
+    - removed ascension check on finds
+  v1.0 (2025-03-23)
+    - release

@@ -1,0 +1,14 @@
+
+    Does all bounties except gem, escorts, and bandits. Gems should
+    be handled via your loot with stockpiling.
+
+ maintainer: Elanthia-Online
+   author: spiffyjr
+       name: SpiffyBounty
+       tags: bounty
+    version: 1.2
+
+    changelog:
+      1.2 (2025-10-21) fix for proper class/type detection, rubocop cleanup
+      1.1 (2021-10-11) updates to support GTK3
+      1.0 * Initial release

@@ -1,0 +1,28 @@
+
+ Script for configurable squelching of incoming lines.
+
+ author: elanthia-online
+ game: gs
+ tags: squelching, squelch
+ version: 0.2.2
+
+ changelog:
+   0.2.2 (2025-07-02)
+     Bugfix in Regex generation to ensure NIL values do not halt execution
+     Corrections to supporting methods to handle unset or malformed structures
+     Guards for out-of-bound indexes and non-hash entries
+   0.2.1 (2024-07-12)
+     Bugfix in special Regexp characters being escaped in error
+     Change puts usage to respond
+     Rubocop cleanup
+   0.2.0 (2020-12-03)
+     Introduced export command for exporting squelches compatible with import.
+   0.1.0 (2020-12-02)
+     Now has ability to import ignores from a StormFront XML file.
+     Accept arguments on first run, and improve help documentation with examples.
+   0.0.3 (2020-11-30)
+     Defined instance variable for usage, simplified the default configuration creation.
+   0.0.2 (2020-10-22)
+     Refactored code to pass rubocop linting.
+   0.0.1 (2020-10-21)
+     Initial release.

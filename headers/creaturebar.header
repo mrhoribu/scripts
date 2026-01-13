@@ -1,0 +1,22 @@
+  CreatureBar - Visual creature status display with injury doll
+
+        author: Elanthia Online
+  contributors: Nisugi
+          game: Gemstone
+          tags: hunting, combat, creatures
+       version: 1.1
+      required: Lich >= 5.13.0
+
+  Change Log:
+  v1.1 (2025/12/21)
+    - Alt + drag to move window around
+    - Warning if combat tracking disabled
+  v1.0 (2025/11/30)
+    - Shows current target (XMLData.current_target_id)
+    - Visual injury doll with wound overlays
+    - HP progress bar with color-coded ranges
+    - Status effect indicators
+    - Fully configurable colors and appearance
+    - Click panel to target creature
+    - Supports Frontend Focus Return tm
+

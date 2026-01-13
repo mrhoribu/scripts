@@ -1,0 +1,24 @@
+    Now everyone can script the trove entry!
+    Must have token in your hand ready to drop OR if you had entered previous raffle, it will RETURN 1x to recover 1
+    entry from previous raffle. If you entered more than 1x on character, you'll need to adjust script manually.
+    Will wait till the raffle pulls and puts next item up, if matches regex, will drop token.
+    
+    SYNTAX - ;trove <REGEX_STRING>
+
+    Example:
+        ;trove an aleteh potion
+        ;trove an aleteh potion|a creaky grey leather tome
+
+     author: Tysong (horibu on PC)
+       name: trove
+       tags: trove, duskruin, eg
+    version: 1.1
+
+    changelog:
+        1.1 (2019-08-20)
+            Added a "RETURN" before trying to drop the token, only tries RETURN 1x
+            This is for recovering your token if you had entered the previous raffle.
+            If you entered more than one token, you'll need to adjust the script manually to return more than 1x.
+        1.0 (2019-08-20)
+            Initial release.
+

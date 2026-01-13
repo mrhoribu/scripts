@@ -1,0 +1,67 @@
+    Ebon Gate Digging Script
+
+      Start script while on EG grounds. Will automatically pause between shovel runs.
+      Default to buy 3 shovels, view ;TDIG HELP to change
+
+      Will attempt to pause on T5/jackpot wins.
+      Will automatically open breakables.
+      Will attempt to squelch other player digging spam (except T5/jackpot wins).
+      Can be set to use a seashell bucket.
+
+      Does NOT automatically sell, as I'm not taking on that responsibility of choosing for you.
+      So you will have to empty your containers via selling/lockering stuff away.
+
+      Requires your lootsack to be set for bundling seashells and storing loot
+      ;vars set lootsack=cloak
+
+      ;TDIG HELP - Show additional help.
+      ;TDIG STATS - for statistics 
+      ;TDIG HIGHLIGHTS - for quick output to show highlights you should have
+      ;TDIG RESET - resets stats manually to zero
+
+       todo: none
+     author: Tysong (horibu on PC)
+       name: tdig
+       tags: EG, digging, Ebon Gate, dig
+    version: 1.15
+    website: https://github.com/elanthia-online/scripts/
+
+    changelog:
+        1.15 (2021-10-09)
+            Added bauble to uncollectibles.
+        1.14 (2020-10-18)
+            Added option to announce T5/jackpots to an ESP channel. Off by default.
+        1.13 (2020-10-17)                                                              
+            Fixed empty container logic to not match on someone else's EMPTY messaging.
+        1.12 (2020-10-16)
+            Fixed empty logic for full container, deposit coins if encumbered, & stopping if out of coins for withdrawing
+        1.11 (2018-10-13)
+            Added reset option
+        1.10 (2018-10-13)
+            Added support for new error msg when not in digging area.
+        1.9 (2018-10-10)
+            Support for Ghule containers
+        1.8 (2018-10-10)
+            Added functionality to reset stats on a new year
+        1.7 (2018-10-10)
+            Added tracking of coins found for ;tdig stats
+        1.6 (2018-10-10)
+            Added tracking of seashells for ;tdig stats, recommend clearing total digs if ran before to not skew stats
+            ;e echo UserVars.tdig[:dig_total] = 0
+        1.5 (2018-10-05)
+            Fix for room 26579 having a crevice instead of a hole
+        1.4 (2017-10-10)
+            Moved squelching to ;tsquelch. Please download ;REPO DOWNLOAD TSQUELCH to continue squelching
+        1.3 (2017-10-10)
+            Added option to trash crystalline globes via UserVars, see ;TDIG HELP
+        1.2 (2017-10-09)
+            Fixed a few issues with it getting stuck if in RT.
+            Added option to close client connection in UserVars.tdig
+        1.1 (2017-10-08)
+            Added script kill if at item cap
+            Fixed UserVars not getting created, causing bank/shovel purchasing loop
+        1.0 (2017-10-08)
+            Initial Release, based on Taleph's 3.3.3 script.
+
+    credit & thanks:
+        Taleph's 3.3.3 ;egdig script

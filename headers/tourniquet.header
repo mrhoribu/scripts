@@ -1,0 +1,16 @@
+  tourniquet.lic - Deal with Bleeding using society abilities/powers
+
+          author: elanthia-online
+    contributors: Dissonance
+            game: Gemstone
+            tags: health, bleeding, society
+         version: 1.1.1
+
+  Changelog
+    v1.1.1 - 2025-05-21
+      - refined voln handling for bleeding/bloodloss but no enough to heal.
+    v1.1.0 - 2025-05-10
+      - added support for sign of healing from CoL
+      - fixed location  of debug message so that .data is defined before we try to use it
+    v1.0.0 - 2025-04-30
+      - Created

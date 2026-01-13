@@ -1,0 +1,35 @@
+  Homogenizes LNET and ESP.
+
+  Recommended Highlights:
+    [L]
+    [E]
+    [Focused]
+    [Focused to
+    [Private]
+    [PrivateTo]
+
+    and any channels you subscribe to
+
+     author: elanthia-online
+       game: Gemstone
+       tags: thoughts
+    version: 0.0.7
+    github : https://github.com/daggeron/lich-scripting
+   changelog:
+      0.0.7 (2020-11-11):
+        Updated to use the most recent version of Oleani
+        Pushed to Elanthia-Online
+      0.0.6 (2020-09-12):
+        Small code cleanup
+      0.0.5 (2020-08-10):
+        Small code cleanup
+      0.0.4 (2020-07-09):
+        Fixed an issue where LNET messages sent sometimes broke
+      0.0.3 (2020-07-07):
+        Minor fixes
+        Added Profanity support
+      0.0.2 (2020-07-05):
+        Fixed unescaped %
+      0.0.1 (2020-07-04):
+        Initial Release
+

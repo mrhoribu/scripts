@@ -1,0 +1,60 @@
+
+  ewaggle.lic:  Spellup script for yourself and others.  This script is a rewrite of ultrawaggle from SpiffyJr, which is a heavily modified version of spellup from Shaelun and Blueland.
+    ;ewaggle help
+
+        author: elanthia-online
+  contributors: Tillmen, Tysong, Deysh
+          game: gs
+          tags: magic, utility, spell
+      required: Lich >= 5.9.0
+       version: 2.1.5
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+  2.1.5 (2025-11-25)
+    - add disk casting support
+  2.1.4 (2025-10-16)
+    - bugfix in logic bad target/spell
+  2.1.3 (2025-04-24)
+    - bugfix in --cast-list regex
+  2.1.2 (2025-04-23)
+    - bugfix for info['sharing']
+  2.1.1 (2025-03-03)
+    - remove additional deprecated Lich calls
+  2.1.0 (2025-03-03)
+    - added option to skip characters not sharing spell info
+  2.0.5 (2025-03-02)
+    - bugfix in cast_solid code
+  2.0.4 (2025-02-19)
+    - bugfix for CLI variable of the wrong type
+  2.0.3 (2025-02-19)
+    - bugfix --useoptions to have the use be optional for CLI usage
+  2.0.2 (2025-02-18)
+    - bugfix in check_mana returning due to unnecessary stamina_cost check
+  2.0.1 (2025-02-17)
+    - bump minimum version to 5.8 due to PSM bug in 5.7
+    - add --skip-armor flag for avoid overwriting existing
+    - bugfix for mana bread
+  2.0.0 (2025-02-06)
+    Refactor code now requires Lich 5.7.0 or better
+    converted to use yaml profiles
+    uses terminal-table for info, list, and help output
+    added support for armor buffs
+    added support for sonic gear
+    added option for self when buffing a group instead of your name. Ex ;ewaggle Bil Joe self
+    removed dont_cast_over parameter since its obsolete
+  1.0.5 (2024-12-31):
+    Bugfix in sorting of spells in cast_list and in GTK setup window
+  1.0.4 (2024-07-09):
+    Fix to Symbol of Mana to not spam if out of favor
+  1.0.3 (2024-05-01):
+    Change Char.prof to Stats.prof
+  1.0.2 (2024-02-14):
+    removal of CONSTANT to cleanup log output
+  1.0.1 (2022-04-07):
+    bugfix for reget in GTK queue
+    update default cast_list for new configs
+  1.0.0 (2022-04-07):
+    rename waggle -> ewaggle
+    Add bail mode
+

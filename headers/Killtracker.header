@@ -1,0 +1,49 @@
+  Tracks Gemstones and Dust
+
+  ;autostart add --global killtracker
+
+  ;killtracker help
+
+  Killtracker is now able to submit your finds to an external tracker located at:
+  https://docs.google.com/spreadsheets/d/1IOLs8AGRR45Kr6Y9nz6CXlMVBKYR7cHLaz0jjAbjMv0
+  ;killtracker submit finds - toggles submitting finds to googlesheets.
+
+        author: Alastir
+  contributors: Nisugi
+          game: Gemstone
+          tags: hunting, combat, tracking, gemstones, jewels, dust, klocks, data
+       version: 2.10
+
+Change Log:
+  v2.10 (2025-09-21)
+    - Fixed search tracking for dust when not eligible for jewel
+    - Fixed cross character jewel eligibility reporting
+  v2.9 (2025-09-16)
+    - Corrected corsair search name
+  v2.8 (2025-09-15)
+    - Corrected validation. Handles search # as timestamp for earlier entries.
+  v2.7 (2025-09-14)
+    - Sailor's Grief creatures added.
+  v2.6 (2025-08-23)
+    - Major performance optimizations: adaptive sleep (5x faster when idle)
+    - Fixed eligibility system: only count searches when truly eligible for gems
+    - Simplified timezone handling: all displays now in Eastern Time with "(ET)" labels
+    - Improved cross-character eligibility: fixed logic, added stale data cleanup
+    - Enhanced reports: removed redundant calculations, clearer column headers
+    - Optimized backup system: reduced unnecessary backup creation
+    - Added robust reset validation: prevents invalid reset times, handles multi-week gaps
+    - Fixed eligibility debugging: added debug mode for troubleshooting reset issues
+    - Code cleanup: removed unused none_found field and related tracking
+    - Removed dead code: unused jewel cost calculations, gem target methods
+    - Removed dangerous back_date_reset functionality
+    - Simplified weekly reset logic after removing non-eligible tracking
+    - Enhanced weekly status to show "Eligible (1st/2nd/3rd)" or just "Ineligible"
+    - Eligible Since now only shows date when eligible, otherwise shows "Ineligible"
+    - Removed unused last_weekly_event_searches field
+    - Kept migration code for backwards compatibility
+    - Added data backup/restore functionality
+    - Fixed missing calculate_monthly_eligible_searches method
+    - Added comprehensive error handling
+    - Standardized all timestamps as integers
+    - Added data validation before saves
+    - Made weekly resets atomic to prevent data loss

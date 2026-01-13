@@ -1,0 +1,15 @@
+    newchrism.lic
+
+    Simple script that will scan a sack, pull out each gem, make a chrism, (cutter optional) put the chrism
+    in a cutter and cut it, then remove the cut chrism
+    and stow it in another sack
+
+    ;newchrism help
+	
+	    maintainer: elanthia-online
+			  game: Gemstone
+          tags: gems, chrisms, cutter, cleric, utility
+      required: Lich > 5.0.4
+       version: 1.0
+        Source: https://github.com/elanthia-online/jinx
+

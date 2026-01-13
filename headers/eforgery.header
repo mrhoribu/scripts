@@ -1,0 +1,68 @@
+
+     help:                    ;eforgery ?
+     current Settings:        ;eforgery display
+     gui:                     ;eforgery setup
+
+    ;eforgery will start it if you have it set up right
+
+  IMPORTANT (READ THIS DAMNIT):
+     ~Oil type (if needed) will auto-determined.
+     ~Leaving the Average and Scrap settings BLANK will cause those pieces to be discarded.
+     ~Block, Slab, Keeper, and Scrap containers MUST be different, although the last one is optional.
+     ~'Average' & 'Keeper' containers should be different as finished pieces are identical-looking.
+     ~To make HANDLES, set handle order # for glyph, and wood OR metal for material.
+     ~This script DOES NOT COMBINE/VISE the pieces for you...thats the fun part!!
+
+       Author: elanthia-online
+ Contributors: Moredin, Tillek, Gnomad, Tysong, Dissonance
+     Category: Artisan
+         Tags: forging, forge, craft, artisan, perfect
+      Version: 1.3.0
+
+  Version Control:
+    Major_change.feature_addition.bugfix
+
+  v1.3.0 (2025-12-26)
+    Removed deposit all from withdrawal routine, since it deposits the note we have and resets that
+    Further improved silver handling to avoid unnecessary bank trips
+    Fixed processing of slabs/blocks where they are already the correct size
+    Reworked messaging to use Lich::Messaging instead of puts/respond/echo
+    Significantly expanded in-line documentation
+    Updated afk script guard to pause the script instead of waiting for level prompt, since the prompt could come from any number of scripts now unintentionally
+  v1.2.3 (2025-11-15)
+    bugfix in get note to deposit existing note
+    change to using Script.run instead of start_script/wait_while
+  v1.2.2 (2025-05-23)
+    Remove CharSettings.load - not used
+  v1.2.1 (2025-05-07)
+    Change from CharSettings.save to Settings.save
+  v1.2.0 (2025-03-22)
+    Will uses notes on you instead of running to the bank every action. Thanks to Deyesh as I have heavily borrowed from his work for this.
+    Modified the trashing routine to use the "trash" verb
+    Modified the trash barrel location for Ta'Vaalor to be closer to the forge
+    Some cosmetic formatting updates for readability.
+    Added the important read this info at the top and a script pause for the first run.
+    Added debugging code.
+  v1.1.0 (2023-07-11)
+    Remove support for making iron slabs via ;iron script as not working and labor/time intensive
+  v1.0.5 (2023-06-26)
+    Fix for ClimateWear containers
+    Fix for missing glyph
+    Fix for grind/tongs RT check
+  v1.0.4 (2023-06-03)
+    Fix for vaalor material oil
+    Rubocop cleanup
+  v1.0.3 (2022-05-03)
+    Bugfix for variables outside of class.
+  v1.0.2 (2022-05-02)
+    Bugfix for regex match
+  v1.0.1 (2022-04-29)
+    Fix for commageddon. Combine buy regex, remove location check
+  v1.0.0 (2022-03-29)
+    Rename to eforgery from forgery for ease of distribution
+    Change versioning to semantic system
+  v19    (2022-03-29)
+    Bugfix for material_oil typo
+  v18    (2021-10-12)
+    Updated to support GTK3
+

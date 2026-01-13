@@ -1,0 +1,25 @@
+
+  WPS smithy service helper script
+
+  This script will request multiple services from the smithy. It tries to be
+  strict about what it will accept for input and to verify that a blacksmith
+  NPC is present before requesting services.
+
+  Usage:
+
+  ;wps <count> <crit, damage, or sighting>
+
+  author: Kragdruk
+  version: 1.4
+  tags: util, ccf, duskruin, festival, merchant, wps, smithy
+
+  changelog:
+    1.4 (2025-11-02)
+      Blacksmith changed pronouns again so updated to accept whatever
+    1.3 (2021-12-27)
+      Blacksmith changed pronouns again so updated to accept whatever
+    1.2 (2021-08-28)
+      Updated blacksmith response recognition for new messaging
+    1.1 (2020-09-01)
+      Fix request response regex for sighting
+
