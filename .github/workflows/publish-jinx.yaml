@@ -1,10 +1,6 @@
 name: Publish - Jinx Updates
 on:
   workflow_dispatch:
-    inputs:
-      mapDBCommitHash:
-        description: 'Force checkout of map to HASH version'
-        required: false
   push:
     branches:
       - master
