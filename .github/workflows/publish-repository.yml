@@ -4,7 +4,7 @@ on:
     branches: [ 'master' ]
 
 jobs:
-  publish:
+  publish-repository:
     runs-on: ubuntu-latest
     name: Publish - Repository Updates
     steps:
