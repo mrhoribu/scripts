@@ -13,6 +13,7 @@ migrate :box do
   insert(:name, %{(?:(?:acid-pitted|badly damaged|battered|corroded|dented|engraved|enruned|gem-encrusted|plain|scratched|sturdy) )?(?:brass|gold|iron|mithril|silver|steel) (?:box|chest|coffer|strongbox|trunk)})
   insert(:name, %{(?:(?:badly damaged|engraved|enruned|gem-encrusted|iron-bound|plain|rotting|scratched|simple|sturdy|weathered) )?(?:fel|haon|maoral|modwir|monir|tanik|thanot|wooden) (?:box|chest|coffer|strongbox|trunk)})
   insert(:name, %{(?:(?:austere|brass-inlaid|crude|gem-encrusted|gilded|ornate|scorched) )?(?:carved modwir|cracked|deeply-scored|deeply scored|delicate|red lacquered|stained) (?:box|chest|coffer|strongbox|trunk|case)})
+  insert(:name, %{(?:gold-trimmed|copper-(?:edged|trimmed)|rune-incised|waterlogged|blackened|lacquered|scratched|battered|riveted|enruned|charred|painted|rotting|scuffed|jeweled|scarred|ornate|singed|fluted|banded|sturdy|plain )?(?:cherrywood|white oak|mahogany|hickory|bronze|modwir|walnut|silver|maoral|wooden|cedar|maple|steel|thanot|monir|tanik|brass|iron|gold|fel) (?:strongbox|coffer|chest|trunk|box)})
 end
 
 # Exclude all boxes from uncommon
@@ -20,4 +21,5 @@ migrate :uncommon do
   insert(:exclude, %{(?:(?:shifting) )?(?:(?:acid-pitted|badly damaged|battered|corroded|dented|engraved|enruned|plain|scratched|sturdy) )?(?:brass|gold|iron|mithril|silver|steel) (?:box|chest|coffer|strongbox|trunk)})
   insert(:exclude, %{(?:(?:shifting) )?(?:(?:badly damaged|engraved|enruned|iron-bound|plain|rotting|scratched|simple|sturdy|weathered) )?(?:fel|haon|maoral|modwir|monir|tanik|thanot|wooden) (?:box|chest|coffer|strongbox|trunk)})
   insert(:exclude, %{(?:(?:shifting) )?(?:(?:austere|brass-inlaid|crude|gilded|ornate|scorched) )?(?:carved modwir|cracked|deeply-scored|deeply scored|delicate|red lacquered|stained) (?:box|chest|coffer|strongbox|trunk|case)})
+  insert(:exclude, %{(?:gold-trimmed|copper-(?:edged|trimmed)|rune-incised|waterlogged|blackened|lacquered|scratched|battered|riveted|enruned|charred|painted|rotting|scuffed|jeweled|scarred|ornate|singed|fluted|banded|sturdy|plain )?(?:cherrywood|white oak|mahogany|hickory|bronze|modwir|walnut|silver|maoral|wooden|cedar|maple|steel|thanot|monir|tanik|brass|iron|gold|fel) (?:strongbox|coffer|chest|trunk|box)})
 end
